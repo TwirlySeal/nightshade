@@ -1,0 +1,90 @@
+/* Modules */
+.item-group-container {
+  background-color: #1f1f1f !important;
+}
+
+.context_module {
+  margin-top: 0 !important;
+  margin-bottom: 15px !important;
+  padding: 1px !important;
+  border: 1px solid #666666 !important;
+  border-radius: 4px;
+  background-color: #242424 !important;
+}
+
+.context_module .footer {
+  display: none;
+}
+
+.item-group-condensed .ig-header {
+  border: none !important;
+  margin-top: 0 !important;
+  background-color: transparent !important;
+}
+
+.ig-header .name {
+  text-shadow: none !important;
+  color: #ffffff !important;
+}
+
+.ig-header i {
+  color: #ffffff !important;
+}
+
+.ig-header .requirements_message .pill {
+  color: #ffffff !important;
+  box-shadow: none !important;
+  border: 1px solid #666666ff !important;
+  border-radius: 4px !important;
+  height: 30px;
+}
+
+.item-group-condensed .ig-row {
+  background-color: transparent !important;
+  color: #adadad !important;
+  border: 0 !important;
+}
+
+.ig-row .ig-info a {
+  color: #ffffff !important;
+}
+
+.context_module_item {
+  background-color: #2e2e2e !important;
+}
+
+.context_module_item.context_module_item_hover {
+  background-color: #2961b3 !important;
+}
+
+/* Course notification settings */
+.css-tz46fa-view-heading {
+  color: #ffffff !important;
+}
+
+.css-pkzi3c-view-alert {
+  background-color: #242424 !important;
+  color: #ffffff !important;
+}
+
+.css-1orhfp7-toggleFacade__label {
+  color: #ffffff !important;
+}
+
+.css-1h7tu9i-checkbox__control {
+  background-color: transparent !important;
+}
+
+.css-1vfp3rz-text {
+  color: #adadad !important;
+}
+
+.css-v9mxmy-view-table {
+  background-color: #242424 !important;
+}
+
+.css-1lvqnn0-head,
+.css-uysa3a-view-row,
+.css-pcp0di-colHeader {
+  background-color: transparent !important;
+}

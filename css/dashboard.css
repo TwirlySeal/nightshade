@@ -1,0 +1,111 @@
+/* Universal styles */
+body {
+  background-color: #1f1f1f !important;
+}
+
+::placeholder {
+  color: #adadad !important;
+}
+
+input {
+  color: #ffffff !important;
+}
+
+select,
+label {
+  background-color: #292929 !important;
+  border: none !important;
+  color: #adadad !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: white;
+}
+
+p {
+  color: #adadad;
+}
+
+.btn,
+.Button,
+.ui-button {
+  background-color: #242424 !important;
+  border: 1px solid #666666 !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+}
+
+/* Class cards */
+.ic-DashboardCard {
+  background-color: #242424 !important;
+  border-radius: 10px !important;
+}
+
+.ic-DashboardCard__header_content {
+  background-color: transparent !important;
+}
+
+.Button--icon-action, .Button--icon-action-rev {
+  background-color: none !important;
+  border: none !important;
+}
+
+
+
+
+/* Dashboard header */
+.ic-Dashboard-header__layout {
+  background-color: transparent !important;
+  border-bottom: 1px solid #3d3d3d !important;
+  color: #FFFFFF !important;
+}
+
+.css-pljkwv-view-heading path:first-of-type {
+  color: #ffffff !important;
+}
+
+/* Sidebar */
+.todo-list-header {
+  color: #ffffff;
+  border-bottom: 1px solid #3d3d3d !important;
+}
+
+.css-m97t26-text {
+  color: #adadad;
+}
+
+.button-sidebar-wide {
+  background-color: #292929 !important;
+  border: 1px solid #666666 !important;
+  border-radius: 4px !important;
+  color: white !important;
+  text-align: center !important;
+  font-size: 15px !important;
+}
+
+.recent_feedback h2 {
+  color: #ffffff;
+}
+
+.recent_feedback li {
+  color: #adadad;
+}
+
+.recent_feedback .shared-space {
+  border-bottom: 1px solid #3d3d3d !important;
+}
+
+/* Support tab */
+.eesy {
+  display: none !important;
+}
+
+/* Footer */
+footer {
+  display: none !important;
+}

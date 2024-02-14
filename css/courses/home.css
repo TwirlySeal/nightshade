@@ -1,0 +1,81 @@
+/* Course nav toggle */
+.ic-app-course-nav-toggle {
+  border: none !important;
+}
+
+/* Header */
+.ic-app-nav-toggle-and-crumbs {
+  border-bottom: 1px solid #3d3d3d !important;
+}
+
+/* Immersive reader */
+.css-1rpus1y-baseButton__content {
+  background-color: #242424 !important;
+  color: #ffffff !important;
+  border: 1px solid #666666 !important;
+}
+
+.css-1uh2md0-inlineSVG-svgIcon path:first-of-type {
+  fill: #ffffff !important;
+}
+
+/* Breadcrumbs */
+#breadcrumbs {
+  background-color: transparent !important;
+}
+
+#breadcrumbs span {
+  color: #ffffff !important;
+}
+
+/* Section tabs */
+#section-tabs .active {
+  color: #adadad !important;
+}
+
+/* Recent announcements */
+.css-1vy2j5b-view-heading {
+  color: #ffffff !important;
+}
+
+.css-cv5a3j-view-heading {
+  color: #ffffff !important;
+}
+
+.ic-announcement-row__content {
+  color: #adadad !important;
+}
+
+/* Header */
+.header-bar {
+  background-color: transparent !important;
+}
+
+.course-title {
+  color: #ffffff !important;
+}
+
+.show-content {
+  padding: 0 !important;
+}
+
+/* Recent announcements */
+.ic-item-row {
+  box-shadow: none !important;
+  border-top: 1px solid #3d3d3d;
+}
+
+.css-1jop9l0-view--block,
+.announcements-v2__wrapper {
+  border-bottom: 1px solid #3d3d3d;
+}
+
+/* Modules signposting */
+*[style*="border-left: 6px solid #EFCB43;"] {
+  background-color: #292929 !important;
+  color: #ffffff;
+}
+
+*[style*="border-left: 6px solid #EFCB43;"] span {
+  color: #ffffff !important;
+}
