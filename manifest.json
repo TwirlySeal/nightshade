@@ -14,24 +14,26 @@
     "default_popup": "index.html"
   },
 
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "css/dashboard.css",
-        "css/courses/home.css",
-        "css/courses/announcements.css",
-        "css/courses/modules.css",
-        "css/courses/notifications.css"
-      ],
-      "matches": ["https://canvas.qut.edu.au/*"]
-    }
-  ],
+  "host_permissions": ["<all_urls>"],
+
+  "permissions": ["tabs", "scripting"],
+
+  "background": {
+    "service_worker": "app.js"
+  },
 
   "content_scripts": [
     {
-      "matches": ["https://canvas.qut.edu.au/*"],
-      "js": ["app.js"],
-      "run_at": "document_idle"
+        "matches": ["<all_urls>"],
+        "js": ["content_script.js"],
+        "run_at": "document_start"
+    }
+  ],
+
+  "web_accessible_resources": [
+    {
+        "resources": ["css/dashboard.css", "css/courses/home.css", "css/courses/notifications.css", "css/courses/announcements.css", "css/courses/modules.css"],
+        "matches": ["<all_urls>"]
     }
   ]
 }
