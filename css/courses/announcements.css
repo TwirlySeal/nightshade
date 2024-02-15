@@ -1,19 +1,19 @@
 /* Announcements filters */
 .css-1y8zc9i-textInput__inputLayout {
-  background-color: #292929 !important;
+  background-color: #292929;
   border-radius: 4px;
 }
 
 .css-1jn5ugl-textInput__facade,
 .css-zxdqdw-textInput__facade {
-  border: none !important;
+  border: none;
 }
 
 .css-183j57y-formFieldLayout {
-  border: 1px solid #666666 !important;
-  border-radius: 4px !important;
+  border: 1px solid #666666;
+  border-radius: 4px;
 }
 
 #TextInput_0 {
-  height: 38px !important;
+  height: 38px;
 }

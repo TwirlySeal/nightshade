@@ -1,3 +1,20 @@
+const cssFiles = [
+  'css/dashboard.css',
+  'css/courses/home.css',
+  'css/courses/announcements.css',
+  'css/courses/modules.css',
+  'css/courses/notifications.css'
+];
+
+cssFiles.forEach(cssFile => {
+  const linkElement = document.createElement('link');
+  linkElement.rel = 'stylesheet';
+  linkElement.type = 'text/css';
+  linkElement.href = chrome.runtime.getURL(cssFile);
+
+  document.head.appendChild(linkElement);
+});
+
 /* Course search bar */
 function applyStylesToHost() {
   var host = document.querySelector("#ajas-search-widget");
@@ -7,10 +24,10 @@ function applyStylesToHost() {
     var sheet = new CSSStyleSheet();
     sheet.replaceSync(`
       #ajas-search01 {
-        background-color: #242424 !important;
-        border: 1px solid #666666 !important;
-        color: #FFFFFF !important;
-        border-radius: 4px !important;
+        background-color: #242424;
+        border: 1px solid #666666;
+        color: #FFFFFF;
+        border-radius: 4px;
       }
       
       `);

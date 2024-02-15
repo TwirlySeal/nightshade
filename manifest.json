@@ -1,29 +1,37 @@
 {
-    "name": "Themes for Canvas",
-    "version": "0.1",
-    "manifest_version": 3,
+  "name": "Themes for Canvas",
+  "version": "0.1",
+  "manifest_version": 3,
 
-    "icons": {
-        "16": "icons/icon16.png",
-        "32": "icons/icon32.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
-    },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
 
-    "action": {
-        "default_popup": "index.html"
-    },
-    
-    "content_scripts": [
-        {
-            "matches": ["https://canvas.qut.edu.au/*"],
-            "js": ["app.js"],
-            "css": [
-                "css/dashboard.css",
-                "css/courses/home.css",
-                "css/courses/announcements.css",
-                "css/courses/modules.css"
-            ]
-        }
-    ]
+  "action": {
+    "default_popup": "index.html"
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "css/dashboard.css",
+        "css/courses/home.css",
+        "css/courses/announcements.css",
+        "css/courses/modules.css",
+        "css/courses/notifications.css"
+      ],
+      "matches": ["https://canvas.qut.edu.au/*"]
+    }
+  ],
+
+  "content_scripts": [
+    {
+      "matches": ["https://canvas.qut.edu.au/*"],
+      "js": ["app.js"],
+      "run_at": "document_idle"
+    }
+  ]
 }

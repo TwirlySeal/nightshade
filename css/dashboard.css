@@ -1,21 +1,22 @@
 /* Universal styles */
 body {
-  background-color: #1f1f1f !important;
+  background-color: #1f1f1f;
+  color: #adadad;
 }
 
 ::placeholder {
-  color: #adadad !important;
+  color: #adadad;
 }
 
 input {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 select,
 label {
-  background-color: #292929 !important;
-  border: none !important;
-  color: #adadad !important;
+  background-color: #292929;
+  border: none;
+  color: #adadad;
 }
 
 h1,
@@ -27,65 +28,61 @@ h6 {
   color: white;
 }
 
-p {
-  color: #adadad;
-}
-
 .btn,
 .Button,
 .ui-button {
-  background-color: #242424 !important;
-  border: 1px solid #666666 !important;
-  border-radius: 4px !important;
-  color: #ffffff !important;
+  background-color: #242424;
+  border: 1px solid #666666;
+  border-radius: 4px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+}
+
+.btn:hover, .Button:hover, .ui-button:hover {
+  background-color: #2e2e2e;
+  border: 1px solid #757575;
+  color: #FFFFFF;
 }
 
 /* Class cards */
 .ic-DashboardCard {
-  background-color: #242424 !important;
-  border-radius: 10px !important;
+  background-color: #242424;
+  border-radius: 4px;
 }
 
 .ic-DashboardCard__header_content {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
-.Button--icon-action, .Button--icon-action-rev {
-  background-color: none !important;
-  border: none !important;
+.Button--icon-action, .Button--icon-action-rev, .Button--icon-action:hover, .Button--icon-action-rev:hover {
+  background-color: transparent;
+  border: none;
 }
-
-
-
 
 /* Dashboard header */
 .ic-Dashboard-header__layout {
-  background-color: transparent !important;
-  border-bottom: 1px solid #3d3d3d !important;
-  color: #FFFFFF !important;
+  background-color: transparent;
+  border-bottom: 1px solid #3d3d3d;
+  color: #FFFFFF;
 }
 
 .css-pljkwv-view-heading path:first-of-type {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 /* Sidebar */
-.todo-list-header {
+#right-side h2, #right-side .h2 {
   color: #ffffff;
-  border-bottom: 1px solid #3d3d3d !important;
+  border-bottom: 1px solid #3d3d3d;
 }
 
 .css-m97t26-text {
   color: #adadad;
 }
 
-.button-sidebar-wide {
-  background-color: #292929 !important;
-  border: 1px solid #666666 !important;
-  border-radius: 4px !important;
-  color: white !important;
-  text-align: center !important;
-  font-size: 15px !important;
+#right-side .button-sidebar-wide {
+  text-align: center;
 }
 
 .recent_feedback h2 {
@@ -96,16 +93,16 @@ p {
   color: #adadad;
 }
 
-.recent_feedback .shared-space {
-  border-bottom: 1px solid #3d3d3d !important;
-}
-
 /* Support tab */
 .eesy {
-  display: none !important;
+  display: none;
 }
 
 /* Footer */
-footer {
-  display: none !important;
+.ic-app-footer {
+  display: none;
+}
+
+body:not(.is-inside-submission-frame) .ic-Layout-wrapper::after {
+  display: none;
 }

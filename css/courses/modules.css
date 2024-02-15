@@ -1,90 +1,63 @@
 /* Modules */
 .item-group-container {
-  background-color: #1f1f1f !important;
+  background-color: #1f1f1f;
 }
 
 .context_module {
-  margin-top: 0 !important;
-  margin-bottom: 15px !important;
-  padding: 1px !important;
-  border: 1px solid #666666 !important;
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding: 4px;
+  border: 1px solid #666666;
   border-radius: 4px;
-  background-color: #242424 !important;
+  background-color: #242424;
 }
 
 .context_module .footer {
   display: none;
 }
 
-.item-group-condensed .ig-header {
-  border: none !important;
-  margin-top: 0 !important;
-  background-color: transparent !important;
+.item-group-container .item-group-condensed:last-child,
+.item-group-container .item-group-condensed:last-of-type,
+.item-group-container .item-group-condensed.last {
+  border-bottom: 1px solid #666666;
 }
 
-.ig-header .name {
-  text-shadow: none !important;
-  color: #ffffff !important;
+.item-group-condensed .ig-header {
+  border: none;
+  margin-top: 0;
+  background-color: #2e2e2e;
+  border-radius: 2px;
 }
 
 .ig-header i {
-  color: #ffffff !important;
+  color: #ffffff;
+}
+
+.ig-header .name {
+  text-shadow: none;
+  color: #ffffff;
 }
 
 .ig-header .requirements_message .pill {
-  color: #ffffff !important;
-  box-shadow: none !important;
-  border: 1px solid #666666ff !important;
-  border-radius: 4px !important;
+  color: #ffffff;
+  box-shadow: none;
+  border: 1px solid #666666ff;
+  border-radius: 4px;
   height: 30px;
 }
 
 .item-group-condensed .ig-row {
-  background-color: transparent !important;
-  color: #adadad !important;
-  border: 0 !important;
+  background-color: transparent;
+  color: #adadad;
+  border: 0;
 }
 
-.ig-row .ig-info a {
-  color: #ffffff !important;
+.context_module_item.context_module_item_hover,
+.ig-list .ig-row:hover {
+  background-color: transparent;
 }
 
-.context_module_item {
-  background-color: #2e2e2e !important;
-}
-
-.context_module_item.context_module_item_hover {
-  background-color: #2961b3 !important;
-}
-
-/* Course notification settings */
-.css-tz46fa-view-heading {
-  color: #ffffff !important;
-}
-
-.css-pkzi3c-view-alert {
-  background-color: #242424 !important;
-  color: #ffffff !important;
-}
-
-.css-1orhfp7-toggleFacade__label {
-  color: #ffffff !important;
-}
-
-.css-1h7tu9i-checkbox__control {
-  background-color: transparent !important;
-}
-
-.css-1vfp3rz-text {
-  color: #adadad !important;
-}
-
-.css-v9mxmy-view-table {
-  background-color: #242424 !important;
-}
-
-.css-1lvqnn0-head,
-.css-uysa3a-view-row,
-.css-pcp0di-colHeader {
-  background-color: transparent !important;
+.ig-list .ig-row a.ig-title {
+  color: #ffffff;
+  font-weight: normal;
 }

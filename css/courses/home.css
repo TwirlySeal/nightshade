@@ -1,79 +1,84 @@
 /* Course nav toggle */
 .ic-app-course-nav-toggle {
-  border: none !important;
+  border: none;
 }
 
 /* Header */
 .ic-app-nav-toggle-and-crumbs {
-  border-bottom: 1px solid #3d3d3d !important;
+  border-bottom: 1px solid #3d3d3d;
 }
 
 /* Immersive reader */
 .css-1rpus1y-baseButton__content {
-  background-color: #242424 !important;
-  color: #ffffff !important;
-  border: 1px solid #666666 !important;
+  background-color: #242424;
+  color: #ffffff;
+  border: 1px solid #666666;
+  font-size: 14px;
+}
+
+.css-t514n8-view--inlineBlock-baseButton:hover > [class$="-baseButton__content"] {
+  background-color: #2e2e2e;
+  border: 1px solid #757575;
 }
 
 .css-1uh2md0-inlineSVG-svgIcon path:first-of-type {
-  fill: #ffffff !important;
+  fill: #ffffff;
 }
 
 /* Breadcrumbs */
 #breadcrumbs {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
 #breadcrumbs span {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 /* Section tabs */
 #section-tabs .active {
-  color: #adadad !important;
+  color: #adadad;
 }
 
 /* Recent announcements */
 .css-1vy2j5b-view-heading {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 .css-cv5a3j-view-heading {
-  color: #ffffff !important;
-}
-
-.ic-announcement-row__content {
-  color: #adadad !important;
+  color: #ffffff;
 }
 
 /* Header */
 .header-bar {
-  background-color: transparent !important;
+  background-color: transparent;
 }
 
-.course-title {
-  color: #ffffff !important;
+.pages.show .course-title {
+  color: #ffffff;
 }
 
-.show-content {
-  padding: 0 !important;
+.pages.show .show-content {
+  padding: 0;
 }
 
 /* Recent announcements */
 .ic-item-row {
-  box-shadow: none !important;
+  box-shadow: none;
   border-top: 1px solid #3d3d3d;
 }
 
-.css-1jop9l0-view--block,
-.announcements-v2__wrapper {
+#announcements_on_home_page {
   border-bottom: 1px solid #3d3d3d;
+  margin-bottom: 1.5rem;
+}
+
+.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block {
+  margin-bottom: 0;
 }
 
 /* Modules signposting */
 *[style*="border-left: 6px solid #EFCB43;"] {
   background-color: #292929 !important;
-  color: #ffffff;
 }
 
 *[style*="border-left: 6px solid #EFCB43;"] span {
