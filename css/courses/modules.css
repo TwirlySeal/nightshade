@@ -61,3 +61,26 @@
   color: #ffffff;
   font-weight: normal;
 }
+
+/* Module */
+.pages.show .page-title {
+    color: #FFFFFF;
+}
+
+strong[style*="color: var(--ic-brand-font-color-dark);"] {
+    color: #FFFFFF !important;
+}
+
+.module-sequence-footer .module-sequence-footer-content {
+    background-color: transparent;
+}
+
+hr[style*="border-top: 6px solid #124c7b;"] {
+    display: none;
+}
+
+.module-sequence-footer .module-sequence-footer-content {
+    border: none;
+    padding: 0;
+    margin-top: 12px;
+}

@@ -10,7 +10,7 @@ function injector(tabId, changeInfo, tab) {
     if (tab.url && tab.url.includes("canvas")) {
       console.log(tab.url)
       chrome.scripting.executeScript({
-        target: { tabId: tabId },
+        target: { tabId: tabId, allFrames: true },
         files: ["inject.js"],
       })
     }

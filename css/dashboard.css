@@ -5,15 +5,14 @@ body {
 }
 
 ::placeholder {
-  color: #adadad;
+  color: #adadad !important;
 }
 
 input {
   color: #ffffff;
 }
 
-select,
-label {
+select {
   background-color: #292929;
   border: none;
   color: #adadad;
