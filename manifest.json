@@ -32,7 +32,7 @@
 
   "web_accessible_resources": [
     {
-        "resources": ["css/dashboard.css", "css/courses/home.css", "css/courses/notifications.css", "css/courses/announcements.css", "css/courses/modules.css", "css/calendar.css", "assets/icon-x-black-163c6230a4.svg"],
+        "resources": ["main.css"],
         "matches": ["<all_urls>"]
     }
   ]

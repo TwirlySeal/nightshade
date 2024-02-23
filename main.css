@@ -1,0 +1,154 @@
+:root {
+    --background: #1c1c1c;
+    --card: #232323;
+    --card-border: #2e2e2e;
+    --card-border-radius: 10px;
+    --small-border-radius: 4px;
+    --paragraph: #adadad;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--paragraph);
+}
+
+.css-pljkwv-view-heading {
+    color: #ffffff;
+}
+
+.btn, .Button, .ui-button {
+    background-color: rgb(60, 60, 60);
+    border-color: rgb(70, 70, 70);
+    border-radius: var(--small-border-radius);
+    color: #ffffff;
+}
+
+.btn:hover, .Button:hover, .ui-button:hover {
+    background-color: rgb(70, 70, 70);
+    border-color: rgb(80, 80, 80);
+    color: #ffffff;
+}
+
+/* Application layout */
+#application {
+    display: grid;
+    grid-template-columns: 84px 1fr;
+}
+
+#header {
+    grid-column: 1;
+}
+
+#wrapper {
+    max-width: none;
+    margin: 0;
+    display: block;
+    grid-column: 2;
+    height: 100%;
+}
+
+#wrapper::after {
+    display: none;
+}
+
+#main, #not_right_side, #content-wrapper, #content {
+    height: 100%;
+}
+
+.ic-Layout-contentMain {
+    padding: 0;
+}
+
+.ic-app-footer {
+    display: none;
+}
+
+/* Dashboard layout */
+#dashboard {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: 80px;
+    padding: 20px;
+    gap: 20px;
+    margin: 0;
+}
+
+#dashboard_header_container {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+#DashboardCard_Container {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#right-side-wrapper {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+/* Dashboard header */
+.ic-Dashboard-header__layout {
+    display: block;
+    min-height: auto;
+    border: none;
+    height: 100%;
+    background-color: var(--background);
+}
+
+#dashboard_header_container .css-1m9ei4u-view--flex-flex {
+    width: auto;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Dashboard cards */
+.ic-DashboardCard__box {
+    padding: 0;
+}
+
+.ic-DashboardCard__box__container {
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(262px, 1fr));
+    gap: 20px;
+}
+
+.ic-DashboardCard {
+    margin: 0;
+    box-shadow: none;
+    background-color: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-border-radius);
+}
+
+.ic-DashboardCard__header_content {
+    background-color: transparent;
+}
+
+/* Sidebar */
+body:not(.course-menu-expanded) .ic-sidebar-logo {
+    display: none;
+}
+
+body:not(.course-menu-expanded) .ic-app-main-content__secondary {
+    width: auto;
+}
+
+.ic-app-main-content__secondary, body:not(.course-menu-expanded) .ic-app-main-content__secondary {
+    padding: 20px;
+    background-color: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-border-radius);
+}
+
+#right-side .todo-list-header {
+    margin: 0;
+}
+
+#right-side .button-sidebar-wide {
+    text-align: center;
+    margin: 0;
+}
