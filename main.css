@@ -1243,16 +1243,16 @@ div[style*="border-left: 6px solid #EFCB4"] span, #qut-tmp-nut-home-signposting 
 
 .btn.active {
     border: 1px solid var(--input-border);
-  }
+}
   
-  .btn.active:hover {
+.btn.active:hover {
     background-color: dimgray;
     border: 1px solid var(--input-border);
-  }
+}
   
-  #create_new_event_link {
+#create_new_event_link {
     color: #ffffff;
-  }
+}
 
 /* Minical */
 #minical,
@@ -1339,6 +1339,16 @@ div[style*="border-left: 6px solid #EFCB4"] span, #qut-tmp-nut-home-signposting 
     max-height: none;
 }
 
+#calendars-context-list .context_list_context, #other-calendars-context-list .context_list_context {
+    padding: 0;
+}
+
+#undated-events .event {
+    background-color: transparent;
+    border: none;
+    margin: 5px 0;
+}
+
 /* Calendar grid */
 #calendar-app .fc-month-view .fc-body, #calendar-drag-and-drop-container .fc-month-view .fc-body {
     background-color: var(--background);
@@ -1379,6 +1389,10 @@ div[style*="border-left: 6px solid #EFCB4"] span, #qut-tmp-nut-home-signposting 
 /* Calendar Agenda View */
 .agenda-wrapper {
     background-color: transparent;
+}
+
+.agenda-day {
+    border-bottom-color: var(--card-border);
 }
 
 /* Event details */
