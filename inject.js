@@ -9,7 +9,6 @@ document.head.appendChild(linkElement);
 function applyStylesToHost() {
     var host = document.querySelector("#ajas-search-widget");
     if (host && host.shadowRoot) {
-      console.log("Found host");
       clearInterval(checkHostInterval);
       var sheet = new CSSStyleSheet();
       sheet.replaceSync(`
@@ -29,7 +28,6 @@ function applyStylesToHost() {
           }
     
           `);
-      console.log(sheet);
       host.shadowRoot.adoptedStyleSheets.push(sheet);
     } else {
       console.log("Waiting for host");
@@ -38,16 +36,21 @@ function applyStylesToHost() {
   
 var checkHostInterval = setInterval(applyStylesToHost, 100);
 
-// Adjust grid for planner view
-var content = document.querySelector("#content");
-if (content.querySelector("#dashboard")) {
+// URL check
+var url = new URL(window.location.href);
+var path = url.pathname;
+
+
+
+if (path === '/') {
+    var content = document.querySelector("#content");
     // Move sidebar to dashboard div
     var sidebar = document.querySelector("#right-side-wrapper")
     var dashboard = document.querySelector("#dashboard")
     dashboard.appendChild(sidebar)
 
+    // Adjust grid for planner view
     const target = document.querySelector("#right-side-wrapper");
-
     const observer = new MutationObserver((mutationsList) => {
         for (let mutation of mutationsList) {
             if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
@@ -72,15 +75,7 @@ if (content.querySelector("#dashboard")) {
         document.head.appendChild(linkElement);
     }
     observer.observe(target, { attributes: true });
-};
-
-document.head.appendChild(linkElement);
-
-// URL check
-var url = new URL(window.location.href);
-var path = url.pathname;
-
-if (path.includes('/courses')) {
+} else if (path.includes('/courses')) {
     document.querySelector(".ic-Layout-watermark").remove();
 
     // Move navbar to main
@@ -96,7 +91,6 @@ if (path.includes('/courses')) {
         right.style.justifyContent = "center"
     } else {
         while (right.firstChild) {
-            console.log(right.firstChild)
             right.parentNode.insertBefore(right.firstChild, right);
         };
     
@@ -150,7 +144,35 @@ if (path.includes('/courses')) {
     ) {
         main.style.gridTemplateColumns = "200px 1fr";
         rightSide.style.display = "none"
+
+        if (segments.length >= 4 && segments[2] === 'discussion_topics') {
+            // Discussion page
+        }
     }
-} else if (path === '/') {
-    // Dashboard
+} else if (path.startsWith("/calendar")) {
+    var calendar_container = document.querySelector("#not_right_side")
+    calendar_container.style.cssText = `
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        grid-template-rows: 80px 1fr;
+        padding: 20px;
+        gap: 20px;
+        max-height: 100vh;
+    `
+
+    var sidebar = document.querySelector("#right-side-wrapper")
+    sidebar.style.cssText = `
+        grid-column: 1;
+        grid-row: 2;
+        overflow: scroll;
+        height: 100%;
+    `
+
+    var calendar_header = document.querySelector("#calendar_header")
+    calendar_container.appendChild(calendar_header)
+    calendar_header.style.cssText = `
+        grid-column: 1 / span 2;
+        grid-row: 1;
+    `
 }
+document.head.appendChild(linkElement);

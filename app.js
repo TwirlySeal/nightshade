@@ -7,7 +7,7 @@ function injector(tabId, changeInfo, tab) {
     sender,
     sendResponse
   ) {
-    if (tab.url && tab.url.includes("canvas")) {
+    if (tab.url && tab.url.startsWith("https://canvas.")) {
       console.log(tab.url)
       chrome.scripting.executeScript({
         target: { tabId: tabId},

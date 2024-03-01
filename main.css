@@ -100,7 +100,7 @@ ul, ol {
     color: #ffffff;
 }
 
-.close {
+.close, .close:focus {
     color: var(--paragraph);
     text-shadow: none;
 }
@@ -110,7 +110,7 @@ ul, ol {
 }
 
 .eesy {
-    display: none;
+    display: none !important;
 }
 
 hr {
@@ -559,8 +559,8 @@ input:focus, textarea:focus {
 }
 
 .css-1dmk401-textInput__facade {
-    background-color: var(--input);
-    border-width: 1px;
+    background-color: var(--input) !important;
+    border-width: 1px !important;
 }
 
 input:-webkit-autofill, input:-webkit-autofill:focus {
@@ -735,6 +735,331 @@ select {
     margin: 0 !important;
 }
 
+/* Discussions */
+.css-1qprmw-view {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0 0 0 !important;
+}
+
+.pinned-discussions-v2__wrapper, .unpinned-discussions-v2__wrapper, .closed-for-comments-discussions-v2__wrapper {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.discussions-v2__container-image {
+    background-color: transparent;
+    border: none;
+}
+
+.discussions-v2__container-image .css-zrd3r4-view--block {
+    display: none;
+}
+
+.css-1jfhyds-toggleDetails__toggle, .css-1jfhyds-toggleDetails__toggle:focus, .css-1jfhyds-toggleDetails__toggle:hover, .css-1jfhyds-toggleDetails__toggle:active {
+    color: #fff;
+}
+
+.css-2svfho-toggleDetails__details {
+    color: #fff !important;
+}
+
+.css-2svfho-toggleDetails__details .css-1fvrx9c-text {
+    color: var(--paragraph);
+    font-weight: normal !important;
+}
+
+.discussions-container__wrapper .css-0, .discussions-container__wrapper .css-a9o3ew-toggleDetails__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.css-15k3f08-text {
+    font-style: normal !important;
+    color: var(--paragraph);
+}
+
+.ic-unread-badge__total-count {
+    color: var(--background);
+}
+
+/* Announcement/Discussion Pages */
+#discussion_container {
+    margin-bottom: 20px
+}
+
+#discussion-managebar .headerBar {
+    height: 0;
+    min-height: auto;
+}
+
+.toolbarView {
+    background-color: transparent;
+    min-height: auto;
+}
+
+.toolbarView .headerBar {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    min-height: auto;
+}
+
+#discussion-toolbar {
+    margin: 40px 0 10px;
+}
+
+.topic .entry-content {
+    background-color: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-border-radius);
+    padding: 20px;
+}
+
+.discussion-section {
+    padding: 0;
+}
+
+#discussion-managebar {
+    background-color: transparent;
+    min-height: auto;
+}
+
+#discussion-managebar .pull-right {
+    position: relative;
+    top: 20px;
+    right: 20px;
+    z-index: 5;
+}
+
+#discussion-managebar .pull-right .al-trigger {
+    margin: 0;
+}
+
+.al-options {
+    background-color: var(--card);
+    border-color: var(--card-border);
+    padding: 0;
+}
+
+.al-options .ui-menu-item a {
+    color: var(--paragraph);
+}
+
+.al-options .ui-menu-carat span {
+    border-top-color: var(--card);
+    border-right-color: transparent;
+    border-bottom-color: var(--card);
+    border-left-color: transparent;
+}
+
+.al-options .ui-menu-carat {
+    border-top-color: var(--card-border);
+    border-right-color: transparent;
+    border-bottom-color: var(--card-border);
+    border-left-color: transparent;
+}
+
+.discussion-header-content, .discussion-entries .entry .discussion-header-content {
+    padding: 0;
+}
+
+.discussion-header-right.pull-right {
+    margin-right: 52px;
+}
+
+.discussion_entry>.discussion-entry-reply-area {
+    margin: 0 !important;
+    padding: 0;
+    border: 0;
+}
+
+.discussion-reply-box, .discussion-reply-box:focus {
+    margin: 0;
+    padding: 15px;
+    width: 300px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    background-color: var(--input);
+    border: 1px solid var(--input-border);
+    color: #fff;
+    transition: background-color .2s ease-in-out;
+    border-radius: var(--card-border-radius);
+}
+
+.discussion-reply-box:hover {
+    color: #fff;
+    background-color: var(--input-hover);
+    border-color: var(--input-border-hover);
+}
+
+#discussion_topic > .discussion-entry-reply-area.show-if-replying {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+    width: 33vw;
+    min-width: 530px;
+    background-color: var(--background);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-border-radius);
+}
+
+.discussion-reply-form {
+    padding: 0;
+}
+
+.discussion-reply-form .clearfix:first-of-type {
+    display: none;
+}
+
+.canvas-rce__skins--root {
+    background-color: transparent !important;
+}
+
+.tox-toolbar-overlord {
+    margin: 0 !important;
+}
+
+.tox:not(.tox-tinymce-inline) .tox-editor-header {
+    background-color: transparent !important;
+}
+
+.tox-menubar {
+    background-color: var(--card) !important;
+    border-top-left-radius: var(--card-border-radius);
+    border-top-right-radius: var(--card-border-radius);
+}
+
+.tox-toolbar__primary {
+    background-color: var(--card) !important;
+    color: #fff;
+}
+
+.tox-mbtn, .tox-tbtn {
+    color: #fff !important;
+    background-color: transparent !important;
+}
+
+.tox-tbtn path {
+    fill: var(--paragraph);
+}
+
+.tox-split-button .tox-tbtn.tox-split-button__chevron {
+    background-color: var(--input) !important;
+}
+
+.tox-mbtn:hover, .tox-tbtn:hover, .tox-split-button:hover, .tox-tbtn.tox-tbtn--enabled:hover, .tox-split-button .tox-tbtn.tox-split-button__chevron:hover {
+    background-color: var(--input-hover) !important;
+}
+
+.tox .tox-tbtn.tox-tbtn--enabled::after {
+    display: none;
+}
+
+.tox-edit-area {
+    border: none !important;
+}
+
+.tox-edit-area__iframe {
+    border: none !important;
+}
+
+.canvas-rce__skins--root > span {
+    background-color: var(--card);
+}
+
+.discussion-reply-form .clearfix:last-of-type {
+    background-color: var(--card);
+    border-bottom-left-radius: var(--card-border-radius);
+    border-bottom-right-radius: var(--card-border-radius);
+    padding: 8px;
+}
+
+.discussion_subentries {
+    padding: 0;
+}
+
+.discussion-read-state-btn {
+    left: -20px;
+}
+
+.discussion-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#discussion_subentries > .discussion-entries > .entry {
+    margin: 0;
+    border-color: var(--card-border);
+    background-color: var(--card);
+    border-radius: var(--card-border-radius);
+    padding: 20px;
+}
+
+.discussion-entries .entry {
+    background-color: transparent;
+}
+
+.discussion-entries .discussion_entry {
+    background-color: transparent;
+}
+
+.discussion-entries .entry .entry {
+    border: none;
+}
+
+.entry-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.entry-content .pad-box-mini {
+    display: none;
+}
+
+.standalone-icon:before {
+    color: var(--paragraph);
+}
+
+.al-trigger:hover .standalone-icon:before {
+    color: #fff;
+}
+
+.discussion-pubdate, .discussion-tododate {
+    color: var(--paragraph);
+}
+
+.entry-controls {
+    padding: 0;
+}
+
+.discussion-reply-action, .discussion-rate-action, .discussion-rating {
+    color: #fff;
+}
+
+.showMore {
+    background-color: var(--input);
+    border: 1px solid var(--input-border);
+    border-radius: var(--small-border-radius);
+}
+
+.showMore:hover {
+    background-color: var(--input-hover);
+    border-color: var(--input-border-hover);
+}
+
+.entry>.bottom-reply-with-box .discussion-entry-reply-area.reply-box-container {
+    display: none;
+}
+
 /* Modules */
 .item-group-container {
     background-color: transparent;
@@ -774,6 +1099,12 @@ select {
 .ig-header .name {
     text-shadow: none;
     color: #fff;
+}
+
+.ig-header .pill {
+    color: #ffffff;
+    box-shadow: none;
+    border: none;
 }
 
 .item-group-condensed .ig-row, .ig-list .ig-row:hover, .context_module_item.context_module_item_hover {
@@ -828,7 +1159,35 @@ select {
     color: var(--background);
 }
 
+div[style*="border-left: 6px solid #EFCB4"], #qut-tmp-nut-home-signposting {
+    background-color: var(--card) !important;
+    border: 1px solid var(--card-border);
+}
+
+div[style*="border-left: 6px solid #EFCB4"] span, #qut-tmp-nut-home-signposting span {
+    color: var(--paragraph) !important;
+}
+
+.qut-box {
+    background-color: var(--card) !important;
+    border: 1px solid var(--card-border);
+}
+
+#content span[style*="color: var(--ic-brand-font-color-dark);"] {
+    color: var(--paragraph) !important;
+}
+
 /* Assignments */
+.css-a8tvzv-radioInput__facade {
+    box-shadow: none;
+    background-color: dimgray;
+    border-radius: var(--small-border-radius);
+}
+
+.css-1l8k4me-radioInput__label {
+    color: var(--paragraph);
+}
+
 #ag-list .ig-list {
     display: flex;
     flex-direction: column;
@@ -845,4 +1204,344 @@ select {
 
 .ig-list .ig-row {
     color: var(--paragraph);
+}
+
+.ig-list .ig-row.ig-row-empty {
+    background-color: transparent;
+    border: none;
+}
+
+.ig-list .ig-row .ig-empty-msg {
+    color: var(--paragraph);
+}
+
+/* Calendar layout */
+#calendar-app, #calendar-app .calendar, #calendar-app .fc-view-container, #calendar-app .fc-view-container > .fc-view, #calendar-app .fc-view-container > .fc-view table {
+    height: 100%;
+}
+
+.fc-day-grid-container {
+    height: 100% !important;
+}
+
+.fc-day-grid {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fc-row {
+    height: auto !important;
+    flex-grow: 1;
+}
+
+/* Calendar header */
+#calendar_header .header-bar {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.btn.active {
+    border: 1px solid var(--input-border);
+  }
+  
+  .btn.active:hover {
+    background-color: dimgray;
+    border: 1px solid var(--input-border);
+  }
+  
+  #create_new_event_link {
+    color: #ffffff;
+  }
+
+/* Minical */
+#minical,
+#minical .fc-toolbar,
+#minical .fc-widget-content {
+  background-color: transparent;
+  border: none;
+  color: #adadad;
+}
+
+#minical .fc-toolbar h2 {
+  color: #ffffff;
+}
+
+.fc-state-default {
+  text-shadow: none;
+  color: #adadad;
+}
+
+#minical .fc-view-container {
+  padding: 0;
+}
+
+#minical .fc-basic-view td.fc-day-number,
+#minical td.fc-day {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  padding: 3px;
+  border: none;
+  border-radius: 40px;
+}
+
+#minical .fc-other-month {
+  color: #6d6d6d;
+}
+
+#minical .fc-basic-view td.fc-day-number:hover {
+  background-color: var(--input-hover);
+}
+
+#minical .fc-bg .fc-state-highlight {
+  background-color: transparent;
+}
+
+#minical .fc-basic-view td.fc-day-number.fc-state-highlight {
+  background-color: #3772e1;
+}
+
+#minical .fc-basic-view td.fc-day-number.fc-state-highlight:hover {
+  background-color: #3266cb;
+}
+
+#minical .event::after {
+    position: static;
+    width: 28px;
+    height: 28px;
+    border-radius: 40px;
+    display: block;
+}
+
+/* Sidebar */
+#right-side-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.rs-section {
+    margin: 0;
+}
+
+#calendar-list-holder,
+#other-calendars-list-holder,
+#undated-events,
+#calendars-context-list .context_list_context:hover,
+#other-calendars-context-list .context_list_context:hover {
+  background-color: transparent;
+}
+
+#right-side h2, #right-side .h2 {
+    border-bottom-color: var(--card-border);
+}
+
+#calendar-list-holder, #other-calendars-list-holder, #undated-events {
+    max-height: none;
+}
+
+/* Calendar grid */
+#calendar-app .fc-month-view .fc-body, #calendar-drag-and-drop-container .fc-month-view .fc-body {
+    background-color: var(--background);
+}
+
+.fc td.fc-widget-header {
+    border: none;
+}
+
+.calendar .fc-head thead .fc-widget-header, #calendar-drag-and-drop-container .fc-head thead .fc-widget-header {
+    color: #fff;
+}
+
+.fc th, .fc td {
+    border-color: var(--card-border);
+}
+
+.calendar .fc-row .fc-content-skeleton td, .calendar .fc-row .fc-helper-skeleton td, #calendar-drag-and-drop-container .fc-row .fc-content-skeleton td, #calendar-drag-and-drop-container .fc-row .fc-helper-skeleton td {
+    border: none;
+}
+
+#calendar-app .fc-month-view .fc-today, #calendar-drag-and-drop-container .fc-month-view .fc-today {
+    background-color: transparent;
+    color: #3772e1;
+}
+
+.fc-month-view .fc-widget-content .fc-day-number {
+    text-align: center;
+}
+
+#calendar-app .fc-event {
+    background-color: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--small-border-radius);
+    margin-top: 10px;
+}
+
+/* Calendar Agenda View */
+.agenda-wrapper {
+    background-color: transparent;
+}
+
+/* Event details */
+.event-details {
+    background-color: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-border-radius);
+}
+
+.ui-menu-carat {
+    border-top-color: var(--card-border);
+    border-bottom-color: var(--card-border);
+}
+
+.event-details.carat-bottom .ui-menu-carat span {
+    border-top-color: var(--card);
+    border-bottom-color: var(--card);
+}
+
+.event-details-header, .event-details-content, .event-details-footer {
+    border-bottom: none;
+}
+
+.css-1uui0xw-mask {
+    background-color: var(--card) !important;
+    opacity: 0.85;
+}
+
+.css-13bvaq6-modal {
+    background-color: #242424 !important;
+    border: 1px solid #666666 !important;
+    border-radius: 4px !important;
+}
+
+.css-1y7d45o-modalHeader {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.css-pysk6l-modalFooter {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.css-1y7d45o-modalHeader {
+    color: #FFFFFF;
+}
+
+span[aria-label="Confirm deletion"] .css-1rpus1y-baseButton__content {
+    background-color: #242424;
+    color: #FFFFFF;
+    border: 1px solid #666666;
+}
+
+span[aria-label="Confirm deletion"] button:hover .css-1rpus1y-baseButton__content {
+    background-color: #2e2e2e;
+    color: #FFFFFF;
+    border: 1px solid #757575;
+}
+
+/* Add event */
+.ui-widget-overlay {
+    background-color: var(--card);
+    opacity: 0.85;
+}
+  
+.ui-dialog.ui-widget-content {
+    color: var(--paragraph);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-border-radius);
+    background-color: transparent;
+}
+
+.ui-dialog .ui-widget-content {
+    color: var(--paragraph);
+}
+  
+.ui-dialog-title {
+    color: #ffffff;
+}
+  
+.ui-dialog .ui-dialog-titlebar.ui-widget-header,
+.ui-dialog .ui-datepicker .ui-widget-header.ui-datepicker-header,
+.ui-datepicker .ui-dialog .ui-widget-header.ui-datepicker-header,
+.ui-widget-header {
+    background-color: var(--card);
+    border: none;
+}
+  
+.ui-dialog .ui-dialog-titlebar-close span {
+    opacity: 1;
+}
+  
+.ui-tabs .ui-tabs-panel {
+    background-color: var(--card);
+    border: none;
+}
+  
+.ui-tabs .ui-tabs-nav li {
+    top: 0;
+}
+  
+#edit_event {
+    background-color: var(--card);
+}
+  
+.ui-tabs .ui-tabs-nav li.ui-tabs-active,
+.ui-tabs .ui-tabs-nav li.ui-tabs-active.ui-state-hover,
+.ui-tabs .ui-tabs-nav li.ui-tabs-active:hover {
+    background-color: dimgray;
+    border: none;
+    border-radius: 4px;
+}
+  
+#edit_event .ui-tabs .ui-tabs-nav li.ui-tabs-active a,
+#edit_event .ui-tabs .ui-tabs-nav li.ui-tabs-active.ui-state-hover a,
+#edit_event .ui-tabs .ui-tabs-nav li.ui-tabs-active:hover a {
+    color: #ffffff;
+}
+  
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+      padding: 0;
+}
+  
+.ui-tabs .ui-tabs-nav li.ui-state-hover,
+.ui-tabs .ui-tabs-nav li:hover {
+    background-color: var(--input-hover);
+    border: none;
+    border-radius: var(--small-border-radius);
+}
+  
+#edit_event .ui-tabs .ui-tabs-nav li.ui-state-hover a,
+#edit_event .ui-tabs .ui-tabs-nav li:hover a {
+    color: #ffffff;
+}
+  
+.ui-tabs .ui-tabs-nav li {
+    margin: 0;
+}
+  
+.ui-tabs li.ui-state-default {
+    margin-left: 8px;
+}
+  
+.ui-tabs li.ui-state-default:first-of-type {
+    margin-left: 12px;
+}
+  
+form.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view {
+    margin: 0;
+}
+  
+.ui-tabs .ui-tabs-nav li.ui-state-focus, .ui-tabs .ui-tabs-nav li.ui-state-focus.ui-tabs-active {
+      background-color: dimgray;
+}
+  
+.ui-state-default, .ui-widget-header .ui-state-default {
+      border: none;
+}
+
+#edit_planner_note_form_holder input, #edit_planner_note_form_holder textarea {
+    background-color: var(--input);
+    border-color: var(--input-border);
+    box-shadow: none;
+    border-radius: var(--small-border-radius);
 }
