@@ -32,7 +32,7 @@
 
   "web_accessible_resources": [
     {
-        "resources": ["main.css"],
+        "resources": ["main.css", "assets/icon-x-black-163c6230a4.svg"],
         "matches": ["<all_urls>"]
     }
   ]

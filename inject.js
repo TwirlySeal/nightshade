@@ -75,7 +75,7 @@ if (path === '/') {
         document.head.appendChild(linkElement);
     }
     observer.observe(target, { attributes: true });
-} else if (path.includes('/courses')) {
+} else if (path.includes('/courses') || path.includes('/groups') || path.includes('/profile')) {
     document.querySelector(".ic-Layout-watermark").remove();
 
     // Move navbar to main
@@ -140,7 +140,12 @@ if (path === '/') {
         segments.length >= 3 &&
         segments[0] === 'courses' &&
         !isNaN(parseInt(segments[1])) &&
-        segments[2] !== ''
+        segments[2] !== '' ||
+        segments.length >= 3 &&
+        segments[0] === 'groups' &&
+        !isNaN(parseInt(segments[1])) &&
+        segments[2] !== '' ||
+        segments[0] === 'profile'
     ) {
         main.style.gridTemplateColumns = "200px 1fr";
         rightSide.style.display = "none"
@@ -174,5 +179,14 @@ if (path === '/') {
         grid-column: 1 / span 2;
         grid-row: 1;
     `
+
+    /* Calendar add event dialog close button */
+    var element = document.querySelector(
+        ".ui-dialog .ui-dialog-titlebar-close span"
+    );
+    if (element) {
+        element.style.backgroundImage =
+        "url(" + chrome.runtime.getURL("assets/icon-x-black-163c6230a4.svg") + ")";
+    }
 }
 document.head.appendChild(linkElement);
