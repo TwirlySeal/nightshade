@@ -1,13 +1,15 @@
 // Insert CSS stylesheet
-var linkElement = document.createElement("link");
-linkElement.rel = "stylesheet";
-linkElement.type = "text/css";
-linkElement.href = chrome.runtime.getURL("main.css");
-document.head.appendChild(linkElement);
+function insertCSS() {
+    const linkElement = document.createElement("link");
+    linkElement.rel = "stylesheet";
+    linkElement.type = "text/css";
+    linkElement.href = chrome.runtime.getURL("main.css");
+    document.head.appendChild(linkElement);
+}
 
 /* Theme for dashboard course search bar */
-function applyStylesToHost() {
-    var host = document.querySelector("#ajas-search-widget");
+function searchStyles() {
+    const host = document.querySelector("#ajas-search-widget");
     if (host && host.shadowRoot) {
       clearInterval(checkHostInterval);
       var sheet = new CSSStyleSheet();
@@ -29,22 +31,14 @@ function applyStylesToHost() {
     
           `);
       host.shadowRoot.adoptedStyleSheets.push(sheet);
-    } else {
-      console.log("Waiting for host");
     }
-  }
+}
   
-var checkHostInterval = setInterval(applyStylesToHost, 100);
+var checkHostInterval = setInterval(searchStyles, 100);
 
-// URL check
-var url = new URL(window.location.href);
-var path = url.pathname;
-
-
-
-if (path === '/') {
-    var content = document.querySelector("#content");
+function dashboard() {
     // Move sidebar to dashboard div
+    var content = document.querySelector("#content");
     var sidebar = document.querySelector("#right-side-wrapper")
     var dashboard = document.querySelector("#dashboard")
     dashboard.appendChild(sidebar)
@@ -72,10 +66,12 @@ if (path === '/') {
         grid-template-columns: none;
         gap: 0px;
         `;
-        document.head.appendChild(linkElement);
+        insertCSS()
     }
     observer.observe(target, { attributes: true });
-} else if (path.includes('/courses') || path.includes('/groups') || path.includes('/profile')) {
+}
+
+function contentLayout() {
     // Remove watermark
     var watermark = document.querySelector(".ic-Layout-watermark")
     if (watermark) {
@@ -160,7 +156,9 @@ if (path === '/') {
             // Discussion page
         }
     }
-} else if (path.startsWith("/calendar")) {
+}
+
+function calendar() {
     var calendar_container = document.querySelector("#not_right_side")
     calendar_container.style.cssText = `
         display: grid;
@@ -195,4 +193,16 @@ if (path === '/') {
         "url(" + chrome.runtime.getURL("assets/icon-x-black-163c6230a4.svg") + ")";
     }
 }
-document.head.appendChild(linkElement);
+
+// URL check
+var url = new URL(window.location.href);
+var path = url.pathname;
+
+if (path === '/') {
+    dashboard()
+} else if (path.includes('/courses') || path.includes('/groups') || path.includes('/profile')) {
+    contentLayout()
+} else if (path.startsWith("/calendar")) {
+    calendar()
+}
+insertCSS()
