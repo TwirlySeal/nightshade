@@ -1,5 +1,5 @@
 // Insert CSS stylesheet
-const linkElement = document.createElement("link");
+var linkElement = document.createElement("link");
 linkElement.rel = "stylesheet";
 linkElement.type = "text/css";
 linkElement.href = chrome.runtime.getURL("main.css");
@@ -50,11 +50,11 @@ if (path === '/') {
     dashboard.appendChild(sidebar)
 
     // Adjust grid for planner view
-    const target = document.querySelector("#right-side-wrapper");
-    const observer = new MutationObserver((mutationsList) => {
+    var target = document.querySelector("#right-side-wrapper");
+    var observer = new MutationObserver((mutationsList) => {
         for (let mutation of mutationsList) {
             if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-            const displayStyle = target.style.display;
+            var displayStyle = target.style.display;
             if (displayStyle === 'none') {
                 dashboard.style.cssText = `
                 grid-template-columns: none;
@@ -76,7 +76,11 @@ if (path === '/') {
     }
     observer.observe(target, { attributes: true });
 } else if (path.includes('/courses') || path.includes('/groups') || path.includes('/profile')) {
-    document.querySelector(".ic-Layout-watermark").remove();
+    // Remove watermark
+    var watermark = document.querySelector(".ic-Layout-watermark")
+    if (watermark) {
+        watermark.remove();
+    }
 
     // Move navbar to main
     var main = document.querySelector("#main");
@@ -86,15 +90,17 @@ if (path === '/') {
 
     // Move sidebar to main
     var right = document.querySelector("#not_right_side");
-    iframe = right.querySelector("iframe")
-    if (iframe) {
-        right.style.justifyContent = "center"
-    } else {
-        while (right.firstChild) {
-            right.parentNode.insertBefore(right.firstChild, right);
-        };
-    
-        right.remove();
+    if (right) {
+        var iframe = right.querySelector("iframe")
+        if (iframe) {
+            right.style.justifyContent = "center"
+        } else {
+            while (right.firstChild) {
+                right.parentNode.insertBefore(right.firstChild, right);
+            };
+        
+            right.remove();
+        }
     }
 
     main.style.cssText = `
