@@ -2,17 +2,12 @@ chrome.tabs.onCreated.addListener(injector);
 chrome.tabs.onUpdated.addListener(injector);
 
 function injector(tabId, changeInfo, tab) {
-  chrome.runtime.onMessage.addListener(function (
-    message,
-    sender,
-    sendResponse
-  ) {
+  if (changeInfo.status === 'complete') {
     if (tab.url && tab.url.startsWith("https://canvas.")) {
-      console.log(tab.url)
       chrome.scripting.executeScript({
         target: { tabId: tabId},
         files: ["inject.js"],
-      })
+    })
     }
-  });
+  }
 }
