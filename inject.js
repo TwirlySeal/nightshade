@@ -1,3 +1,24 @@
+function loadingOverlay(insert) {
+    if (insert) {
+        const overlay = document.createElement("div")
+        overlay.style.cssText = `
+            background-color: #1c1c1c;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 100;
+            position: fixed;
+        `
+        overlay.id = "loading-overlay"
+        console.log("inserted overlay")
+    } else {
+        console.log("removed")
+        const overlay = document.querySelector("#loading-overlay")
+        overlay.style.display = "none"
+    }
+}
+
 // Insert CSS stylesheet
 function insertCSS() {
     const linkElement = document.createElement("link");
@@ -34,25 +55,46 @@ function searchBar() {
 
 function dashboard() {
     // Move sidebar to dashboard div
-    var content = document.querySelector("#content");
     var sidebar = document.querySelector("#right-side-wrapper")
     var dashboard = document.querySelector("#dashboard")
     dashboard.appendChild(sidebar)
+    sidebar.style.cssText = `
+        max-height: calc(100vh - 40px);
+        position: sticky;
+        top: 20px;
+    `
+
+    var announcement = document.querySelector("#announcementWrapper")
+    announcementCheck()
+
+    function announcementCheck() {
+        if (announcement) {
+            if (announcement.firstElementChild.classList.length > 0) {
+                dashboard.style.gridTemplateRows = "auto 80px";
+                document.querySelector("#dashboard_header_container").style.gridRow = "2";
+                document.querySelector("#DashboardCard_Container").style.gridRow = "3";
+                sidebar.style.gridRow = "2 / span 2";
+                announcement.style.gridColumn = "1 / span 2"
+            }
+        }
+    }
 
     // Adjust grid for planner view
     var target = document.querySelector("#right-side-wrapper");
     var observer = new MutationObserver((mutationsList) => {
         for (let mutation of mutationsList) {
             if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-            var displayStyle = target.style.display;
-            if (displayStyle === 'none') {
-                dashboard.style.cssText = `
-                grid-template-columns: none;
-                gap: 0px;
-                `;
-            } else {
-                dashboard.removeAttribute('style');
-            };
+                announcementCheck()
+                var displayStyle = target.style.display;
+                if (displayStyle === 'none') {
+                    dashboard.style.cssText = `
+                    grid-template-columns: none;
+                    gap: 0px;
+                    `;
+                    announcement.style.gridColumn = "1"
+                } else {
+                    dashboard.removeAttribute('style');
+                };
             };
         };
     });
@@ -63,6 +105,7 @@ function dashboard() {
         gap: 0px;
         `;
         insertCSS()
+        announcement.style.gridColumn = "1"
     }
     
     observer.observe(target, { attributes: true });
@@ -82,7 +125,7 @@ function contentLayout(segments) {
     var navbar = document.querySelector(".ic-app-nav-toggle-and-crumbs");
     main.insertBefore(navbar, leftSide);
 
-    // Move sidebar to main
+    // Move sidebar to main or centre
     var right = document.querySelector("#not_right_side");
     if (right) {
         var iframe = right.querySelector("iframe")
@@ -101,7 +144,7 @@ function contentLayout(segments) {
         margin: 0;
         display: grid;
         grid-template-rows: 80px;
-        grid-template-columns: 200px 1fr 300px;
+        grid-template-columns: minmax(150px, 1fr) 8fr minmax(300px, 2fr);
         gap: 20px;
         padding: 20px;
     `;
@@ -130,10 +173,9 @@ function contentLayout(segments) {
     rightSide.style.cssText = `
         grid-column: 3;
         grid-row: 2;
-        position: sticky;
-        top: 100px;
     `;
 
+    // No sidebar
     if (
         segments.length >= 3 &&
         segments[0] === 'courses' &&
@@ -171,7 +213,6 @@ function calendar() {
     sidebar.style.cssText = `
         grid-column: 1;
         grid-row: 2;
-        overflow: scroll;
         height: 100%;
     `
 
@@ -207,6 +248,8 @@ function themer() {
     }
     
     insertCSS()
+    loadingOverlay(true)
 }
 
 document.addEventListener("DOMContentLoaded", themer())
+document.addEventListener("load", loadingOverlay(false))
