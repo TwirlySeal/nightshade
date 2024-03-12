@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .css-pljkwv-view-heading {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 .btn, .Button, .ui-button {
@@ -49,11 +49,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .css-1xnn9jb-inlineSVG-svgIcon, .css-1uh2md0-inlineSVG-svgIcon {
-    color: var(--paragraph);
+    color: var(--paragraph) !important;
 }
 
 .css-2bn4c9-view--inlineBlock-inlineListItem {
-    color: var(--paragraph);
+    color: var(--paragraph) !important;
 }
 
 .css-11o97cb-view--inlineBlock-baseButton:hover > [class$="-baseButton__content"] {
@@ -61,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .css-tpuo6v-text {
-    color: #ffffff;
+    color: #ffffff !important;
 }
 
 ul, ol {
@@ -736,7 +736,7 @@ input:-webkit-autofill, input:-webkit-autofill:focus {
 }
 
 .css-1vy2j5b-view-heading, .css-cv5a3j-view-heading {
-    color: #fff;
+    color: #fff !important;
 }
 
 .css-zlfjpm-text {
@@ -804,7 +804,7 @@ select {
 }
 
 .css-1jfhyds-toggleDetails__toggle, .css-1jfhyds-toggleDetails__toggle:focus, .css-1jfhyds-toggleDetails__toggle:hover, .css-1jfhyds-toggleDetails__toggle:active {
-    color: #fff;
+    color: #fff !important;
 }
 
 .css-2svfho-toggleDetails__details {
@@ -1236,7 +1236,7 @@ div[style*="border-left: 6px solid #EFCB4"] span, #qut-tmp-nut-home-signposting 
 }
 
 .css-1l8k4me-radioInput__label {
-    color: var(--paragraph);
+    color: var(--paragraph) !important;
 }
 
 #ag-list .ig-list {
@@ -1293,12 +1293,12 @@ div[style*="border-left: 6px solid #EFCB4"] span, #qut-tmp-nut-home-signposting 
 }
 
 .css-6bj23u-toggleDetails__toggle {
-    color: var(--paragraph);
+    color: var(--paragraph) !important;
 }
 
 .css-gyi6rc-toggleDetails__details {
     padding: 0 !important;
-    color: var(--paragraph);
+    color: var(--paragraph) !important;
 }
 
 div[style="background: #EFF6FB; padding: 1rem 1.5rem;"] {
@@ -1424,7 +1424,7 @@ div[data-testid="upload-box"] div[style="height: 100%; width: 1px; left: 50%; po
 #minical .fc-widget-content {
   background-color: transparent;
   border: none;
-  color: #adadad;
+  color: var(--paragraph);
 }
 
 #minical .fc-toolbar h2 {
@@ -1433,7 +1433,7 @@ div[data-testid="upload-box"] div[style="height: 100%; width: 1px; left: 50%; po
 
 .fc-state-default {
   text-shadow: none;
-  color: #adadad;
+  color: var(--paragraph);
 }
 
 #minical .fc-view-container {

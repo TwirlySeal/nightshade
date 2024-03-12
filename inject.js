@@ -1,24 +1,3 @@
-function loadingOverlay(insert) {
-    if (insert) {
-        const overlay = document.createElement("div")
-        overlay.style.cssText = `
-            background-color: #1c1c1c;
-            top: 0;
-            right: 0;
-            left: 0;
-            bottom: 0;
-            z-index: 100;
-            position: fixed;
-        `
-        overlay.id = "loading-overlay"
-        console.log("inserted overlay")
-    } else {
-        console.log("removed")
-        const overlay = document.querySelector("#loading-overlay")
-        overlay.style.display = "none"
-    }
-}
-
 // Insert CSS stylesheet
 function insertCSS() {
     const linkElement = document.createElement("link");
@@ -68,7 +47,7 @@ function dashboard() {
     announcementCheck()
 
     function announcementCheck() {
-        if (announcement) {
+        if (announcement.firstElementChild) {
             if (announcement.firstElementChild.classList.length > 0) {
                 dashboard.style.gridTemplateRows = "auto 80px";
                 document.querySelector("#dashboard_header_container").style.gridRow = "2";
@@ -235,6 +214,8 @@ function calendar() {
 
 // Apply changes to pages
 function themer() {
+    insertCSS()
+    
     const url = new URL(window.location.href);
     const path = url.pathname;
     const segments = path.split('/').filter(segment => segment !== '');
@@ -246,10 +227,6 @@ function themer() {
     } else if (path.startsWith("/calendar")) {
         calendar()
     }
-    
-    insertCSS()
-    loadingOverlay(true)
 }
 
-document.addEventListener("DOMContentLoaded", themer())
-document.addEventListener("load", loadingOverlay(false))
+themer()
