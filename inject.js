@@ -1,4 +1,29 @@
-// Insert CSS stylesheet
+function loading() {
+    const overlay = document.createElement("div")
+    overlay.style.cssText = `
+        background-color: #1c1c1c;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 100;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    `
+    overlay.id = "loading-overlay"
+    document.body.appendChild(overlay)
+
+    document.addEventListener("readystatechange", function() {
+        if (document.readyState === "complete") {
+            overlay.remove()
+            searchBar()
+            document.removeEventListener("readystatechange", this);
+        }
+    });
+}
+
 function insertCSS() {
     const linkElement = document.createElement("link");
     linkElement.rel = "stylesheet";
@@ -7,9 +32,26 @@ function insertCSS() {
     document.head.appendChild(linkElement);
 }
 
+function elementWait(id, callback) {
+    const observer = new MutationObserver((mutationsList, observer) => {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach(node => {
+                    if (node.id === id) {
+                        observer.disconnect();
+                        callback();
+                    }
+                });
+            }
+        }
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+}
+
 function searchBar() {
-    const host = document.querySelector("#ajas-search-widget");
-    if (host && host.shadowRoot) {
+    const host = document.querySelector('#ajas-search-widget');
+    if (host) {
         var sheet = new CSSStyleSheet();
         sheet.replaceSync(`
             #ajas-search01 {
@@ -26,17 +68,16 @@ function searchBar() {
             input:-webkit-autofill, input:-webkit-autofill:focus {
             transition: background-color 0s 600000s, color 0s 600000s !important;
             }
-    
-            `);
+
+        `);
         host.shadowRoot.adoptedStyleSheets.push(sheet);
     }
 }
 
 function dashboard() {
-    // Move sidebar to dashboard div
+    var dashboardElement = document.querySelector("#dashboard")
     var sidebar = document.querySelector("#right-side-wrapper")
-    var dashboard = document.querySelector("#dashboard")
-    dashboard.appendChild(sidebar)
+    dashboardElement.appendChild(sidebar)
     sidebar.style.cssText = `
         max-height: calc(100vh - 40px);
         position: sticky;
@@ -49,7 +90,7 @@ function dashboard() {
     function announcementCheck() {
         if (announcement.firstElementChild) {
             if (announcement.firstElementChild.classList.length > 0) {
-                dashboard.style.gridTemplateRows = "auto 80px";
+                dashboardElement.style.gridTemplateRows = "auto 80px";
                 document.querySelector("#dashboard_header_container").style.gridRow = "2";
                 document.querySelector("#DashboardCard_Container").style.gridRow = "3";
                 sidebar.style.gridRow = "2 / span 2";
@@ -60,26 +101,26 @@ function dashboard() {
 
     // Adjust grid for planner view
     var target = document.querySelector("#right-side-wrapper");
-    var observer = new MutationObserver((mutationsList) => {
+    const observer2 = new MutationObserver((mutationsList) => {
         for (let mutation of mutationsList) {
             if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
                 announcementCheck()
                 var displayStyle = target.style.display;
                 if (displayStyle === 'none') {
-                    dashboard.style.cssText = `
+                    dashboardElement.style.cssText = `
                     grid-template-columns: none;
                     gap: 0px;
                     `;
                     announcement.style.gridColumn = "1"
                 } else {
-                    dashboard.removeAttribute('style');
+                    dashboardElement.removeAttribute('style');
                 };
             };
         };
     });
 
     if (target.style.display === "none") {
-        dashboard.style.cssText = `
+        dashboardElement.style.cssText = `
         grid-template-columns: none;
         gap: 0px;
         `;
@@ -87,8 +128,7 @@ function dashboard() {
         announcement.style.gridColumn = "1"
     }
     
-    observer.observe(target, { attributes: true });
-    searchBar()
+    observer2.observe(target, { attributes: true });
 }
 
 function contentLayout(segments) {
@@ -173,8 +213,6 @@ function contentLayout(segments) {
             // Discussion page
         }
     }
-
-    searchBar()
 }
 
 function calendar() {
@@ -212,7 +250,7 @@ function calendar() {
     }
 }
 
-// Apply changes to pages
+// Apply themes to pages
 function themer() {
     insertCSS()
     
@@ -229,4 +267,19 @@ function themer() {
     }
 }
 
-themer()
+function bodyWait() {
+    const observer = new MutationObserver(() => {
+        if (document.body !== null) {
+            observer.disconnect();
+            loading()
+            document.addEventListener("DOMContentLoaded", themer)
+        }
+    });
+    
+    observer.observe(document.documentElement, {
+        childList: true,
+        subtree: true
+    });
+}
+
+bodyWait()
