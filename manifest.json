@@ -16,7 +16,7 @@
 
   "host_permissions": ["<all_urls>"],
 
-  "permissions": ["webNavigation", "scripting"],
+  "permissions": ["webNavigation", "scripting", "storage"],
 
   "background": {
     "service_worker": "app.js"
