@@ -11,9 +11,16 @@ function loading() {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     `
     overlay.id = "loading-overlay"
     document.body.appendChild(overlay)
+
+    const icon = document.createElement("img")
+    icon.height = "128"
+    icon.width = "128"
+    icon.src = chrome.runtime.getURL("icons/icon390.png")
+    overlay.appendChild(icon)
 
     document.addEventListener("readystatechange", function() {
         if (document.readyState === "complete") {
@@ -267,6 +274,7 @@ function themer() {
     }
 }
 
+// Wait for body element
 function bodyWait() {
     const observer = new MutationObserver(() => {
         if (document.body !== null) {
@@ -282,4 +290,10 @@ function bodyWait() {
     });
 }
 
-bodyWait()
+// Check if Canvas URL
+var currentUrl = window.location.hostname
+chrome.storage.local.get("canvasURL", (items) => {
+    if (currentUrl === new URL(Object.entries(items)[0][1]).hostname) {
+        bodyWait()
+    }
+});
