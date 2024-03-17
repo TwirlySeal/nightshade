@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1c1c1c;
+    color: #adadad;
+    line-height: 1.5;
+    font-size: 16px;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    gap: 10px;
+    font-family: "Lato Extended","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+p {
+    margin: 0;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo h1 {
+    color: #fff;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.logo img {
+    width: 64px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 500px;
+}
+
+@media (width > 300px) {
+    body {
+        height: 100vh;
+        padding: 0;
+        gap: 20px;
+    }
+
+    .container {
+        background-color: #232323;
+        border: 1px solid #2e2e2e;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    .logo {
+        gap: 20px;
+        width: auto;
+        justify-content: flex-start;
+    }
+
+    .logo img {
+        width: 128px;
+    }
+
+    .logo h1 {
+        font-size: 2em;
+    }
+}
+
+button {
+    background-color: #3c3c3c;
+    border: 1px solid #464646;
+    border-radius: 4px;
+    color: #fff;
+    padding: 8px 14px;
+    font-size: 1rem;
+    transition: background-color .2s ease-in-out;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #464646;
+    border-color: #505050;
+}
+
+label {
+    color: #fff;
+}
+
+input {
+    padding: 0px 0.75rem;
+    background-color: #3c3c3c;
+    border: 1px solid #464646;
+    border-radius: 4px;
+    color: #fff;
+    height: 2.25rem;
+    width: 100%;
+}
+
+::placeholder {
+    color: #adadad;
+}
+
+.inputArea {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}

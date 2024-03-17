@@ -668,7 +668,7 @@ input:-webkit-autofill, input:-webkit-autofill:focus {
     margin: 0;
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 12;
     background-color: var(--background);
     border: none;
     min-height: auto;
@@ -1245,7 +1245,31 @@ select {
     background-color: var(--input);
 }
 
-/* QUT Module Page Elements */
+#content *[style*="color: #000"]:not([style*="background-color"]) {
+    color: var(--paragraph) !important;
+}
+
+#content *[style*="background-color"] *[style*="color: #000"] {
+    color: #000 !important;
+}
+
+#content *[style*="color: var(--ic-brand-font-color-dark)"]:not([style*="background-color"]) {
+    color: var(--paragraph) !important;
+}
+
+#content *[style*="background-color"] *[style*="color: var(--ic-brand-font-color-dark);"] {
+    color: var(--ic-brand-font-color-dark) !important;
+}
+
+#content *[style*="color: windowtext"]:not([style*="background-color"]) {
+    color: var(--paragraph) !important;
+}
+
+#content *[style*="background-color"] *[style*="color: windowtext"] {
+    color: windowtext !important;
+}
+
+/* Institution-specific Elements */
 .qut-table-schedule span[style="background-color: #f1c40f;"] strong {
     color: var(--background);
 }
@@ -1262,10 +1286,6 @@ div[style*="border-left: 6px solid #EFCB4"] span, #qut-tmp-nut-home-signposting 
 .qut-box {
     background-color: var(--card) !important;
     border: 1px solid var(--card-border);
-}
-
-#content span[style*="color: var(--ic-brand-font-color-dark);"] {
-    color: var(--paragraph) !important;
 }
 
 /* Assignments */
@@ -1497,6 +1517,14 @@ div[data-testid="upload-box"] div[style="height: 100%; width: 1px; left: 50%; po
 
 #module_sequence_footer {
     margin-top: 20px;
+}
+
+.muted-notice {
+    background-color: var(--card);
+    border-color: var(--card-border);
+    border-radius: var(--card-border-radius);
+    background-image: none;
+    text-shadow: none;
 }
 
 /* Calendar header */
@@ -1851,7 +1879,7 @@ span[aria-label="Confirm deletion"] button:hover .css-1rpus1y-baseButton__conten
     margin-left: 12px;
 }
   
-form.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view.css-ll252p-view {
+form.css-ll252p-view {
     margin: 0;
 }
   

@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Themes for Canvas</title>
+    <title>Nightshade</title>
+    <link rel="stylesheet" href="popup.css">
 </head>
 <body>
-    <p>hello world</p>
-    <label for="urlInput">Enter your Canvas URL:</label>
-    <input type="text" id="urlInput" placeholder="https://canvas.example.com">
-    <button id="saveButton">Save</button>
-    <script src="popup.js"></script>
+    <div class="logo">
+        <img src="icons/icon390.png" alt="Nightshade for Canvas">
+        <h1>Nightshade for Canvas</h1>
+    </div>
+    <div class="container">
+        <label for="urlInput">Enter your Canvas URL:</label>
+        <div class="inputArea">
+            <input type="text" id="urlInput" placeholder="canvas.example.com">
+            <button id="saveButton">Save</button>
+        </div>
+        <p>Refresh Canvas to apply</p>
+        <script src="popup.js"></script>
+    </div>
 </body>
 </html>
