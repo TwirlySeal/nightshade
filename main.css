@@ -1459,6 +1459,10 @@ div[data-testid="upload-box"] div[style="height: 100%; width: 1px; left: 50%; po
     border: none !important;
 }
 
+.css-1ocworu-modal {
+    color: #adadad !important;
+}
+
 /* Grades */
 #grades_summary tbody tr:hover {
     background-color: transparent;
