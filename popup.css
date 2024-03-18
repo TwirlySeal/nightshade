@@ -48,6 +48,10 @@ p {
     max-width: 500px;
 }
 
+.onboarding-tip {
+    display: none;
+}
+
 @media (width > 300px) {
     body {
         height: 100vh;
@@ -74,6 +78,10 @@ p {
 
     .logo h1 {
         font-size: 2em;
+    }
+
+    .onboarding-tip {
+        display: block;
     }
 }
 
