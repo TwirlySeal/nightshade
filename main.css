@@ -16,7 +16,7 @@
     --small-border-radius: 4px;
     --paragraph: #adadad;
 
-    --link: #7184ff;
+    --link: #8293ff;
 }
 
 body {
@@ -228,7 +228,7 @@ body.primary-nav-expanded .ic-app-header__menu-list-item.ic-app-header__menu-lis
     grid-row: 1 / span 2;
     height: max-content;
     width: auto;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #announcementWrapper {
