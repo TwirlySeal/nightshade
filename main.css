@@ -16,7 +16,7 @@
     --small-border-radius: 4px;
     --paragraph: #adadad;
 
-    --link: #8293ff;
+    --link: #0D84FF;
 }
 
 body {
@@ -1285,6 +1285,14 @@ select {
 }
 
 #content *[style*="background-color"] *[style*="color: windowtext"] {
+    color: windowtext !important;
+}
+
+#content *[style*="color: #333333"]:not([style*="background-color"]) {
+    color: var(--paragraph) !important;
+}
+
+#content *[style*="background-color"] *[style*="color: #333333"] {
     color: windowtext !important;
 }
 
