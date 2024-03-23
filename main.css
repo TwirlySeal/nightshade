@@ -19,6 +19,10 @@
     --link: #0D84FF;
 }
 
+* {
+    scrollbar-color: var(--input) var(--card);
+}
+
 body {
     background-color: var(--background);
     color: var(--paragraph);
