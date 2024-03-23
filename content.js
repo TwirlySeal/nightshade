@@ -19,7 +19,7 @@ function loading() {
     const icon = document.createElement("img")
     icon.height = "128"
     icon.width = "128"
-    icon.src = chrome.runtime.getURL("icons/icon390.png")
+    icon.src = browser.runtime.getURL("icons/icon390.png")
     overlay.appendChild(icon)
 
     document.addEventListener("readystatechange", function() {
@@ -35,7 +35,7 @@ function insertCSS() {
     const linkElement = document.createElement("link");
     linkElement.rel = "stylesheet";
     linkElement.type = "text/css";
-    linkElement.href = chrome.runtime.getURL("main.css");
+    linkElement.href = browser.runtime.getURL("main.css");
     document.head.appendChild(linkElement);
 }
 
@@ -253,7 +253,7 @@ function calendar() {
     );
     if (element) {
         element.style.backgroundImage =
-        "url(" + chrome.runtime.getURL("assets/icon-x-black-163c6230a4.svg") + ")";
+        "url(" + browser.runtime.getURL("assets/icon-x-black-163c6230a4.svg") + ")";
     }
 }
 
@@ -294,7 +294,7 @@ function bodyWait() {
 
 // Check if Canvas URL
 var currentUrl = window.location.hostname
-chrome.storage.local.get("canvasURL", (items) => {
+browser.storage.local.get("canvasURL", (items) => {
     if (currentUrl === new URL(Object.entries(items)[0][1]).hostname) {
         bodyWait()
     }

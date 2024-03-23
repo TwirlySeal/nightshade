@@ -25,7 +25,7 @@
   ],
 
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
 
   "web_accessible_resources": [
@@ -33,5 +33,11 @@
         "resources": ["main.css", "assets/icon-x-black-163c6230a4.svg", "icons/icon390.png"],
         "matches": ["<all_urls>"]
     }
-  ]
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{7b6e1430-69cf-4ce2-9b4b-a49977447eff}"
+    }
+  }
 }
