@@ -1546,6 +1546,45 @@ div[data-testid="upload-box"] div[style="height: 100%; width: 1px; left: 50%; po
     text-shadow: none;
 }
 
+#question_list {
+    max-height: none;
+    overflow: visible;
+}
+
+#questions.assessing {
+    background-color: transparent;
+    padding: 0;
+}
+
+.question .header {
+    background-color: transparent;
+}
+
+.quiz_comment {
+    background-color: var(--input);
+    border-radius: var(--card-border-radius);
+    box-shadow: none;
+    border-color: var(--input-border);
+    background-image: none;
+}
+
+.quiz_comment:before {
+    border-bottom-color: var(--input-border);
+}
+
+.quiz_comment:after {
+    border-bottom-color: var(--input);
+}
+
+table.summary td, table.summary tbody th {
+    border-bottom: none;
+    background-color: transparent;
+}
+
+#right-side div[style*="margin-left: 20px; margin-top: 20px;"] {
+    margin: 0 !important;
+}
+
 /* Calendar header */
 #calendar_header .header-bar {
     padding-top: 20px;
