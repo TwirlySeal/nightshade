@@ -88,7 +88,34 @@ function dashboard() {
 }
 
 function contentLayout(segments) {
-    // b
+    application = document.querySelector("#application");
+    wrapper = document.querySelector("#wrapper");
+    wrapper.style.cssText = `
+        display: grid;
+        grid-template-rows: 80px 1fr;
+        grid-template-columns: 200px 1fr;
+    `
+
+    leftSidebar = document.querySelector("#left-side");
+    main = document.querySelector("#main");
+    main.style.cssText = `
+        overflow: auto;
+        display: flex;
+        justify-content: center;
+    `;
+
+    document.querySelector("#not_right_side").style.maxWidth = "1200px";
+    wrapper.insertBefore(leftSidebar, main);
+
+    document.querySelector("#content").style.paddingBottom = "20px";
+
+    rightSidebar = document.querySelector("#right-side-wrapper");
+    if (window.getComputedStyle(rightSidebar).getPropertyValue('display') === "block") {
+        application.appendChild(rightSidebar);
+    } else {
+        application.style.gridTemplateColumns = "auto 1fr"
+        wrapper.style.marginRight = "20px"
+    }
 }
 
 function calendar() {
