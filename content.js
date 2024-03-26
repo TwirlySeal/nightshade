@@ -39,12 +39,13 @@ function insertCSS() {
     document.head.appendChild(linkElement);
 }
 
-function elementWait(id, callback) {
+// Function not used
+function elementWait(elementClass, callback) {
     const observer = new MutationObserver((mutationsList, observer) => {
         for (let mutation of mutationsList) {
             if (mutation.type === 'childList') {
                 mutation.addedNodes.forEach(node => {
-                    if (node.id === id) {
+                    if (node.toString().includes(elementClass)) {
                         observer.disconnect();
                         callback();
                     }
@@ -113,17 +114,39 @@ function dashboard() {
     observer2.observe(rightSidebar, { attributes: true });
 }
 
-function contentLayout() {
+function contentLayout(path) {
     // Grid
-    wrapper = document.querySelector("#wrapper");
-    wrapper.style.cssText = `
+    var wrapper = document.querySelector("#wrapper");
+
+    if (path.includes('files')) {
+        wrapper.style.gridTemplateRows = "1fr";
+
+        const observer = new MutationObserver((mutationsList, observer) => {
+            for (let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    mutation.addedNodes.forEach(node => {
+                        if (node.outerHTML.includes("ic-app-nav-toggle-and-crumbs--files")) {
+                            observer.disconnect();
+                            filesHeader = document.querySelector(".ic-app-nav-toggle-and-crumbs--files");
+                            filesHeader.style.height = "80px";
+                        };
+                    });
+                }
+            }
+        });
+    
+        observer.observe(document.body, { childList: true, subtree: true });
+    } else {
+        wrapper.style.gridTemplateRows = "80px 1fr";
+    }
+
+    wrapper.style.cssText = wrapper.style.cssText + `
         display: grid;
-        grid-template-rows: 80px 1fr;
         grid-template-columns: 200px 1fr;
-    `
+    `;
 
     // Content
-    main = document.querySelector("#main");
+    var main = document.querySelector("#main");
     main.style.cssText = `
         overflow: auto;
         display: flex;
@@ -134,23 +157,37 @@ function contentLayout() {
     document.querySelector("#content").style.paddingBottom = "20px";
 
     // Left Sidebar
-    leftSidebar = document.querySelector("#left-side");
+    var leftSidebar = document.querySelector("#left-side");
     wrapper.insertBefore(leftSidebar, main);
 
     // Right Sidebar
-    application = document.querySelector("#application");
-    rightSidebar = document.querySelector("#right-side-wrapper");
+    var application = document.querySelector("#application");
+    var rightSidebar = document.querySelector("#right-side-wrapper");
 
     if (window.getComputedStyle(rightSidebar).getPropertyValue('display') === "block") {
         application.appendChild(rightSidebar);
     } else {
-        application.style.gridTemplateColumns = "auto 1fr"
-        wrapper.style.paddingRight = "20px"
+        application.style.gridTemplateColumns = "auto 1fr";
+        wrapper.style.paddingRight = "20px";
     }
 }
 
 function calendar() {
-    // c
+    var application = document.querySelector("#application");
+    application.style.cssText = `
+        grid-template-columns: auto 1fr;
+        gap: 0px;
+    `;
+
+    var notRightSide = document.querySelector("#not_right_side");
+    notRightSide.style.cssText = `
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        height: 100%;
+    `
+
+    rightSidebar = document.querySelector("#right-side-wrapper")
+    rightSidebar.style.gridColumn = "1";
 }
 
 // Apply themes to pages
@@ -163,7 +200,7 @@ function themer() {
     if (path === '/') {
         dashboard()
     } else if (path.startsWith('/courses') || path.startsWith('/groups') || path.startsWith('/profile')) {
-        contentLayout()
+        contentLayout(path)
     } else if (path.startsWith("/calendar")) {
         calendar()
     }

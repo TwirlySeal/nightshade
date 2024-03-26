@@ -223,7 +223,7 @@ body.primary-nav-expanded .ic-app-header__menu-list-item.ic-app-header__menu-lis
 }
 
 /* Announcements */
-#announcementWrapper {
+#announcementWrapper > * > *:first-of-type {
     margin-top: 20px;
 }
 
@@ -235,8 +235,14 @@ body.primary-nav-expanded .ic-app-header__menu-list-item.ic-app-header__menu-lis
     background-color: transparent;
 }
 
-.ic-notification .notification_account_content, .css-pkzi3c-view-alert {
+.ic-notification .notification_account_content {
     background-color: var(--card);
+}
+
+.css-pkzi3c-view-alert {
+    background-color: var(--card) !important;
+    color: var(--paragraph) !important;
+    box-shadow: none !important;
 }
 
 /* Dashboard header */
@@ -1604,6 +1610,19 @@ table.summary td, table.summary tbody th {
     color: #ffffff;
 }
 
+#quiz_show .description.teacher-version {
+    height: auto;
+    border: none;
+}
+
+#quiz_show .user_content > div[style*="padding-left: 10px; padding-right: 10px;"] {
+    padding: 0 !important;
+}
+
+#quiz_show .user_content h2 {
+    --yes: #000000;
+}
+
 /* Minical */
 #minical,
 #minical .fc-toolbar,
@@ -1696,6 +1715,10 @@ table.summary td, table.summary tbody th {
 }
 
 /* Calendar grid */
+#calendar-app {
+    overflow: auto;
+}
+
 #calendar-app .fc-month-view .fc-body, #calendar-drag-and-drop-container .fc-month-view .fc-body {
     background-color: var(--background);
 }
