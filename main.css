@@ -141,6 +141,16 @@ a:hover {
     text-decoration: underline !important;
 }
 
+/* Alerts */
+.ic-flash-info, .ic-flash-success, .ic-flash-warning, .ic-flash-error {
+    background-color: var(--card);
+}
+
+.css-1osm78b-view-alert {
+    background-color: var(--card) !important;
+    color: var(--paragraph) !important;
+}
+
 /* Hidden elements */
 #react-router-portals, #StudentTray__Container, #footer, #wrapper::after {
     display: none;
@@ -1593,8 +1603,8 @@ table.summary td, table.summary tbody th {
 
 /* Calendar header */
 #calendar_header .header-bar {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
+    border-bottom: 1px solid var(--card-border);
 }
 
 .btn.active {
@@ -1620,7 +1630,7 @@ table.summary td, table.summary tbody th {
 }
 
 #quiz_show .user_content h2 {
-    --yes: #000000;
+    font-size: 1.5em;
 }
 
 /* Minical */
