@@ -8,30 +8,27 @@ function insertCSS() {
 }
 
 function searchBar() {
-    while (true) {
-        const host = document.querySelector("#ajas-search-widget");
-        if (host && host.shadowRoot) {
-          var sheet = new CSSStyleSheet();
-          sheet.replaceSync(`
-              #ajas-search01 {
-                background-color: rgb(60, 60, 60);
-                border: 1px solid rgb(70, 70, 70);
-                color: #FFFFFF;
-                border-radius: 4px;
-              }
+    const host = document.querySelector("#ajas-search-widget");
+    if (host && host.shadowRoot) {
+        var sheet = new CSSStyleSheet();
+        sheet.replaceSync(`
+            #ajas-search01 {
+            background-color: rgb(60, 60, 60);
+            border: 1px solid rgb(70, 70, 70);
+            color: #FFFFFF;
+            border-radius: 4px;
+            }
+
+            .ajas-search-widget--dashboard {
+            margin: 0;
+            }
+
+            input:-webkit-autofill, input:-webkit-autofill:focus {
+            transition: background-color 0s 600000s, color 0s 600000s !important;
+            }
     
-              .ajas-search-widget--dashboard {
-                margin: 0;
-              }
-    
-              input:-webkit-autofill, input:-webkit-autofill:focus {
-                transition: background-color 0s 600000s, color 0s 600000s !important;
-              }
-        
-              `);
-          host.shadowRoot.adoptedStyleSheets.push(sheet);
-          break;
-        }
+            `);
+        host.shadowRoot.adoptedStyleSheets.push(sheet);
     }
 }
 
@@ -67,10 +64,12 @@ function dashboard() {
         `;
         insertCSS()
     }
+    
     observer.observe(target, { attributes: true });
+    searchBar()
 }
 
-function contentLayout() {
+function contentLayout(segments) {
     // Remove watermark
     var watermark = document.querySelector(".ic-Layout-watermark")
     if (watermark) {
@@ -135,8 +134,6 @@ function contentLayout() {
         top: 100px;
     `;
 
-    var segments = path.split('/').filter(segment => segment !== '');
-
     if (
         segments.length >= 3 &&
         segments[0] === 'courses' &&
@@ -155,6 +152,8 @@ function contentLayout() {
             // Discussion page
         }
     }
+
+    searchBar()
 }
 
 function calendar() {
@@ -195,19 +194,19 @@ function calendar() {
 
 // Apply changes to pages
 function themer() {
-    var url = new URL(window.location.href);
-    var path = url.pathname;
+    const url = new URL(window.location.href);
+    const path = url.pathname;
+    const segments = path.split('/').filter(segment => segment !== '');
 
     if (path === '/') {
         dashboard()
     } else if (path.includes('/courses') || path.includes('/groups') || path.includes('/profile')) {
-        contentLayout()
+        contentLayout(segments)
     } else if (path.startsWith("/calendar")) {
         calendar()
     }
-
+    
     insertCSS()
-    searchBar()
 }
 
 document.addEventListener("DOMContentLoaded", themer())
