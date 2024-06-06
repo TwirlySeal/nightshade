@@ -14,7 +14,7 @@
     "default_popup": "popup.html"
   },
 
-  "permissions": ["storage"],
+  "permissions": ["storage", "tabs"],
 
   "content_scripts": [
     {
@@ -22,7 +22,11 @@
       "js": ["content.js"],
       "run_at": "document_start"
     }
-],
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
 
   "web_accessible_resources": [
     {

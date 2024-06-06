@@ -259,6 +259,7 @@ function calendar() {
 
 // Apply themes to pages
 function themer() {
+    console.log("themer")
     insertCSS()
     
     const url = new URL(window.location.href);
@@ -276,6 +277,7 @@ function themer() {
 
 // Wait for body element
 function bodyWait() {
+    console.log("bodyWait")
     const observer = new MutationObserver(() => {
         if (document.body !== null) {
             observer.disconnect();
