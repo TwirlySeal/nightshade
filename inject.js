@@ -7,34 +7,33 @@ function insertCSS() {
     document.head.appendChild(linkElement);
 }
 
-/* Theme for dashboard course search bar */
-function searchStyles() {
-    const host = document.querySelector("#ajas-search-widget");
-    if (host && host.shadowRoot) {
-      clearInterval(checkHostInterval);
-      var sheet = new CSSStyleSheet();
-      sheet.replaceSync(`
-          #ajas-search01 {
-            background-color: rgb(60, 60, 60);
-            border: 1px solid rgb(70, 70, 70);
-            color: #FFFFFF;
-            border-radius: 4px;
-          }
-
-          .ajas-search-widget--dashboard {
-            margin: 0;
-          }
-
-          input:-webkit-autofill, input:-webkit-autofill:focus {
-            transition: background-color 0s 600000s, color 0s 600000s !important;
-          }
+function searchBar() {
+    while (true) {
+        const host = document.querySelector("#ajas-search-widget");
+        if (host && host.shadowRoot) {
+          var sheet = new CSSStyleSheet();
+          sheet.replaceSync(`
+              #ajas-search01 {
+                background-color: rgb(60, 60, 60);
+                border: 1px solid rgb(70, 70, 70);
+                color: #FFFFFF;
+                border-radius: 4px;
+              }
     
-          `);
-      host.shadowRoot.adoptedStyleSheets.push(sheet);
+              .ajas-search-widget--dashboard {
+                margin: 0;
+              }
+    
+              input:-webkit-autofill, input:-webkit-autofill:focus {
+                transition: background-color 0s 600000s, color 0s 600000s !important;
+              }
+        
+              `);
+          host.shadowRoot.adoptedStyleSheets.push(sheet);
+          break;
+        }
     }
 }
-  
-var checkHostInterval = setInterval(searchStyles, 100);
 
 function dashboard() {
     // Move sidebar to dashboard div
@@ -194,15 +193,21 @@ function calendar() {
     }
 }
 
-// URL check
-var url = new URL(window.location.href);
-var path = url.pathname;
+// Apply changes to pages
+function themer() {
+    var url = new URL(window.location.href);
+    var path = url.pathname;
 
-if (path === '/') {
-    dashboard()
-} else if (path.includes('/courses') || path.includes('/groups') || path.includes('/profile')) {
-    contentLayout()
-} else if (path.startsWith("/calendar")) {
-    calendar()
+    if (path === '/') {
+        dashboard()
+    } else if (path.includes('/courses') || path.includes('/groups') || path.includes('/profile')) {
+        contentLayout()
+    } else if (path.startsWith("/calendar")) {
+        calendar()
+    }
+
+    insertCSS()
+    searchBar()
 }
-insertCSS()
+
+document.addEventListener("DOMContentLoaded", themer())

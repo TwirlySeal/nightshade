@@ -22,14 +22,6 @@
     "service_worker": "app.js"
   },
 
-  "content_scripts": [
-    {
-        "matches": ["<all_urls>"],
-        "js": ["content_script.js"],
-        "run_at": "document_start"
-    }
-  ],
-
   "web_accessible_resources": [
     {
         "resources": ["main.css", "assets/icon-x-black-163c6230a4.svg"],
