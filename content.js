@@ -118,15 +118,14 @@ function contentLayout(path) {
     // Grid
     var wrapper = document.querySelector("#wrapper");
 
-    if (path.includes('files')) {
-        wrapper.style.gridTemplateRows = "1fr";
-
+    if (path.endsWith('files')) {
         const observer = new MutationObserver((mutationsList, observer) => {
             for (let mutation of mutationsList) {
                 if (mutation.type === 'childList') {
                     mutation.addedNodes.forEach(node => {
                         if (node.outerHTML.includes("ic-app-nav-toggle-and-crumbs--files")) {
                             observer.disconnect();
+                            wrapper.style.gridTemplateRows = "1fr";
                             filesHeader = document.querySelector(".ic-app-nav-toggle-and-crumbs--files");
                             filesHeader.style.height = "80px";
                         };
@@ -184,10 +183,14 @@ function calendar() {
         display: grid;
         grid-template-columns: 300px 1fr;
         height: 100%;
-    `
+    `;
 
-    rightSidebar = document.querySelector("#right-side-wrapper")
-    rightSidebar.style.gridColumn = "1";
+    rightSidebar = document.querySelector("#right-side-wrapper");
+    rightSidebar.style.cssText = `
+        grid-column: 1;
+        background-color: transparent;
+        border-right: 1px solid var(--card-border);
+    `;
 }
 
 // Apply themes to pages
