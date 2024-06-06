@@ -120,12 +120,14 @@ hr {
 /* Application layout */
 #application {
     display: grid;
-    grid-template-columns: 84px 1fr;
+    grid-template-columns: auto 1fr;
     max-width: 100vw;
 }
 
 #header {
     grid-column: 1;
+    position: sticky;
+    height: 100vh;
 }
 
 #wrapper {
@@ -151,6 +153,35 @@ hr {
 
 .ic-app-footer {
     display: none;
+}
+
+/* Navbar */
+.ic-app-header {
+    background-color: black;
+}
+
+.ic-app-header__logomark-container {
+    display: none;
+}
+
+.ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .ic-app-header__menu-list-link {
+    background-color: var(--card);
+}
+
+body.primary-nav-expanded .menu-item__text {
+    color: var(--paragraph);
+}
+
+.ic-app-header__menu-list-link .ic-icon-svg {
+    fill: var(--paragraph);
+}
+
+body.primary-nav-expanded .ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .menu-item__text {
+    color: #fff;
+}
+
+.ic-app-header__menu-list-item.ic-app-header__menu-list-item--active .ic-icon-svg {
+    fill: #fff;
 }
 
 /* Dashboard layout */
@@ -347,26 +378,31 @@ body.course-menu-expanded .ic-app-main-content__secondary {
 
 /* View switcher */
 .css-dvua1q-view--block-contextView__content {
-    background-color: var(--card);
-    box-shadow: none;
-    border: 1px solid var(--card-border);
-    border-radius: var(--small-border-radius);
+    background-color: var(--card) !important;
+    box-shadow: none !important;
+    border: 1px solid var(--card-border) !important;
+    border-radius: var(--small-border-radius) !important;
 }
 
 .css-1dndbkc-menu {
-    background-color: var(--card);
+    background-color: var(--card) !important;
 }
 
 .css-ktk67h-menuItemGroup__label, .css-1k1p70m-menuItem {
-    background-color: transparent;
+    background-color: transparent !important;
+}
+
+.css-1k1p70m-menuItem:hover {
+    background: rgb(18, 76, 118) !important;
+    color: #fff;
 }
 
 .css-16r4qzc-contextView__arrow, .css-6kb82y-contextView__arrow {
-    border-bottom-color: var(--card-border);
+    border-bottom-color: var(--card-border) !important;
 }
 
 .css-16r4qzc-contextView__arrow::after, .css-6kb82y-contextView__arrow::after {
-    border-bottom-color: var(--card);
+    border-bottom-color: var(--card) !important;
 }
 
 .css-ktk67h-menuItemGroup__label {
@@ -374,13 +410,17 @@ body.course-menu-expanded .ic-app-main-content__secondary {
 }
 
 .css-oqi6mv-menuItem__label {
-    color: var(--paragraph);
+    color: var(--paragraph) !important;
+}
+
+.css-1k1p70m-menuItem:hover .css-oqi6mv-menuItem__label {
+    color: #fff !important;
 }
 
 .css-19z576y-menuItemSeparator {
-    background-color: var(--card-border);
-    height: 1px;
-    margin: 4px 8px;
+    background-color: var(--card-border) !important;
+    height: 1px !important;
+    margin: 4px 8px !important;
 }
 
 /* Recent activity */
@@ -1665,7 +1705,7 @@ div[data-testid="upload-box"] div[style="height: 100%; width: 1px; left: 50%; po
 }
 
 /* Event details */
-.event-details {
+div.event-details {
     background-color: var(--card);
     border: 1px solid var(--card-border);
     border-radius: var(--card-border-radius);
@@ -1682,7 +1722,7 @@ div[data-testid="upload-box"] div[style="height: 100%; width: 1px; left: 50%; po
     border-bottom-color: var(--card);
 }
 
-.event-details-header, .event-details-content, .event-details-footer {
+div.event-details-header, div.event-details-content, div.event-details-footer {
     border-bottom: none;
 }
 
