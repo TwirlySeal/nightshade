@@ -1,4 +1,4 @@
-![alt text](icons/icon390.png)
+<img src="icons/icon390.png" alt="drawing" width="128"/>
 
 # Nightshade for Canvas
 A browser extension that enables a modern, dark mode, responsive UI redesign for the Canvas LMS
