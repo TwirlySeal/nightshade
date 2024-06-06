@@ -156,7 +156,7 @@ hr {
 /* Dashboard layout */
 #dashboard {
     display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 6fr minmax(300px, 1fr);
     grid-template-rows: 80px;
     padding: 20px;
     gap: 20px;
@@ -178,6 +178,25 @@ hr {
     grid-row: 1 / span 2;
     height: max-content;
     width: auto;
+    overflow: scroll;
+}
+
+#announcementWrapper {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+}
+
+/* Announcements */
+.ic-notification {
+    margin: 0;
+}
+
+.ic-notification__content {
+    background-color: transparent;
+}
+
+.ic-notification .notification_account_content, .css-pkzi3c-view-alert {
+    background-color: var(--card);
 }
 
 /* Dashboard header */
@@ -274,6 +293,10 @@ body:not(.course-menu-expanded) .ic-app-main-content__secondary {
     border-radius: var(--card-border-radius);
 }
 
+body.course-menu-expanded .ic-app-main-content__secondary {
+    padding-left: 20px;
+}
+
 #right-side .h2 {
     color: #ffffff;
     border-bottom-color: var(--card-border);
@@ -306,6 +329,20 @@ body:not(.course-menu-expanded) .ic-app-main-content__secondary {
 #right-side .button-sidebar-wide {
     text-align: center;
     margin: 0;
+}
+
+#right-side .events_list .event-details:after, #right-side .events_list .todo-details:after, #right-side .to-do-list .event-details:after, #right-side .to-do-list .todo-details:after {
+    display: none;
+}
+
+#right-side .event-details {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+
+#right-side .right-side-list li em, #right-side .right-side-list li p {
+    color: var(--paragraph);
 }
 
 /* View switcher */
@@ -349,7 +386,6 @@ body:not(.course-menu-expanded) .ic-app-main-content__secondary {
 /* Recent activity */
 #dashboard-activity {
     grid-column: 1;
-    grid-row: 2;
 }
 
 .ic-Dashboard-Activity {
@@ -1443,10 +1479,6 @@ div[data-testid="upload-box"] div[style="height: 100%; width: 1px; left: 50%; po
 }
 
 /* Sidebar */
-#right-side-wrapper::-webkit-scrollbar {
-    display: none;
-}
-
 .rs-section {
     margin: 0;
 }
