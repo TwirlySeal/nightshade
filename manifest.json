@@ -1,6 +1,6 @@
 {
-  "name": "Dark Theme for Canvas",
-  "version": "0.1",
+  "name": "Nightshade for Canvas",
+  "version": "1.0",
   "manifest_version": 3,
 
   "icons": {
@@ -11,20 +11,22 @@
   },
 
   "action": {
-    "default_popup": "index.html"
+    "default_popup": "popup.html"
   },
 
-  "host_permissions": ["<all_urls>"],
+  "permissions": ["storage"],
 
-  "permissions": ["webNavigation", "scripting", "storage"],
-
-  "background": {
-    "service_worker": "app.js"
-  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+],
 
   "web_accessible_resources": [
     {
-        "resources": ["main.css", "assets/icon-x-black-163c6230a4.svg"],
+        "resources": ["main.css", "assets/icon-x-black-163c6230a4.svg", "icons/icon390.png"],
         "matches": ["<all_urls>"]
     }
   ]
