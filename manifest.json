@@ -19,18 +19,18 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
+      "js": ["js/content.js"],
       "run_at": "document_start"
     }
   ],
 
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "js/background.js"
   },
 
   "web_accessible_resources": [
     {
-        "resources": ["main.css", "assets/icon-x-black-163c6230a4.svg", "icons/icon390.png", "alpine.js"],
+        "resources": ["css/main.css", "assets/icon-x-black-163c6230a4.svg", "icons/icon390.png", "js/alpine.js"],
         "matches": ["<all_urls>"]
     }
   ]

@@ -35,7 +35,7 @@ function insertCSS() {
     const linkElement = document.createElement("link");
     linkElement.rel = "stylesheet";
     linkElement.type = "text/css";
-    linkElement.href = chrome.runtime.getURL("main.css");
+    linkElement.href = chrome.runtime.getURL("css/main.css");
     document.head.appendChild(linkElement);
 }
 
@@ -261,7 +261,7 @@ async function setupCourseNav(coursesPromise) {
     // Setup alpine.js
     const alpineScript = document.createElement('script');
     alpineScript.setAttribute('defer', '');
-    alpineScript.src = chrome.runtime.getURL("alpine.js");
+    alpineScript.src = chrome.runtime.getURL("js/alpine.js");
     document.head.appendChild(alpineScript);
 
     // Setup Material Symbols
