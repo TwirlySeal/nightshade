@@ -1,5 +1,5 @@
 # Dark Canvas
-A dark mode for the Canvas LMS. Currently only works with Chrome and Chromium-based browsers.
+A browser extension that adds a dark mode for the Canvas LMS. Currently only works with Chrome and Chromium-based browsers.
 
 ## Installation
 1. Download this project as a ZIP file and extract it
