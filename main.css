@@ -1399,6 +1399,66 @@ div[data-testid="upload-box"] div[style="height: 100%; width: 1px; left: 50%; po
     border: none !important;
 }
 
+/* Grades */
+#grades_summary tbody tr:hover {
+    background-color: transparent;
+}
+
+#grades_summary td, #grades_summary th, #grades_summary th.title {
+    border-color: var(--card-border);
+}
+
+#grades_summary th.title .context {
+    color: var(--paragraph);
+}
+
+/* Quizzes */
+.quiz-header {
+    border: none;
+    margin-bottom: 20px;
+}
+
+#quiz-submission-version-table {
+    margin: 0;
+}
+
+.quiz-submission {
+    background-color: transparent;
+    border-color: transparent;
+    padding: 0;
+}
+
+.alert {
+    background-color: #c23c0d;
+    color: #fff;
+}
+
+.quiz_score .score_value {
+    color: #fff;
+}
+
+.question {
+    background-color: var(--card);
+    border-color: var(--card-border);
+    border-radius: var(--card-border-radius);
+}
+
+#questions.assessment_results .question .header {
+    background-color: var(--card);
+}
+
+.question .header {
+    border-bottom-color: var(--card-border);
+}
+
+.question.multiple_choice_question .answer, .question.multiple_answers_question .answer, .question.matching_question .answer, .question.true_false_question .answer {
+    border: none;
+}
+
+#module_sequence_footer {
+    margin-top: 20px;
+}
+
 /* Calendar header */
 #calendar_header .header-bar {
     padding-top: 20px;
