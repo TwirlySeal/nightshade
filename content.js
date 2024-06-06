@@ -82,13 +82,39 @@ function searchBar() {
 }
 
 function dashboard() {
+    // Move right sidebar to application
     application = document.querySelector("#application");
     rightSidebar = document.querySelector("#right-side-wrapper");
     application.appendChild(rightSidebar);
+
+    // Toggle sidebar column for planner view
+    wrapper = document.querySelector("#wrapper");
+
+    if (rightSidebar.style.display === "none") {
+        application.style.gridTemplateColumns = "auto 1fr"
+        document.querySelector("#wrapper").style.paddingRight = "20px";
+    }
+
+    const observer2 = new MutationObserver((mutationsList) => {
+        for (let mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
+                var displayStyle = rightSidebar.style.display;
+                if (displayStyle === 'none') {
+                    application.style.gridTemplateColumns = "auto 1fr";
+                    wrapper.style.paddingRight = "20px";
+                } else {
+                    application.removeAttribute('style');
+
+                };
+            };
+        };
+    });
+    
+    observer2.observe(rightSidebar, { attributes: true });
 }
 
-function contentLayout(segments) {
-    application = document.querySelector("#application");
+function contentLayout() {
+    // Grid
     wrapper = document.querySelector("#wrapper");
     wrapper.style.cssText = `
         display: grid;
@@ -96,7 +122,7 @@ function contentLayout(segments) {
         grid-template-columns: 200px 1fr;
     `
 
-    leftSidebar = document.querySelector("#left-side");
+    // Content
     main = document.querySelector("#main");
     main.style.cssText = `
         overflow: auto;
@@ -105,16 +131,21 @@ function contentLayout(segments) {
     `;
 
     document.querySelector("#not_right_side").style.maxWidth = "1200px";
-    wrapper.insertBefore(leftSidebar, main);
-
     document.querySelector("#content").style.paddingBottom = "20px";
 
+    // Left Sidebar
+    leftSidebar = document.querySelector("#left-side");
+    wrapper.insertBefore(leftSidebar, main);
+
+    // Right Sidebar
+    application = document.querySelector("#application");
     rightSidebar = document.querySelector("#right-side-wrapper");
+
     if (window.getComputedStyle(rightSidebar).getPropertyValue('display') === "block") {
         application.appendChild(rightSidebar);
     } else {
         application.style.gridTemplateColumns = "auto 1fr"
-        wrapper.style.marginRight = "20px"
+        wrapper.style.paddingRight = "20px"
     }
 }
 
@@ -124,17 +155,15 @@ function calendar() {
 
 // Apply themes to pages
 function themer() {
-    console.log("themer")
     insertCSS()
     
     const url = new URL(window.location.href);
     const path = url.pathname;
-    const segments = path.split('/').filter(segment => segment !== '');
 
     if (path === '/') {
         dashboard()
-    } else if (path.includes('/courses') || path.includes('/groups') || path.includes('/profile')) {
-        contentLayout(segments)
+    } else if (path.startsWith('/courses') || path.startsWith('/groups') || path.startsWith('/profile')) {
+        contentLayout()
     } else if (path.startsWith("/calendar")) {
         calendar()
     }
@@ -142,7 +171,6 @@ function themer() {
 
 // Wait for body element
 function bodyWait() {
-    console.log("bodyWait")
     const observer = new MutationObserver(() => {
         if (document.body !== null) {
             observer.disconnect();
