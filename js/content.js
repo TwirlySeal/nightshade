@@ -277,23 +277,25 @@ async function setupCourseNav(coursesPromise) {
     courseNav.id = "course-nav";
     courseNav.setAttribute('x-show', 'sidebar');
     courseNav.innerHTML = `
-        <div class="ns-sidebar-content">
-            <h2>Courses</h2>
-            <template x-for="course in courses"">
-                <div class="course" x-data="{ open: false }">
-                    <div class="title-box">
-                        <button class="toggle" @click="open = ! open">
-                            <span class="material-symbols-outlined" x-text="open ? 'arrow_drop_down' : 'arrow_right'"></span>
-                        </button>
-                        <span class="course-name" x-text="course.name"></span>
+        <div id="scroll-wrapper">
+            <div class="ns-sidebar-content">
+                <h2>Courses</h2>
+                <template x-for="course in courses"">
+                    <div class="course" x-data="{ open: false }">
+                        <div class="title-box">
+                            <button class="toggle" @click="open = ! open">
+                                <span class="material-symbols-outlined" x-text="open ? 'arrow_drop_down' : 'arrow_right'"></span>
+                            </button>
+                            <span class="course-name" x-text="course.name"></span>
+                        </div>
+                        <div class="tabs" x-show="open" x-data="{ tabs: [] }" x-init="tabs = await (await fetch(window.location.origin + '/api/v1/courses/' + course.id + '/tabs')).json()">
+                            <template x-for="tab in tabs">
+                                <a x-bind:href="tab.full_url" x-bind:class="{ active: window.location.pathname === '/courses/' + course.id && tab.id === 'home' || window.location.href.startsWith(tab.full_url) && tab.id !== 'home'}" x-text="tab.label"></a>
+                            </template>
+                        </div>
                     </div>
-                    <div class="tabs" x-show="open" x-data="{ tabs: [] }" x-init="tabs = await (await fetch(window.location.origin + '/api/v1/courses/' + course.id + '/tabs')).json()">
-                        <template x-for="tab in tabs">
-                            <a x-bind:href="tab.full_url" x-bind:class="{ active: window.location.pathname === '/courses/' + course.id && tab.id === 'home' || window.location.href.startsWith(tab.full_url) && tab.id !== 'home'}" x-text="tab.label"></a>
-                        </template>
-                    </div>
-                </div>
-            </template>
+                </template>
+            </div>
         </div>
     `;
 

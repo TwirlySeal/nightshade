@@ -7,8 +7,8 @@
     --on-surface: #eae0e6;
     --on-surface-variant: #d1c2ce;
 
-    --on-primary-container: #ffe0fd;
     --primary-container: #6d3774;
+    --on-primary-container: #ffe0fd;
 
     --secondary-container: #4f3851;
     --on-secondary-container: #eccaea;
@@ -45,13 +45,16 @@
     border-bottom-right-radius: var(--br-large);
 }
 
+#scroll-wrapper {
+    height: 100%;
+    overflow-y: auto;
+}
+
 .ns-sidebar-content {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    height: 100%;
-    padding: 20px;
-    overflow-y: auto;
+    margin: 20px;
 }
 
 .course {
