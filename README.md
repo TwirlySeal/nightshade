@@ -1,5 +1,7 @@
-# Dark Canvas
-A browser extension that adds a dark mode for the Canvas LMS. Currently only works with Chrome and Chromium-based browsers.
+![alt text](icons/icon390.png)
+
+# Nightshade for Canvas
+A browser extension that enables a modern, dark mode, responsive UI redesign for the Canvas LMS
 
 ## Installation
 1. Download this project as a ZIP file and extract it
