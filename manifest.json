@@ -30,7 +30,7 @@
 
   "web_accessible_resources": [
     {
-        "resources": ["main.css", "assets/icon-x-black-163c6230a4.svg", "icons/icon390.png"],
+        "resources": ["main.css", "assets/icon-x-black-163c6230a4.svg", "icons/icon390.png", "alpine.js"],
         "matches": ["<all_urls>"]
     }
   ]
