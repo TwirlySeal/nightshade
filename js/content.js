@@ -136,7 +136,7 @@ function calendar() {
     });
 }
 
-async function setupCourseNav(coursesPromise) {
+async function coursesSidebar(coursesPromise) {
     // Setup alpine.js
     const alpineScript = document.createElement('script');
     alpineScript.setAttribute('defer', '');
@@ -386,7 +386,7 @@ function bodyWait() {
             loading();
 
             coursesPromise = fetch(window.location.origin + '/api/v1/courses/');
-            setupCourseNav(coursesPromise);
+            coursesSidebar(coursesPromise);
             navBar();
 
             document.addEventListener("DOMContentLoaded", insertCSS);
