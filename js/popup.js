@@ -1,13 +1,22 @@
-document.querySelector('#saveButton').addEventListener('click', function() {
-    var urlInput = document.querySelector('#urlInput').value;
+document.addEventListener('alpine:init', () => {
+    Alpine.data('setting', () => ({
+        setting: '',
 
-    if (!urlInput.startsWith("https://")) {
-        urlInput = "https://" + urlInput;
-    }
+        save() {
+            alert("Saved!")
+            if (!this.setting.startsWith("https://")) {
+                this.setting = "https://" + this.setting;
+            }
 
-    if (!urlInput.endsWith("/")) {
-        urlInput += "/";
-    }
+            if (!this.setting.endsWith("/")) {
+                this.setting += "/";
+            }
 
-    chrome.storage.local.set({ 'canvasURL': urlInput });
-});
+            chrome.storage.local.set({ 'canvasURL': this.setting });
+        },
+
+        change(event) {
+            this.setting = event.target.value;
+        }
+    }))
+})

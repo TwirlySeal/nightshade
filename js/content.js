@@ -171,7 +171,6 @@ async function coursesSidebar(coursesPromise) {
     `;
 
     const courses = await (await coursesPromise).clone().json();
-    console.log(courses)
     courseNav.setAttribute('x-data', `{ courses: ${JSON.stringify(courses)} }`);
 
     const wrapper = document.querySelector("#wrapper");
@@ -401,9 +400,8 @@ function bodyWait() {
 }
 
 // Check if Canvas URL
-var currentUrl = window.location.hostname
 chrome.storage.local.get("canvasURL", (items) => {
-    if (currentUrl === new URL(Object.entries(items)[0][1]).hostname) {
+    if (window.location.hostname === new URL(Object.entries(items)[0][1]).hostname) {
         bodyWait()
     }
 });
