@@ -4,28 +4,19 @@ async function dashboard(coursesPromise) {
     document.addEventListener("DOMContentLoaded", () => {
         document.querySelector("#right-side-wrapper").remove();
         dashboardElement = document.querySelector("#dashboard");
-
-        const announcementWrapper = document.querySelector("#announcementWrapper");
-        const headerContainer = document.createElement('div');
-        headerContainer.style.gridColumn = "1 / span 3";
-        dashboardElement.insertBefore(headerContainer, announcementWrapper);
-
-        const headerElement = document.querySelector("#dashboard_header_container");
-        headerContainer.appendChild(headerElement);
-        headerContainer.appendChild(announcementWrapper);
-
-        announcementsText = document.createElement('h3');
-        announcementsText.textContent = "Announcements";
-        announcementsText.style.gridColumn = "1 / span 3";
-        dashboardElement.appendChild(announcementsText);
     });
 
     const courses = await (await coursesPromise).clone().json();
-    let requestURL = new URL(window.location.origin + '/api/v1/announcements/');
+    let announcementsRequest = new URL(window.location.origin + '/api/v1/announcements/');
     for (const course of courses) {
-        requestURL.searchParams.append('context_codes[]', 'course_' + course.id);
+        announcementsRequest.searchParams.append('context_codes[]', 'course_' + course.id);
     };
-    announcements = await (await fetch(requestURL)).json();
+
+    const announcementsPromise = fetch(announcementsRequest);
+    
+
+
+    const announcements = await (await announcementsPromise).json();
 
     announcements.forEach((announcement) => {
         const courseId = parseInt(announcement.context_code.split('_')[1]);
@@ -47,6 +38,7 @@ async function dashboard(coursesPromise) {
     announcementsPanel.className = "dashboard-panel";
     announcementsPanel.setAttribute('x-data', `{ announcements: ${JSON.stringify(announcements)} }`);
     announcementsPanel.innerHTML = `
+        <h3>Announcements</h3>
         <template x-for="announcement in announcements">
             <div class="ns-announcement">
                 <div class="ns-header">
@@ -160,7 +152,7 @@ async function coursesSidebar(coursesPromise) {
             <div class="ns-sidebar-content">
                 <h2>Courses</h2>
                 <template x-for="course in courses"">
-                    <div class="course" x-data="{ open: false }">
+                    <div class="course" x-data="{ open: false }" x-init="() => { if (window.location.pathname.startsWith('/courses/' + course.id)) { open = true; $el.scrollIntoView() } }">
                         <div class="title-box">
                             <button class="toggle" @click="open = ! open">
                                 <span class="material-symbols-outlined" x-text="open ? 'arrow_drop_down' : 'arrow_right'"></span>
@@ -179,6 +171,7 @@ async function coursesSidebar(coursesPromise) {
     `;
 
     const courses = await (await coursesPromise).clone().json();
+    console.log(courses)
     courseNav.setAttribute('x-data', `{ courses: ${JSON.stringify(courses)} }`);
 
     const wrapper = document.querySelector("#wrapper");
@@ -323,7 +316,7 @@ function searchBar() {
 function loading() {
     const overlay = document.createElement("div")
     overlay.style.cssText = `
-        background-color: #1c1c1c;
+        background-color: #161216;
         top: 0;
         right: 0;
         left: 0;
