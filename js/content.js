@@ -14,7 +14,7 @@ async function dashboard(coursesPromise) {
 
     const announcementsPromise = fetch(announcementsRequest);
     
-
+    // Assignments and recent feedback
 
     const announcements = await (await announcementsPromise).json();
 
@@ -401,7 +401,7 @@ function bodyWait() {
 
 // Check if Canvas URL
 chrome.storage.local.get("canvasURL", (items) => {
-    if (window.location.hostname === new URL(Object.entries(items)[0][1]).hostname) {
+    if (window.location.hostname === Object.entries(items)[0][1]) {
         bodyWait()
     }
 });

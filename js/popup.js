@@ -1,22 +1,28 @@
-document.addEventListener('alpine:init', () => {
-    Alpine.data('setting', () => ({
-        setting: '',
+const button = document.querySelector('#saveButton');
+const input = document.querySelector('#urlInput');
 
-        save() {
-            alert("Saved!")
-            if (!this.setting.startsWith("https://")) {
-                this.setting = "https://" + this.setting;
-            }
+button.addEventListener('click', save);
 
-            if (!this.setting.endsWith("/")) {
-                this.setting += "/";
-            }
+input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      save();
+    }
+});
 
-            chrome.storage.local.set({ 'canvasURL': this.setting });
-        },
+function save() {
+    let urlInput = input.value;
 
-        change(event) {
-            this.setting = event.target.value;
-        }
-    }))
-})
+    if (!urlInput.startsWith("https://")) {
+        urlInput = "https://" + urlInput;
+    }
+
+    if (!urlInput.endsWith("/")) {
+        urlInput += "/";
+    }
+
+    const hostname = new URL(urlInput).hostname;
+
+    chrome.storage.local.set({ 'canvasURL': hostname });
+    alert("Saved!");
+}

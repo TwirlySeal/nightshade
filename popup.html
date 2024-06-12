@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nightshade</title>
     <link rel="stylesheet" href="css/popup.css">
-    <script defer src="js/alpine-csp.js"></script>
 </head>
 <body>
     <div class="logo">
@@ -14,12 +13,12 @@
     </div>
     <div class="container">
         <label for="urlInput">Enter your Canvas URL:</label>
-        <div class="inputArea" x-data="setting">
-            <input type="text" id="urlInput" placeholder="canvas.example.com" @input="change" @keyup.enter="save">
-            <button id="saveButton" @click="save">Save</button>
-            <script src="js/popup.js"></script>
+        <div class="inputArea">
+            <input type="text" id="urlInput" placeholder="canvas.example.com">
+            <button id="saveButton">Save</button>
         </div>
         <span class="tip">Refresh Canvas to apply</span>
+        <script src="js/popup.js"></script>
     </div>
     <span class="onboarding tip">Click on the extension icon to access this menu in the future</span>
 </body>
