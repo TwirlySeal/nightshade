@@ -350,7 +350,7 @@ function insertCSS() {
     linkElement.rel = "stylesheet";
     linkElement.type = "text/css";
     linkElement.href = chrome.runtime.getURL("css/main.css");
-    document.head.appendChild(linkElement);
+    document.documentElement.appendChild(linkElement);
 }
 
 // Function not used
@@ -376,12 +376,11 @@ function bodyWait() {
         if (document.body !== null) {
             observer.disconnect();
             loading();
+            insertCSS();
 
             coursesPromise = fetch(window.location.origin + '/api/v1/courses/');
             coursesSidebar(coursesPromise);
             navBar();
-
-            document.addEventListener("DOMContentLoaded", insertCSS);
         
             if (window.location.pathname === '/') {
                 dashboard(coursesPromise);
