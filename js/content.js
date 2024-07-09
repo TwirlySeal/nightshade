@@ -372,13 +372,14 @@ function elementWait(elementClass, callback) {
 }
 
 function bodyWait() {
+    coursesPromise = fetch(window.location.origin + '/api/v1/courses/');
+    
     const observer = new MutationObserver(() => {
         if (document.body !== null) {
             observer.disconnect();
             loading();
             insertCSS();
 
-            coursesPromise = fetch(window.location.origin + '/api/v1/courses/');
             coursesSidebar(coursesPromise);
             navBar();
         
