@@ -350,7 +350,7 @@ function insertCSS() {
     linkElement.rel = "stylesheet";
     linkElement.type = "text/css";
     linkElement.href = chrome.runtime.getURL("css/main.css");
-    document.head.appendChild(linkElement);
+    document.documentElement.appendChild(linkElement);
 }
 
 // Function not used
@@ -399,9 +399,4 @@ function bodyWait() {
     });
 }
 
-// Check if Canvas URL
-chrome.storage.local.get("canvasURL", (items) => {
-    if (window.location.hostname === Object.entries(items)[0][1]) {
-        bodyWait()
-    }
-});
+bodyWait()

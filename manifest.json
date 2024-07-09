@@ -14,15 +14,9 @@
     "default_popup": "popup.html"
   },
 
-  "permissions": ["storage"],
+  "permissions": ["webNavigation", "scripting", "storage"],
 
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["js/content.js"],
-      "run_at": "document_start"
-    }
-  ],
+  "host_permissions": ["<all_urls>"],
 
   "background": {
     "service_worker": "js/background.js"
