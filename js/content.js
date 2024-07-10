@@ -58,24 +58,20 @@ function contentLayout() {
         document.querySelector("#left-side").remove();
 
         // Content
-        const main = document.querySelector("#main");
-        main.style.cssText = `
+        const notRightSide = document.querySelector("#not_right_side");
+
+        document.querySelector("#content-wrapper").style.cssText = `
             display: flex;
             justify-content: center;
-            gap: 40px;
+        `;
+        document.querySelector("#content").style.cssText = `
+            width: 100%;
+            max-width: 1200px;
+            padding-bottom: 20px;
         `;
 
-        document.querySelector("#not_right_side").style.maxWidth = "1200px";
-        document.querySelector("#content").style.paddingBottom = "20px";
-
-        // Right Sidebar
-        const application = document.querySelector("#application");
-        const rightSidebar = document.querySelector("#right-side-wrapper");
-
-        application.appendChild(rightSidebar);
-
         // Modules sidebar
-        pathSegments = window.location.pathname.split('/');
+        const pathSegments = window.location.pathname.split('/');
 
         if (pathSegments[3] === 'modules') {
             const modulesSidebar = document.createElement('div');
@@ -99,7 +95,17 @@ function contentLayout() {
                 </template>
             `;
 
-            main.appendChild(modulesSidebar);
+            notRightSide.appendChild(modulesSidebar);
+
+        } else if (pathSegments[3] == 'discussion_topics') {
+            const searchContext = document.querySelector("#content");
+            console.log(searchContext);
+            
+            elementWait(searchContext, ".css-16umzoa-view--block", (parent) => {
+                const toolbar = document.querySelector(".css-sg1rn7-view");
+                const discussion = document.querySelector("[data-testid='discussion-root-entry-container']");
+                parent.insertBefore(toolbar, discussion);
+            }, false);
         }
     });
 }
@@ -371,22 +377,24 @@ function insertCSS() {
     document.documentElement.appendChild(linkElement);
 }
 
-// Function not used
-function elementWait(elementClass, callback) {
-    const observer = new MutationObserver((mutationsList, observer) => {
-        for (let mutation of mutationsList) {
-            if (mutation.type === 'childList') {
+function elementWait(searchContext, selector, callback, disconnect = true) {
+    const observer = new MutationObserver((mutations, observer) => {
+        mutations.forEach(mutation => {
+            if (mutation.addedNodes) {
                 mutation.addedNodes.forEach(node => {
-                    if (node.toString().includes(elementClass)) {
-                        observer.disconnect();
-                        callback();
+                    const target = node.nodeType === Node.ELEMENT_NODE ? node.querySelector(selector) : null;
+                    if (target != null) {
+                        if (disconnect) {
+                            observer.disconnect();
+                        }
+                        callback(target);
                     }
                 });
             }
-        }
+        });
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(searchContext, { childList: true, subtree: true });
 }
 
 function bodyWait() {
