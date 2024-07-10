@@ -3,6 +3,7 @@
 
     --surface-container: #231e23;
     --surface-container-high: #2e282d;
+    --surface-container-highest: #393338;
 
     --on-surface: #eae0e6;
     --on-surface-variant: #d1c2ce;
@@ -15,6 +16,7 @@
 
     --primary: #f3b0f7;
 
+    --outline: #9A8D98;
     --outline-variant: #4e444d;
 
     /* Corner radii */
@@ -22,15 +24,11 @@
     --br-small: 4px;
 
     /* Legacy styles */
-    --card-border: #2e2e2e;
     --card-hover: #2b2b2b;
-    --card-border-hover: #353535;
+    --outline-variant-hover: #353535;
 
-    --input: #3c3c3c;
-    --input-border: #464646;
-
-    --input-hover: #464646;
-    --input-border-hover: #505050;
+    --surface-container-highest-hover: #464646;
+    --outline-hover: #505050;
 }
 
 /* Nightshade elements */
@@ -125,7 +123,7 @@
 
 /* Unsorted styles */
 * {
-    scrollbar-color: var(--input) var(--surface-container-high);
+    scrollbar-color: var(--surface-container-highest) var(--surface-container-high);
 }
 
 body {
@@ -140,18 +138,18 @@ body {
 .btn,
 .Button,
 .ui-button {
-    background-color: var(--input);
-    border-color: var(--input-border);
-    border-radius: var(--br-small);
-    color: var(--on-surface);
+    background-color: transparent;
+    border-color: var(--outline);
+    border-radius: var(--br-large);
+    color: var(--primary);
 }
 
 .btn:hover,
 .Button:hover,
 .ui-button:hover {
-    background-color: var(--input-hover);
-    border-color: var(--input-border-hover);
-    color: var(--on-surface);
+    background-color: var(--surface-container);
+    border-color: var(--outline);
+    color: var(--primary);
 }
 
 .Button--icon-action,
@@ -171,7 +169,7 @@ body {
 
 .css-11o97cb-view--inlineBlock-baseButton:hover
     > [class$="-baseButton__content"] {
-    background-color: var(--input) !important;
+    background-color: var(--surface-container-highest) !important;
 }
 
 .css-tpuo6v-text {
@@ -204,7 +202,7 @@ ol {
 }
 
 .css-1ns2r3i-view-heading {
-    border-bottom-color: var(--card-border);
+    border-bottom-color: var(--outline-variant);
 }
 
 .css-qbjizl-text {
@@ -310,10 +308,9 @@ body {
 #right-side-wrapper {
     overflow-y: auto;
     max-width: 300px;
-    width: auto;
-    padding: 20px;
+    width: 100%;
+    padding: 20px 0px 0px 0px;
     height: 100%;
-    background-color: var(--surface-container-high);
 }
 
 #content {
@@ -550,7 +547,7 @@ body.course-menu-expanded .ic-app-main-content__secondary {
 
 #right-side .h2 {
     color: var(--on-surface);
-    border-bottom-color: var(--card-border);
+    border-bottom-color: var(--outline-variant);
     margin: 0;
 }
 
@@ -572,7 +569,7 @@ ul.events {
 #right-side .todo-list-header {
     margin: 0;
     color: var(--on-surface);
-    border-bottom-color: var(--card-border);
+    border-bottom-color: var(--outline-variant);
 }
 
 #right-side .events_list {
@@ -606,7 +603,7 @@ ul.events {
 .css-dvua1q-view--block-contextView__content {
     background-color: var(--surface-container-high) !important;
     box-shadow: none !important;
-    border: 1px solid var(--card-border) !important;
+    border: 1px solid var(--outline-variant) !important;
     border-radius: var(--br-small) !important;
 }
 
@@ -626,7 +623,7 @@ ul.events {
 
 .css-16r4qzc-contextView__arrow,
 .css-6kb82y-contextView__arrow {
-    border-bottom-color: var(--card-border) !important;
+    border-bottom-color: var(--outline-variant) !important;
 }
 
 .css-16r4qzc-contextView__arrow::after,
@@ -647,7 +644,7 @@ ul.events {
 }
 
 .css-19z576y-menuItemSeparator {
-    background-color: var(--card-border) !important;
+    background-color: var(--outline-variant) !important;
     height: 1px !important;
     margin: 4px 8px !important;
 }
@@ -678,7 +675,7 @@ ul.events {
 
 .stream_header {
     background-color: var(--surface-container-high);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
     border-radius: var(--br-large);
     padding: 12px;
     transition: background-color 0.2s ease-in-out;
@@ -686,7 +683,7 @@ ul.events {
 
 .stream_header:hover {
     background-color: var(--card-hover);
-    border: 1px solid var(--card-border-hover);
+    border: 1px solid var(--outline-variant-hover);
     border-radius: var(--br-large);
 }
 
@@ -741,7 +738,7 @@ ul.recent_activity {
 /* Planner */
 .PlannerHeader-styles__root {
     background-color: var(--surface-container-high) !important;
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
     border-radius: var(--br-small);
     display: flex;
     justify-content: space-between;
@@ -749,20 +746,20 @@ ul.recent_activity {
 }
 
 .PlannerHeader-styles__root button .css-p3olqp-baseButton__content {
-    background-color: var(--input) !important;
-    border: 1px solid var(--input-border) !important;
+    background-color: var(--surface-container-highest) !important;
+    border: 1px solid var(--outline) !important;
     color: var(--on-surface) !important;
 }
 
 .PlannerHeader-styles__root button:hover .css-p3olqp-baseButton__content {
-    background-color: var(--input-hover) !important;
-    border: 1px solid var(--input-border-hover) !important;
+    background-color: var(--surface-container-highest-hover) !important;
+    border: 1px solid var(--outline-hover) !important;
     color: var(--on-surface) !important;
 }
 
 .PlannerHeader-styles__root button:hover .css-1eaecfq-baseButton__content {
-    background-color: var(--input-hover) !important;
-    border-color: var(--input-border-hover) !important;
+    background-color: var(--surface-container-highest-hover) !important;
+    border-color: var(--outline-hover) !important;
 }
 
 #new_activity_button {
@@ -836,11 +833,11 @@ ul.recent_activity {
 }
 
 .transition--slide-right-entered {
-    border-left: 1px solid var(--card-border);
+    border-left: 1px solid var(--outline-variant);
 }
 
 .transition--slide-left-entered {
-    border-right: 1px solid var(--card-border);
+    border-right: 1px solid var(--outline-variant);
 }
 
 .css-kryo2y-view-listItem {
@@ -866,20 +863,20 @@ input {
 
 input:focus,
 textarea:focus {
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--outline);
 }
 
 .css-1jn5ugl-textInput__facade,
 .css-zxdqdw-textInput__facade,
 .css-11e2nr6-textInput__facade {
-    background-color: var(--input) !important;
-    border: 1px solid var(--input-border) !important;
-    border-radius: var(--br-small) !important;
-    color: var(--on-surface) !important;
+    background-color: transparent;
+    border: 1px solid var(--outline);
+    border-radius: var(--br-small);
+    color: var(--on-surface);
 }
 
 .css-1dmk401-textInput__facade {
-    background-color: var(--input) !important;
+    background-color: var(--surface-container-highest) !important;
     border-width: 1px !important;
 }
 
@@ -891,13 +888,13 @@ input:-webkit-autofill:focus {
 }
 
 .css-vrgbjj-textArea {
-    background-color: var(--input);
-    border: 1px solid var(--input-border);
+    background-color: var(--surface-container-highest);
+    border: 1px solid var(--outline);
     color: var(--on-surface);
 }
 
-::placeholder {
-    color: var(--on-surface) !important;
+input::placeholder {
+    color: var(--on-surface-variant) !important;
 }
 
 /* Courses */
@@ -938,17 +935,22 @@ input:-webkit-autofill:focus {
     color: var(--on-surface-variant);
 }
 
+.ic-app-nav-toggle-and-crumbs .right-of-crumbs {
+    flex-direction: row;
+    justify-content: end;
+}
+
 .css-1rpus1y-baseButton__content {
-    background-color: var(--input) !important;
-    color: var(--on-surface) !important;
-    border: 1px solid var(--input-border) !important;
-    font-size: 14px !important;
+    background-color: transparent !important;
+    color: var(--primary) !important;
+    border: 1px solid var(--outline) !important;
+    border-radius: var(--br-large);
 }
 
 .css-t514n8-view--inlineBlock-baseButton:hover
     > [class$="-baseButton__content"] {
-    background-color: var(--input-hover) !important;
-    border: 1px solid var(--input-border-hover) !important;
+    background-color: var(--surface-container) !important;
+    border: 1px solid var(--outline) !important;
 }
 
 .css-1uh2md0-inlineSVG-svgIcon path:first-of-type {
@@ -978,7 +980,7 @@ input:-webkit-autofill:focus {
 .ic-item-row {
     box-shadow: none;
     background-color: var(--surface-container-high);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
     border-radius: var(--br-large);
     padding: 16px;
     gap: 16px;
@@ -1043,8 +1045,8 @@ input:-webkit-autofill:focus {
 
 /* Announcements */
 select {
-    background-color: var(--input);
-    border-color: var(--input-border);
+    background-color: var(--surface-container-highest);
+    border-color: var(--outline);
     border-radius: var(--br-small);
     color: var(--on-surface);
 }
@@ -1178,7 +1180,7 @@ select {
 
 .al-options {
     background-color: var(--surface-container-high);
-    border-color: var(--card-border);
+    border-color: var(--outline-variant);
     padding: 0;
 }
 
@@ -1194,9 +1196,9 @@ select {
 }
 
 .al-options .ui-menu-carat {
-    border-top-color: var(--card-border);
+    border-top-color: var(--outline-variant);
     border-right-color: transparent;
-    border-bottom-color: var(--card-border);
+    border-bottom-color: var(--outline-variant);
     border-left-color: transparent;
 }
 
@@ -1224,8 +1226,8 @@ select {
     bottom: 20px;
     right: 20px;
     z-index: 10;
-    background-color: var(--input);
-    border: 1px solid var(--input-border);
+    background-color: var(--surface-container-highest);
+    border: 1px solid var(--outline);
     color: var(--on-surface);
     transition: background-color 0.2s ease-in-out;
     border-radius: var(--br-large);
@@ -1233,8 +1235,8 @@ select {
 
 .discussion-reply-box:hover {
     color: var(--on-surface);
-    background-color: var(--input-hover);
-    border-color: var(--input-border-hover);
+    background-color: var(--surface-container-highest-hover);
+    border-color: var(--outline-hover);
 }
 
 #discussion_topic > .discussion-entry-reply-area.show-if-replying {
@@ -1245,7 +1247,7 @@ select {
     width: 33vw;
     min-width: 530px;
     background-color: var(--background);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
     border-radius: var(--br-large);
 }
 
@@ -1291,7 +1293,7 @@ select {
 }
 
 .tox-split-button .tox-tbtn.tox-split-button__chevron {
-    background-color: var(--input) !important;
+    background-color: var(--surface-container-highest) !important;
 }
 
 .tox-mbtn:hover,
@@ -1299,7 +1301,7 @@ select {
 .tox-split-button:hover,
 .tox-tbtn.tox-tbtn--enabled:hover,
 .tox-split-button .tox-tbtn.tox-split-button__chevron:hover {
-    background-color: var(--input-hover) !important;
+    background-color: var(--surface-container-highest-hover) !important;
 }
 
 .tox .tox-tbtn.tox-tbtn--enabled::after {
@@ -1393,14 +1395,14 @@ select {
 }
 
 .showMore {
-    background-color: var(--input);
-    border: 1px solid var(--input-border);
+    background-color: var(--surface-container-highest);
+    border: 1px solid var(--outline);
     border-radius: var(--br-small);
 }
 
 .showMore:hover {
-    background-color: var(--input-hover);
-    border-color: var(--input-border-hover);
+    background-color: var(--surface-container-highest-hover);
+    border-color: var(--outline-hover);
 }
 
 .entry
@@ -1411,7 +1413,7 @@ select {
 
 .css-1ocworu-modal {
     background-color: var(--surface-container-high) !important;
-    border: 1px solid var(--card-border) !important;
+    border: 1px solid var(--outline-variant) !important;
     box-shadow: none;
 }
 
@@ -1547,7 +1549,7 @@ select {
 }
 
 .ui-widget.ui-tooltip {
-    background-color: var(--input);
+    background-color: var(--surface-container-highest);
 }
 
 #content *[style*="color: #000"]:not([style*="background-color"]) {
@@ -1595,7 +1597,7 @@ select {
 div[style*="border-left: 6px solid #EFCB4"],
 #qut-tmp-nut-home-signposting {
     background-color: var(--surface-container-high) !important;
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
 }
 
 div[style*="border-left: 6px solid #EFCB4"] span,
@@ -1605,7 +1607,7 @@ div[style*="border-left: 6px solid #EFCB4"] span,
 
 .qut-box {
     background-color: var(--surface-container-high) !important;
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
 }
 
 /* Assignments */
@@ -1649,6 +1651,11 @@ div[style*="border-left: 6px solid #EFCB4"] span,
 }
 
 /* Calendar layout */
+#not_right_side {
+    height: 100%;
+    gap: 20px;
+}
+
 #calendar-app,
 #calendar-app .calendar,
 #calendar-app .fc-view-container,
@@ -1678,6 +1685,12 @@ div[style*="border-left: 6px solid #EFCB4"] span,
     color: var(--on-surface);
 }
 
+.css-1d6pi19-baseButton__content {
+    background-color: var(--primary-container) !important;
+    border-color: var(--primary-container);
+    border-radius: var(--br-large) !important;
+}
+
 .css-6bj23u-toggleDetails__toggle {
     color: var(--on-surface) !important;
 }
@@ -1689,7 +1702,7 @@ div[style*="border-left: 6px solid #EFCB4"] span,
 
 div[style="background: #EFF6FB; padding: 1rem 1.5rem;"] {
     background-color: var(--surface-container-high) !important;
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
 }
 
 div[style="background: #EFF6FB; padding: 1rem 1.5rem;"] p > span span {
@@ -1713,7 +1726,7 @@ div[style="background: #EFF6FB; padding: 1rem 1.5rem;"] p strong span {
 
 .react-rubric td,
 .react-rubric th {
-    border-color: var(--card-border);
+    border-color: var(--outline-variant);
 }
 
 .react-rubric .rating-tier {
@@ -1727,21 +1740,21 @@ div[data-testid="attempt-tab"]
 }
 
 .css-154jdfo-fileDrop__labelContent {
-    border: 1px solid var(--input-border) !important;
+    border: 1px solid var(--outline) !important;
 }
 
 .css-154jdfo-fileDrop__labelContent:hover {
-    border: 1px solid var(--input-border-hover) !important;
+    border: 1px solid var(--outline-hover) !important;
 }
 
 .css-i72g1x-view {
-    background-color: var(--input) !important;
+    background-color: var(--surface-container-highest) !important;
     color: var(--on-surface) !important;
     transition: background-color 0.2s ease-in-out;
 }
 
 .css-i72g1x-view:hover {
-    background-color: var(--input-hover) !important;
+    background-color: var(--surface-container-highest-hover) !important;
     color: var(--on-surface) !important;
 }
 
@@ -1768,14 +1781,14 @@ div[data-testid="upload-box"]
 }
 
 .css-h9zbam-view {
-    background-color: var(--input) !important;
-    border: 1px solid var(--input-border) !important;
+    background-color: var(--surface-container-highest) !important;
+    border: 1px solid var(--outline) !important;
     transition: background-color 0.2s ease-in-out;
 }
 
 .css-h9zbam-view:hover {
-    background-color: var(--input-hover) !important;
-    border: 1px solid var(--input-border-hover) !important;
+    background-color: var(--surface-container-highest-hover) !important;
+    border: 1px solid var(--outline-hover) !important;
 }
 
 .css-kbpk98-inlineSVG-svgIcon {
@@ -1812,7 +1825,7 @@ div[data-testid="upload-box"]
 #grades_summary td,
 #grades_summary th,
 #grades_summary th.title {
-    border-color: var(--card-border);
+    border-color: var(--outline-variant);
 }
 
 #grades_summary th.title .context {
@@ -1846,7 +1859,7 @@ div[data-testid="upload-box"]
 
 .question {
     background-color: var(--surface-container-high);
-    border-color: var(--card-border);
+    border-color: var(--outline-variant);
     border-radius: var(--br-large);
 }
 
@@ -1855,7 +1868,7 @@ div[data-testid="upload-box"]
 }
 
 .question .header {
-    border-bottom-color: var(--card-border);
+    border-bottom-color: var(--outline-variant);
 }
 
 .question.multiple_choice_question .answer,
@@ -1871,7 +1884,7 @@ div[data-testid="upload-box"]
 
 .muted-notice {
     background-color: var(--surface-container-high);
-    border-color: var(--card-border);
+    border-color: var(--outline-variant);
     border-radius: var(--br-large);
     background-image: none;
     text-shadow: none;
@@ -1892,19 +1905,19 @@ div[data-testid="upload-box"]
 }
 
 .quiz_comment {
-    background-color: var(--input);
+    background-color: var(--surface-container-highest);
     border-radius: var(--br-large);
     box-shadow: none;
-    border-color: var(--input-border);
+    border-color: var(--outline);
     background-image: none;
 }
 
 .quiz_comment:before {
-    border-bottom-color: var(--input-border);
+    border-bottom-color: var(--outline);
 }
 
 .quiz_comment:after {
-    border-bottom-color: var(--input);
+    border-bottom-color: var(--surface-container-highest);
 }
 
 table.summary td,
@@ -1919,17 +1932,28 @@ table.summary tbody th {
 
 /* Calendar header */
 #calendar_header .header-bar {
-    padding: 20px;
-    border-bottom: 1px solid var(--card-border);
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--outline-variant);
 }
 
 .btn.active {
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--outline);
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
 }
 
-.btn.active:hover {
-    background-color: dimgray;
-    border: 1px solid var(--input-border);
+.btn-group>.btn {
+    color: var(--on-surface);
+}
+
+.btn-group>.btn:first-child {
+    border-top-left-radius: var(--br-large);
+    border-bottom-left-radius: var(--br-large);
+}
+
+.btn-group>.btn:last-child, .btn-group>.dropdown-toggle {
+    border-top-right-radius: var(--br-large);
+    border-bottom-right-radius: var(--br-large);
 }
 
 #create_new_event_link {
@@ -1988,7 +2012,7 @@ table.summary tbody th {
 }
 
 #minical .fc-basic-view td.fc-day-number:hover {
-    background-color: var(--input-hover);
+    background-color: var(--surface-container-highest-hover);
 }
 
 #minical .fc-bg .fc-state-highlight {
@@ -2026,7 +2050,7 @@ table.summary tbody th {
 
 #right-side h2,
 #right-side .h2 {
-    border-bottom-color: var(--card-border);
+    border-bottom-color: var(--outline-variant);
 }
 
 #calendar-list-holder,
@@ -2067,7 +2091,7 @@ table.summary tbody th {
 
 .fc th,
 .fc td {
-    border-color: var(--card-border);
+    border-color: var(--outline-variant);
 }
 
 .calendar .fc-row .fc-content-skeleton td,
@@ -2093,7 +2117,7 @@ table.summary tbody th {
 }
 
 .agenda-day {
-    border-bottom-color: var(--card-border);
+    border-bottom-color: var(--outline-variant);
 }
 
 .agenda-event__time {
@@ -2127,14 +2151,14 @@ table.summary tbody th {
 .fc-unthemed .fc-divider,
 .fc-unthemed .fc-row,
 .fc-unthemed .fc-popover {
-    border-color: var(--card-border);
+    border-color: var(--outline-variant);
 }
 
 #calendar-app .fc-event,
 #calendar-app .fc-agendaWeek-view .fc-event,
 #calendar-drag-and-drop-container .fc-agendaWeek-view .fc-event {
     background-color: var(--surface-container-high);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
     border-radius: var(--br-small);
     margin-top: 10px;
 }
@@ -2174,13 +2198,13 @@ table.summary tbody th {
 /* Event details */
 div.event-details {
     background-color: var(--surface-container-high);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
     border-radius: var(--br-large);
 }
 
 .ui-menu-carat {
-    border-top-color: var(--card-border);
-    border-bottom-color: var(--card-border);
+    border-top-color: var(--outline-variant);
+    border-bottom-color: var(--outline-variant);
     margin-left: 7px;
 }
 
@@ -2203,7 +2227,7 @@ div.event-details-footer {
 
 .css-13bvaq6-modal {
     background-color: var(--surface-container-high) !important;
-    border: 1px solid var(--card-border) !important;
+    border: 1px solid var(--outline-variant) !important;
     border-radius: var(--br-large) !important;
 }
 
@@ -2222,17 +2246,17 @@ div.event-details-footer {
 }
 
 span[aria-label="Confirm deletion"] .css-1rpus1y-baseButton__content {
-    background-color: var(--input);
+    background-color: var(--surface-container-highest);
     color: var(--on-surface);
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--outline);
 }
 
 span[aria-label="Confirm deletion"]
     button:hover
     .css-1rpus1y-baseButton__content {
-    background-color: var(--input-hover);
+    background-color: var(--surface-container-highest-hover);
     color: var(--on-surface);
-    border: 1px solid var(--input-border-hover);
+    border: 1px solid var(--outline-hover);
 }
 
 /* Add event */
@@ -2243,7 +2267,7 @@ span[aria-label="Confirm deletion"]
 
 .ui-dialog.ui-widget-content {
     color: var(--on-surface);
-    border: 1px solid var(--card-border);
+    border: 1px solid var(--outline-variant);
     border-radius: var(--br-large);
     background-color: transparent;
 }
@@ -2284,9 +2308,13 @@ span[aria-label="Confirm deletion"]
 .ui-tabs .ui-tabs-nav li.ui-tabs-active,
 .ui-tabs .ui-tabs-nav li.ui-tabs-active.ui-state-hover,
 .ui-tabs .ui-tabs-nav li.ui-tabs-active:hover {
-    background-color: dimgray;
+    background-color: var(--secondary-container);
     border: none;
-    border-radius: 4px;
+    border-radius: var(--br-large);
+}
+
+.ui-tabs .ui-tabs-nav li.ui-state-focus, .ui-tabs .ui-tabs-nav li.ui-state-focus.ui-tabs-active {
+    background-color: var(--secondary-container) !important;
 }
 
 #edit_event .ui-tabs .ui-tabs-nav li.ui-tabs-active a,
@@ -2301,9 +2329,9 @@ span[aria-label="Confirm deletion"]
 
 .ui-tabs .ui-tabs-nav li.ui-state-hover,
 .ui-tabs .ui-tabs-nav li:hover {
-    background-color: var(--input-hover);
+    background-color: var(--surface-container-highest);
     border: none;
-    border-radius: var(--br-small);
+    border-radius: var(--br-large);
 }
 
 #edit_event .ui-tabs .ui-tabs-nav li.ui-state-hover a,
@@ -2324,7 +2352,7 @@ span[aria-label="Confirm deletion"]
 }
 
 form.css-ll252p-view {
-    margin: 0;
+    margin: 0 !important;
 }
 
 .ui-tabs .ui-tabs-nav li.ui-state-focus,
@@ -2339,8 +2367,8 @@ form.css-ll252p-view {
 
 #edit_planner_note_form_holder input,
 #edit_planner_note_form_holder textarea {
-    background-color: var(--input);
-    border-color: var(--input-border);
+    background-color: var(--surface-container-highest);
+    border-color: var(--outline);
     box-shadow: none;
     border-radius: var(--br-small);
 }
@@ -2354,16 +2382,16 @@ form.css-ll252p-view {
 .css-f88gdg-baseButton__content,
 .css-10mk03b-baseButton__content,
 .css-1xf7txc-baseButton__content {
-    background-color: var(--input) !important;
-    border: 1px solid var(--input-border) !important;
+    background-color: var(--surface-container-highest) !important;
+    border: 1px solid var(--outline) !important;
 }
 
 .css-1bdofci-view--inlineBlock-baseButton:hover .css-f88gdg-baseButton__content,
 .css-1odzrbe-view--inlineBlock-baseButton:hover
     .css-10mk03b-baseButton__content,
 .css-sklifg-view--inlineBlock:hover .css-1xf7txc-baseButton__content {
-    background-color: var(--input-hover) !important;
-    border: 1px solid var(--input-border-hover) !important;
+    background-color: var(--surface-container-highest-hover) !important;
+    border: 1px solid var(--outline-hover) !important;
 }
 
 .css-1ppxcto-text {

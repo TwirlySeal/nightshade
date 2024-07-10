@@ -293,18 +293,36 @@ function searchBar() {
         var sheet = new CSSStyleSheet();
         sheet.replaceSync(`
             #ajas-search01 {
-            background-color: rgb(60, 60, 60);
-            border: 1px solid rgb(70, 70, 70);
-            color: #FFFFFF;
-            border-radius: 4px;
+                background-color: var(--surface-container-highest);
+                border: none;
+                color: var(--on-surface);
+                border-radius: var(--br-large);
+            }
+
+            .ajas-search-widget__form input {
+                height: 38px;
+            }
+
+            .ajas-search-widget__form input::placeholder {
+                color: var(--on-surface-variant);
+            }
+
+            .ajas-search-widget {
+                --svg-fill: var(--primary);
+            }
+            
+            .ajas-search-widget__btn-group {
+                top: 50%;
+                transform: translate(0, -50%);
+                right: 8px;
             }
 
             .ajas-search-widget--dashboard {
-            margin: 0;
+                margin: 0;
             }
 
             input:-webkit-autofill, input:-webkit-autofill:focus {
-            transition: background-color 0s 600000s, color 0s 600000s !important;
+                transition: background-color 0s 600000s, color 0s 600000s !important;
             }
 
         `);
