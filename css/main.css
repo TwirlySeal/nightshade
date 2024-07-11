@@ -1132,7 +1132,7 @@ select {
     padding: 0 !important;
 }
 
-.css-16umzoa-view--block {
+.css-16umzoa-view--block, .css-1bwup6h-view--block {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -1149,7 +1149,8 @@ select {
 .css-1v4zjv2-view,
 .css-6inuak-view--flex-flex,
 .css-11gbick-view-flexItem,
-.css-1vc94m3-view--flex-flex {
+.css-1vc94m3-view--flex-flex,
+.css-1bwup6h-view--block {
     padding: 0 !important;
     margin: 0 !important;
 }
@@ -1176,6 +1177,10 @@ select {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.css-1c66oc-drawerLayout__content {
+    overflow-y: visible;
 }
 
 .canvas-rce__skins--root {
@@ -1362,6 +1367,9 @@ select {
 
 .module-sequence-footer {
     height: auto;
+    background-color: var(--background);
+    position: fixed;
+    left: 84px;
 }
 
 .module-sequence-footer .module-sequence-footer-content {
@@ -2191,6 +2199,10 @@ form.css-ll252p-view {
     border-color: var(--outline);
     box-shadow: none;
     border-radius: var(--br-small);
+}
+
+.event-details-content {
+    padding: 0;
 }
 
 /* Inbox */

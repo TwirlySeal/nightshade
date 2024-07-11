@@ -101,7 +101,7 @@ function contentLayout() {
             const searchContext = document.querySelector("#content");
             console.log(searchContext);
             
-            elementWait(searchContext, ".css-16umzoa-view--block", (parent) => {
+            elementWait(searchContext, ".css-16umzoa-view--block, .css-1bwup6h-view--block", (parent) => {
                 const toolbar = document.querySelector(".css-sg1rn7-view");
                 const discussion = document.querySelector("[data-testid='discussion-root-entry-container']");
                 parent.insertBefore(toolbar, discussion);
