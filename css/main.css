@@ -867,6 +867,12 @@ textarea:focus {
     border: 1px solid var(--outline);
 }
 
+textarea, input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=search], input[type=tel], input[type=color], .uneditable-input {
+    background-color: transparent;
+    box-shadow: none;
+    border-color: var(--outline-variant);
+}
+
 .css-1jn5ugl-textInput__facade,
 .css-zxdqdw-textInput__facade,
 .css-11e2nr6-textInput__facade {
