@@ -2240,3 +2240,17 @@ form.css-ll252p-view {
 .css-h5qz9v-view {
     border: none !important;
 }
+
+.css-13p5152-baseButton__content {
+    background-color: transparent !important;
+    border-color: var(--outline) !important;
+    border-radius: var(--br-large) !important;
+    color: var(--primary) !important;
+    padding: 8px 14px;
+}
+
+
+.css-131ekwm-baseButton__children {
+    display: block;
+    padding: 0px;
+}
