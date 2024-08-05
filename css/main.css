@@ -612,6 +612,15 @@ ul.events {
     background-color: var(--surface-container-high) !important;
 }
 
+.css-wht6su-menuItem {
+    background-color: var(--surface-container-high) !important;
+}
+
+.css-wht6su-menuItem:hover {
+    background: rgb(18, 76, 118) !important;
+    color: var(--on-surface);
+}
+
 .css-ktk67h-menuItemGroup__label,
 .css-1k1p70m-menuItem {
     background-color: transparent !important;
