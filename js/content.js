@@ -427,7 +427,11 @@ function bodyWait() {
 
 // Check if Canvas URL
 chrome.storage.local.get("canvasURL", (items) => {
-    if (window.location.hostname === Object.entries(items)[0][1]) {
+    // backward compatibility & migrate from string to array
+    if (typeof items.canvasURL === 'string') {
+        chrome.storage.local.set({ 'canvasURL': [{url: items.canvasURL, active: true }] });
+    }
+    if (window.location.hostname === items.canvasURL || items.canvasURL.filter(v=>!!v.active && v.url === window.location.hostname).length > 0) {
         bodyWait()
     }
 });
