@@ -2289,3 +2289,13 @@ form.css-ll252p-view {
 .css-m96lik-view--inlineBlock-baseButton:hover > [class$="-baseButton__content"] {
     background-color: var(--surface-container) !important;
 }
+
+ /* Below are the lines for this fix */
+ .css-1nz9urh {
+    background-color: var(--primary-container);
+    border-right: var(--primary-container);
+ }
+
+ .css-pkzi3c-view-alert {
+    border-color: var(--primary-container);
+ }
