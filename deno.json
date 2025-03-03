@@ -1,0 +1,21 @@
+{
+  "tasks": {
+    "base": "esbuild injected=src/injected/main.ts background=src/background.ts popup=src/popup/popup.ts --bundle --minify",
+    "firefox": "deno task base --outdir=build/firefox",
+    "chrome": "deno task base --outdir=build/chrome --define:browser=chrome"
+  },
+  "imports": {
+    "@types/firefox-webext-browser": "npm:@types/firefox-webext-browser@^120.0.4",
+    "esbuild": "npm:esbuild@^0.25.0"
+  },
+  "compilerOptions": {
+    "types": ["@types/firefox-webext-browser"],
+    "lib": ["ESNext", "dom"]
+  },
+  "lint": {
+    "exclude": ["build/"],
+    "rules": {
+      "exclude": ["no-window"]
+    }
+  }
+}
