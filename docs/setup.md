@@ -5,7 +5,6 @@
 
 ## Setup
 1. Clone the repository:
-
 ```
 git clone https://github.com/twirlyseal/nightshade/nightshade.git
 ```
@@ -16,6 +15,7 @@ python -m venv env
 source env/bin/activate
 pip install kdl-py
 ```
+
 3. Run `package/main.py` to generate the extension manifest
 
 4. Run `deno task firefox` or `deno task chrome` to build the extension for your browser
