@@ -1,0 +1,44 @@
+/* Calendar header */
+#calendar_header .header-bar {
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--outline-variant);
+}
+
+.btn.active {
+    border: 1px solid var(--outline);
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+}
+
+.btn-group>.btn {
+    color: var(--on-surface);
+}
+
+.btn-group>.btn:first-child {
+    border-top-left-radius: var(--br-large);
+    border-bottom-left-radius: var(--br-large);
+}
+
+.btn-group>.btn:last-child, .btn-group>.dropdown-toggle {
+    border-top-right-radius: var(--br-large);
+    border-bottom-right-radius: var(--br-large);
+}
+
+#create_new_event_link {
+    color: var(--on-surface);
+}
+
+#quiz_show .description.teacher-version {
+    height: auto;
+    border: none;
+}
+
+#quiz_show
+    .user_content
+    > div[style*="padding-left: 10px; padding-right: 10px;"] {
+    padding: 0 !important;
+}
+
+#quiz_show .user_content h2 {
+    font-size: 1.5em;
+}

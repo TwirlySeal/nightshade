@@ -1,0 +1,117 @@
+/* Add event */
+.ui-widget-overlay {
+    background-color: var(--surface-container-high);
+    opacity: 0.85;
+}
+
+.ui-dialog.ui-widget-content {
+    color: var(--on-surface);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--br-large);
+    background-color: transparent;
+}
+
+.ui-dialog .ui-widget-content {
+    color: var(--on-surface);
+}
+
+.ui-dialog-title {
+    color: var(--on-surface);
+}
+
+.ui-dialog .ui-dialog-titlebar.ui-widget-header,
+.ui-dialog .ui-datepicker .ui-widget-header.ui-datepicker-header,
+.ui-datepicker .ui-dialog .ui-widget-header.ui-datepicker-header,
+.ui-widget-header {
+    background-color: var(--surface-container-high);
+    border: none;
+}
+
+.ui-dialog .ui-dialog-titlebar-close span {
+    opacity: 1;
+}
+
+.ui-tabs .ui-tabs-panel {
+    background-color: var(--surface-container-high);
+    border: none;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    top: 0;
+}
+
+#edit_event {
+    background-color: var(--surface-container-high);
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active,
+.ui-tabs .ui-tabs-nav li.ui-tabs-active.ui-state-hover,
+.ui-tabs .ui-tabs-nav li.ui-tabs-active:hover {
+    background-color: var(--secondary-container);
+    border: none;
+    border-radius: var(--br-large);
+}
+
+.ui-tabs .ui-tabs-nav li.ui-state-focus, .ui-tabs .ui-tabs-nav li.ui-state-focus.ui-tabs-active {
+    background-color: var(--secondary-container) !important;
+}
+
+#edit_event .ui-tabs .ui-tabs-nav li.ui-tabs-active a,
+#edit_event .ui-tabs .ui-tabs-nav li.ui-tabs-active.ui-state-hover a,
+#edit_event .ui-tabs .ui-tabs-nav li.ui-tabs-active:hover a {
+    color: var(--on-surface);
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+    padding: 0;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-state-hover,
+.ui-tabs .ui-tabs-nav li:hover {
+    background-color: var(--surface-container-highest);
+    border: none;
+    border-radius: var(--br-large);
+}
+
+#edit_event .ui-tabs .ui-tabs-nav li.ui-state-hover a,
+#edit_event .ui-tabs .ui-tabs-nav li:hover a {
+    color: var(--on-surface);
+}
+
+.ui-tabs .ui-tabs-nav li {
+    margin: 0;
+}
+
+.ui-tabs li.ui-state-default {
+    margin-left: 8px;
+}
+
+.ui-tabs li.ui-state-default:first-of-type {
+    margin-left: 12px;
+}
+
+form.css-ll252p-view {
+    margin: 0 !important;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-state-focus,
+.ui-tabs .ui-tabs-nav li.ui-state-focus.ui-tabs-active {
+    background-color: dimgray;
+}
+
+.ui-state-default,
+.ui-widget-header .ui-state-default {
+    border: none;
+}
+
+#edit_planner_note_form_holder input,
+#edit_planner_note_form_holder textarea {
+    background-color: var(--surface-container-highest);
+    border-color: var(--outline);
+    box-shadow: none;
+    border-radius: var(--br-small);
+}
+
+.event-details-content {
+    padding: 0;
+}

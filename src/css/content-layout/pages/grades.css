@@ -1,0 +1,14 @@
+/* Grades */
+#grades_summary tbody tr:hover {
+    background-color: transparent;
+}
+
+#grades_summary td,
+#grades_summary th,
+#grades_summary th.title {
+    border-color: var(--outline-variant);
+}
+
+#grades_summary th.title .context {
+    color: var(--on-surface);
+}

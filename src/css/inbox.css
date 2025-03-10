@@ -1,0 +1,20 @@
+/* Inbox */
+.css-vxe90h-view--inlineBlock {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.css-f88gdg-baseButton__content,
+.css-10mk03b-baseButton__content,
+.css-1xf7txc-baseButton__content {
+    background-color: var(--surface-container-highest) !important;
+    border: 1px solid var(--outline) !important;
+}
+
+.css-1bdofci-view--inlineBlock-baseButton:hover .css-f88gdg-baseButton__content,
+.css-1odzrbe-view--inlineBlock-baseButton:hover
+    .css-10mk03b-baseButton__content,
+.css-sklifg-view--inlineBlock:hover .css-1xf7txc-baseButton__content {
+    background-color: var(--surface-container-highest-hover) !important;
+    border: 1px solid var(--outline-hover) !important;
+}

@@ -1,0 +1,40 @@
+/* Calendar grid */
+#calendar-app {
+    overflow: auto;
+}
+
+#calendar-app .fc-month-view .fc-body,
+#calendar-drag-and-drop-container .fc-month-view .fc-body {
+    background-color: var(--background);
+}
+
+.fc td.fc-widget-header {
+    border: none;
+}
+
+.calendar .fc-head thead .fc-widget-header,
+#calendar-drag-and-drop-container .fc-head thead .fc-widget-header {
+    color: var(--on-surface);
+}
+
+.fc th,
+.fc td {
+    border-color: var(--outline-variant);
+}
+
+.calendar .fc-row .fc-content-skeleton td,
+.calendar .fc-row .fc-helper-skeleton td,
+#calendar-drag-and-drop-container .fc-row .fc-content-skeleton td,
+#calendar-drag-and-drop-container .fc-row .fc-helper-skeleton td {
+    border: none;
+}
+
+#calendar-app .fc-month-view .fc-today,
+#calendar-drag-and-drop-container .fc-month-view .fc-today {
+    background-color: transparent;
+    color: #3772e1;
+}
+
+.fc-month-view .fc-widget-content .fc-day-number {
+    text-align: center;
+}

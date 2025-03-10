@@ -1,6 +1,6 @@
 {
   "name": "Nightshade for Canvas",
-  "version": "2.0",
+  "version": "3.0",
   "manifest_version": 3,
   "description": "A browser extension that transforms Canvas with a modern, responsive UI and dark mode.",
   "permissions": [
@@ -19,6 +19,17 @@
         "build/injected.js"
       ],
       "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "build/css/global.css",
+        "build/css/dashboard.css"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
     }
   ]
 }

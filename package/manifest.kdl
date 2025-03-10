@@ -32,14 +32,17 @@ injections {
 
 // background-script "build/background.js"
 
-// resources {
-//     res {
-//         files \
-//             "css/main.css" \
-//             "assets/icon-x-black-163c6230a4.svg" \
-//             "icons/icon390.png" \
-//             "js/alpine.js"
+resources {
+    res {
+        files \
+            "build/css/global.css" \
+            "build/css/dashboard.css"
 
-//         match "<all_urls>"
-//     }
-// }
+        match "<all_urls>"
+    }
+}
+
+// "css/main.css" \
+// "assets/icon-x-black-163c6230a4.svg" \
+// "icons/icon390.png" \
+// "js/alpine.js"

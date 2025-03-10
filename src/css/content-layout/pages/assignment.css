@@ -1,0 +1,134 @@
+/* Assignment Pages */
+.css-1fqjks6-text {
+    font-weight: bold !important;
+    color: var(--on-surface);
+}
+
+.css-1d6pi19-baseButton__content {
+    background-color: var(--primary) !important;
+    color: var(--on-primary);
+    border-color: var(--primary);
+    border-radius: var(--br-large) !important;
+}
+
+.css-6bj23u-toggleDetails__toggle {
+    color: var(--on-surface) !important;
+}
+
+.css-gyi6rc-toggleDetails__details {
+    padding: 0 !important;
+    color: var(--on-surface) !important;
+}
+
+div[style="background: #EFF6FB; padding: 1rem 1.5rem;"] {
+    background-color: var(--surface-container-high) !important;
+    border: 1px solid var(--outline-variant);
+}
+
+div[style="background: #EFF6FB; padding: 1rem 1.5rem;"] p > span span {
+    color: var(--on-surface) !important;
+}
+
+div[style="background: #EFF6FB; padding: 1rem 1.5rem;"] p strong span {
+    color: var(--on-surface) !important;
+}
+
+.react-rubric .css-1myyqst-view-table,
+.react-rubric thead,
+.react-rubric .css-uysa3a-view-row,
+.react-rubric .css-pcp0di-colHeader,
+.react-rubric .css-1bxyo8j-view-body,
+.react-rubric .css-71iz6n-view-rowHeader,
+.react-rubric .css-ppw98w-view-cell {
+    background-color: transparent !important;
+    color: var(--on-surface) !important;
+}
+
+.react-rubric td,
+.react-rubric th {
+    border-color: var(--outline-variant);
+}
+
+.react-rubric .rating-tier {
+    border-color: var(--on-surface);
+}
+
+div[data-testid="attempt-tab"]
+    div[style="background-color: rgb(245, 245, 245); border-top: 2px solid rgb(199, 205, 209);"] {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+.css-154jdfo-fileDrop__labelContent {
+    border: 1px solid var(--outline) !important;
+}
+
+.css-154jdfo-fileDrop__labelContent:hover {
+    border: 1px solid var(--outline-hover) !important;
+}
+
+.css-i72g1x-view {
+    background-color: var(--surface-container-highest) !important;
+    color: var(--on-surface) !important;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.css-i72g1x-view:hover {
+    background-color: var(--surface-container-highest-hover) !important;
+    color: var(--on-surface) !important;
+}
+
+div[data-testid="upload-box"]
+    span[style="display: block; width: 100%; z-index: 99; background-color: rgb(245, 245, 245); padding: 1.5rem 0px;"] {
+    background-color: transparent !important;
+}
+
+.css-bucl0a-view-flexItem.css-bucl0a-view-flexItem.css-bucl0a-view-flexItem.css-bucl0a-view-flexItem.css-bucl0a-view-flexItem.css-bucl0a-view-flexItem.css-bucl0a-view-flexItem.css-bucl0a-view-flexItem.css-bucl0a-view-flexItem.css-bucl0a-view-flexItem {
+    padding: 0 !important;
+}
+
+.css-1jzyw4p-view--block.css-1jzyw4p-view--block.css-1jzyw4p-view--block.css-1jzyw4p-view--block.css-1jzyw4p-view--block.css-1jzyw4p-view--block.css-1jzyw4p-view--block.css-1jzyw4p-view--block.css-1jzyw4p-view--block.css-1jzyw4p-view--block {
+    margin: 0 !important;
+}
+
+.css-1ekpoai-view--flex-flex {
+    justify-content: flex-start;
+}
+
+div[data-testid="upload-box"]
+    div[style="height: 100%; width: 1px; left: 50%; position: absolute; background-color: rgb(107, 119, 128);"] {
+    display: none;
+}
+
+.css-h9zbam-view {
+    background-color: var(--surface-container-highest) !important;
+    border: 1px solid var(--outline) !important;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.css-h9zbam-view:hover {
+    background-color: var(--surface-container-highest-hover) !important;
+    border: 1px solid var(--outline-hover) !important;
+}
+
+.css-kbpk98-inlineSVG-svgIcon {
+    color: var(--on-surface);
+}
+
+.css-1ku4xx4-text {
+    color: var(--on-surface) !important;
+}
+
+#assignments-student-footer {
+    background-color: var(--background) !important;
+    border: none !important;
+}
+
+.css-1ocworu-modal {
+    color: var(--on-surface) !important;
+}
+
+.css-6r8upb-view {
+    background-color: var(--background) !important;
+    color: var(--on-surface) !important;
+}

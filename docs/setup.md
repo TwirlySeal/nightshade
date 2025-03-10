@@ -6,21 +6,23 @@
 ## Setup
 1. Clone the repository:
 ```
-git clone https://github.com/twirlyseal/nightshade/nightshade.git
+git clone https://github.com/twirlyseal/nightshade.git
 ```
 
 2. Create a virtual environment and install kdl-py:
 ```bash
 python -m venv env
-source env/bin/activate
+source env/bin/activate # on Windows use `venv\Scripts\activate`
 pip install kdl-py
 ```
 
-3. Run `package/main.py` to generate the extension manifest
+3. Run `package/main.py` to generate the extension manifest (working directory must be `package/` for now)
 
 4. Run `deno task firefox` or `deno task chrome` to build the extension for your browser
 
 > Firefox DevTools are better for HTML and CSS, while Chrome DevTools are better for JavaScript and performance+network analysis
+
+5. Open `build/firefox/` or `build/chrome/` and move the files into the containing `build/` directory (temporary workaround, better solution coming)
 
 ## Running the extension
 **Firefox:**

@@ -1,0 +1,49 @@
+/* Layout */
+body {
+    min-height: auto;
+}
+
+#application {
+    display: flex;
+    height: 100vh;
+    min-height: auto;
+}
+
+#wrapper {
+    margin: 0;
+    padding: 0 20px;
+    max-width: none;
+    min-height: auto;
+    width: 100%;
+    overflow-y: auto;
+    scroll-padding: 78px;
+}
+
+#right-side-wrapper {
+    overflow-y: auto;
+    max-width: 300px;
+    width: 100%;
+    padding: 20px 0px 0px 0px;
+    height: 100%;
+}
+
+#content {
+    padding: 0;
+}
+
+#dashboard {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    column-gap: 20px;
+}
+
+#header {
+    position: static;
+    flex-shrink: 0;
+}
+
+#main {
+    margin: 0;
+}
