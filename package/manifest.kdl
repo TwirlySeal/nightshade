@@ -25,7 +25,7 @@ defaults {
 injections {
     inject {
         match "<all_urls>"
-        script "build/injected.js"
+        script "$BUILD_DIR/injected.js"
         run-at "document_start"
     }
 }
