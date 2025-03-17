@@ -12,7 +12,7 @@ git clone https://github.com/twirlyseal/nightshade.git
 2. Create a virtual environment and install kdl-py:
 ```bash
 python -m venv env
-source env/bin/activate # on Windows use `venv\Scripts\activate`
+source env/bin/activate # on Windows use `env\Scripts\activate`
 pip install kdl-py
 ```
 
