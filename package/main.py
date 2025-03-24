@@ -6,20 +6,39 @@ from pprint import pprint
 TARGET_FIREFOX = 'firefox'
 TARGET_CHROME = 'chrome'
 
-DEFINE_BUILDDIR = '$BUILD_DIR'
+BUILD_DIR = '$BUILD_DIR'
+SHARED_DIR = '$SHARED_DIR'
 
-def match_replace_define(source: str, define: str, value: str):
+def match_replace_define(source: str, define: str, value: str) -> str:
     if source.find(define) != -1:
         return str.replace(source, define, value)
 
     return source
 
+def inject_define(source: str, define: str, target: str) -> str:
+    content = match_replace_define(source, define, target)
+    if source == content:
+        return content
+
+    if BUILD_DIR == define:
+        return f'build/{content}'
+
+    if SHARED_DIR: # change the location strings per target if needed
+        if target == TARGET_FIREFOX:
+            return  f'shared/{content}'
+        if target == TARGET_CHROME:
+            return  f'shared/{content}'
+
+    return content
+
 def build_manifest(target: str):
     with open('manifest.kdl') as f: s = f.read()
     doc = kdl.parsefuncs.parse(s)
 
-    manifest = {}
+    print(f'generating manifect for {target}...')
 
+    manifest = {}
+    # start parsing the kdl file
     for node in doc.nodes:
         match node.name:
             case 'manifest-version':
@@ -51,6 +70,32 @@ def build_manifest(target: str):
 
                 manifest['action'] = action
 
+            case 'resources': # web_accessible_resources
+                # Does not support 'use_dynamic_url'
+                # To-do: make files the parent key for matches and extension_ids to allow for bothp
+                resources = []
+                for resource in node.nodes:
+                    obj = {}
+
+                    for field in resource.nodes:
+                        key = ""
+                        match field.name:
+                            case 'files':
+                                key = 'resources'
+                            case 'match':
+                                key = 'matches'
+                        
+                        updatedargs = []
+                        for arg in field.args:
+                            resourceContent = inject_define(arg, SHARED_DIR, target)
+                            updatedargs.append(resourceContent)
+
+                        obj[key] = updatedargs
+
+                    resources.append(obj)
+
+                manifest['web_accessible_resources'] = resources
+
             case 'injections': # content_scripts
                 # Only supports single-value fields
                 injections = []
@@ -71,11 +116,8 @@ def build_manifest(target: str):
                         # match args against defs and update the values
                         updatedargs = []
                         for arg in field.args:
-                            v = match_replace_define(arg, DEFINE_BUILDDIR, target)
-                            if v != arg: # success
-                                v = f'build/{v}'
-
-                            updatedargs.append(v)
+                            injectionContent = inject_define(arg, BUILD_DIR, target)
+                            updatedargs.append(injectionContent)
 
                         obj[key] = updatedargs
 
@@ -87,34 +129,17 @@ def build_manifest(target: str):
                 # Does not support type field
                 manifest['background'] = {"service_worker": node.args[0]}
 
-            case 'resources': # web_accessible_resources
-                # Does not support 'use_dynamic_url'
-                # To-do: make files the parent key for matches and extension_ids to allow for both
-                resources = []
-                for resource in node.nodes:
-                    obj = {}
-
-                    for field in resource.nodes:
-                        key = ""
-                        match field.name:
-                            case 'files':
-                                key = 'resources'
-                            case 'match':
-                                key = 'matches'
-
-                        obj[key] = field.args
-
-                    resources.append(obj)
-
-                manifest['web_accessible_resources'] = resources
-
             case _:
                 try:
                     manifest[node.name] = node.args[0]
                 except:
                     pprint(node)
 
-    with open("../manifest.json", "w") as f: json.dump(manifest, f, indent=2)
+    try:
+        with open("../manifest.json", "w") as f: json.dump(manifest, f, indent=2)
+        print(f'manifest generated for {target}!')
+    except Exception as e:
+        print('failed to generate manifest: ', e)
 
 def run(args: list[str]):
     if len(args) != 2: # only supporting firefox and chrome
