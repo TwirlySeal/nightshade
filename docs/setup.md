@@ -1,7 +1,9 @@
 ## Required software
 - [Deno](https://deno.com/)
-- [Deno Language Server](https://docs.deno.com/runtime/getting_started/setup_your_environment/)
 - [Python](https://www.python.org/)
+
+**Language support extensions:**
+There are editor extensions that provide support for Deno and the KDL language. For VS Code, search 'Deno' and 'KDL' in the Extensions tab, and there are also integrations for some other editors.
 
 ## Setup
 1. Clone the repository:
@@ -10,25 +12,32 @@ git clone https://github.com/twirlyseal/nightshade.git
 ```
 
 2. Create a virtual environment and install kdl-py:
-```bash
+```zsh
 python -m venv env
 source env/bin/activate # on Windows use `env\Scripts\activate`
 pip install kdl-py
 ```
 
-3. Run `package/main.py` to generate the extension manifest (working directory must be `package/` for now)
+## Building the extension
+When building the extension for the first time, you will need to perform all of these steps. Afterwards, you only need to build the components you've changed.
 
-4. Run `deno task firefox` or `deno task chrome` to build the extension for your browser
+**Extension manifest:** Run `package/main.py` from inside the package folder
 
-> Firefox DevTools are better for HTML and CSS, while Chrome DevTools are better for JavaScript and performance+network analysis
+**TypeScript:** `deno task firefox` or `deno task chrome`
 
-5. Open `build/firefox/` or `build/chrome/` and move the files into the containing `build/` directory (temporary workaround, better solution coming)
+**CSS:** `deno task css`
 
-## Running the extension
+## Using the extension
+> Reloading is only necessary when the extension manifest or JavaScript files are changed; for static files such as HTML, CSS, and images, the browser always uses the current version.
+
 **Firefox:**
 1. Navigate to `about:debugging` and click 'This Firefox'
-2. Click 'Load Temporary Add-on' and click on any file at the root of the project directory (e.g. `manifest.json`)
+2. Click 'Load Temporary Add-on' and click on any file in `build/firefox/` (e.g. `manifest.json`)
+
+To reload the extension, click 'Reload'.
 
 **Chrome:**
 1. Navigate to `chrome://extensions` and enable developer mode
-2. Click 'Load unpacked' and select the project folder
+2. Click 'Load unpacked' and select the `build/chrome/` folder
+
+To reload the extension, click the circular arrow icon on the extension card.

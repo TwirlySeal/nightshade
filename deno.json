@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "base": "esbuild injected=src/injected/main.ts background=src/background.ts popup=src/popup/popup.ts --bundle --minify",
+    "base": "esbuild injected=src/injected/main.ts background=src/background.ts popup=src/popup/popup.ts --bundle",
     "firefox": "deno task base --outdir=build/firefox",
     "chrome": "deno task base --outdir=build/chrome --define:browser=chrome",
     "css": "esbuild global=src/css/global/global.css calendar=src/css/calendar/main.css dashboard=src/css/dashboard/main.css --outdir=build/css --bundle"
