@@ -20,10 +20,10 @@ def inject_define(source: str, define: str, target: str) -> str:
     if source == content:
         return content
 
-    if BUILD_DIR == define:
+    if define == BUILD_DIR:
         return f'build/{content}'
 
-    if SHARED_DIR: # change the location strings per target if needed
+    if define == SHARED_DIR: # change the location strings per target if needed
         if target == TARGET_FIREFOX:
             return  f'shared/{content}'
         if target == TARGET_CHROME:
