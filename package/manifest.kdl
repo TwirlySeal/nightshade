@@ -19,13 +19,13 @@ permissions {
 
 defaults {
     tooltip "Popup for setting Canvas URL"
-    popup "src/popup/popup.html"
+    popup "popup.html"
 }
 
 injections {
-    inject {
+    - {
         match "<all_urls>"
-        script "build/injected.js"
+        script "injected.js"
         run-at "document_start"
     }
 }
@@ -33,10 +33,10 @@ injections {
 // background-script "build/background.js"
 
 resources {
-    res {
+    - {
         files \
-            "build/css/global.css" \
-            "build/css/dashboard.css"
+            "global.css" \
+            "dashboard.css"
 
         match "<all_urls>"
     }

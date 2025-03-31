@@ -1,95 +1,72 @@
-import kdl
 import json
-from pprint import pprint
-
-with open('manifest.kdl') as f: s = f.read()
-doc = kdl.parsefuncs.parse(s)
+from kdl.parsefuncs import parse
 
 manifest = {}
+with open('manifest.kdl') as f: doc = parse(f.read())
 
 for node in doc.nodes:
+    # For nodes with one argument
+    def pairNode(name: str):
+        manifest[name] = node.args[0]
+
     match node.name:
-        case 'manifest-version':
-            manifest['manifest_version'] = node.args[0]
+        case 'manifest-version': pairNode('manifest_version')
+        case 'icons': manifest['icons'] = {
+            icon.name: icon.args[0]
+            for icon in node.nodes
+        }
 
-        case 'icons':
-            icons = {}
-            for icon in node.nodes:
-                icons[icon.name] = icon.args[0]
+        case 'permissions': manifest['permissions'] = [ perm.name for perm in node.nodes ]
+        case 'defaults':
+            DEFAULTS_KEYS = {
+                "popup": "default_popup",
+                "tooltip": "default_title"
+            }
+            manifest['action'] = {
+                DEFAULTS_KEYS[default.name]: default.args[0]
+                for default in node.nodes
+            }
 
-            manifest['icons'] = icons
+        case 'injections':
+            INJECTIONS_KEYS = {
+                "match": "matches",
+                "script": "js"
+            }
 
-        case 'permissions':
-            manifest['permissions'] = [perm.name for perm in node.nodes]
-
-        case 'defaults': # action
-            # Does not support 'default_icon'
-            action = {}
-
-            for default in node.nodes:
-                key = ""
-                match default.name:
-                    case 'popup':
-                        key = 'default_popup'
-                    case 'tooltip':
-                        key = 'default_title'
-
-                action[key] = default.args[0]
-
-            manifest['action'] = action
-
-        case 'injections': # content_scripts
-            # Only supports single-value fields
             injections = []
-            for match in node.nodes:
+            for inj in node.nodes:
                 obj = {}
-
-                for field in match.nodes:
-                    key = ""
-                    match field.name:
-                        case 'run-at':
-                            obj['run_at'] = field.args[0]
-                            continue
-                        case 'match':
-                            key = 'matches'
-                        case 'script':
-                            key = 'js'
-
-                    obj[key] = field.args
-
+                for field in inj.nodes:
+                    if field.name == "run-at":
+                        obj["run_at"] = field.args[0]
+                    else:
+                        obj[INJECTIONS_KEYS[field.name]] = field.args
                 injections.append(obj)
-
             manifest['content_scripts'] = injections
 
-        case 'background-script': # background
-            # Does not support type field
-            manifest['background'] = {"service_worker": node.args[0]}
+        # Does not support type field
+        case 'background-script': manifest['background'] = { "service_worker": node.args[0] }
 
-        case 'resources': # web_accessible_resources
-            # Does not support 'use_dynamic_url'
-            # To-do: make files the parent key for matches and extension_ids to allow for both
-            resources = []
-            for resource in node.nodes:
-                obj = {}
+        case 'resources':
+            RESOURCES_KEYS = {
+                "files": "resources",
+                "match": "matches"
+            }
+            manifest["web_accessible_resources"] = [
+                {
+                    RESOURCES_KEYS[field.name]: field.args
+                    for field in res.nodes
+                }
+                for res in node.nodes
+            ]
 
-                for field in resource.nodes:
-                    key = ""
-                    match field.name:
-                        case 'files':
-                            key = 'resources'
-                        case 'match':
-                            key = 'matches'
+        case _: pairNode(node.name)
 
-                    obj[key] = field.args
+manifest_string = json.dumps(manifest, indent=2)
 
-                resources.append(obj)
+def writeManifest(path: str):
+    with open(path, "w") as f: f.write(manifest_string)
 
-            manifest['web_accessible_resources'] = resources
-
-        case _:
-            try:
-                manifest[node.name] = node.args[0]
-            except:
-                pprint(node)
-
-with open("../manifest.json", "w") as f: json.dump(manifest, f, indent=2)
+filename = "manifest.json"
+writeManifest("../build/firefox/" + filename)
+writeManifest("../build/chrome/" + filename)
