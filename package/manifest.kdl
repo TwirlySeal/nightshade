@@ -30,7 +30,7 @@ injections {
     }
 }
 
-background-script "build/background.js"
+background-script "background.js"
 
 resources {
     - {

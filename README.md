@@ -9,4 +9,5 @@ A browser extension for Firefox and Chrome that transforms the Canvas LMS with a
 - [Project setup](docs/setup.md)
 - [To-do](docs/todo.md)
 - [Extensions](docs/extensions.md)
+- [JavaScript](docs/js.md)
 - [CSS](docs/css.md)
