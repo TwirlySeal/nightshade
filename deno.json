@@ -1,8 +1,8 @@
 {
   "tasks": {
-    "base": "esbuild injected=src/injected/main.ts background=src/background.ts popup=src/popup/popup.ts --bundle --minify",
-    "firefox": "deno task base --outdir=build/firefox",
-    "chrome": "deno task base --outdir=build/chrome --define:browser=chrome"
+    "base": "deno run --allow-env --allow-read --allow-run package/build.ts",
+    "firefox": "deno task base firefox",
+    "chrome": "deno task base chrome"
   },
   "imports": {
     "@types/firefox-webext-browser": "npm:@types/firefox-webext-browser@^120.0.4",

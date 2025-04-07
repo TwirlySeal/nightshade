@@ -1,0 +1,105 @@
+/* Modules */
+#modules-sidebar {
+    height: max-content;
+    width: 25%;
+    min-width: 200px;
+    max-width: 300px;
+    position: sticky;
+    top: 76px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#modules-sidebar a {
+    color: var(--on-surface-variant);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
+}
+
+#modules-sidebar a:hover {
+    color: var(--on-surface);
+    background-color: var(--surface-container-high);
+}
+
+.item-group-container {
+    background-color: transparent;
+    padding: 0;
+}
+
+#context_modules {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item-group-condensed {
+    padding: 0;
+}
+
+.context_module, .item-group-condensed {
+    margin: 0;
+    background-color: var(--surface-container);
+    border-radius: var(--br-large);
+    border: 1px solid var(--outline-variant);
+}
+
+.item-group-container .item-group-condensed:last-child, .item-group-container .item-group-condensed:last-of-type, .item-group-container .item-group-condensed.last {
+    border-bottom: 1px solid var(--outline-variant);
+}
+
+.item-group-condensed .ig-header {
+    margin: 0;
+    padding: 12px;
+    background-color: transparent;
+    border: none;
+    border-radius: var(--br-large);
+    transition:
+        background-color 0.2s ease-in-out,
+        color 0.2s ease-in-out;
+    color: var(--on-surface);
+}
+
+.item-group-condensed .ig-header:hover {
+    margin: 0;
+    background-color: var(--secondary-container);
+    color: var(--on-secondary-container);
+    border: none;
+    border-radius: var(--br-large);
+}
+
+.ig-header .name {
+    text-shadow: none;
+    color: var(--on-surface);
+}
+
+.ig-header .pill {
+    color: var(--on-surface);
+    box-shadow: none;
+    border: none;
+}
+
+.item-group-condensed .ig-row,
+.ig-list .ig-row:hover,
+.context_module_item.context_module_item_hover {
+    background-color: transparent;
+    border: none;
+}
+
+.context_module_item .type_icon i {
+    color: var(--on-surface-variant);
+}
+
+.ig-list .ig-row a.ig-title {
+    color: var(--on-surface);
+    font-weight: normal;
+}
+
+.context_module div.footer {
+    display: none;
+}

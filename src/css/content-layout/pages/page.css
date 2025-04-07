@@ -1,0 +1,68 @@
+/* Module Pages */
+.pages.show .show-content {
+    padding: 0;
+}
+
+.pages.show .page-title {
+    color: var(--on-surface);
+    font-weight: normal;
+}
+
+#module_navigation_target {
+    margin-top: 20px;
+}
+
+.module-sequence-footer {
+    height: auto;
+    background-color: var(--background);
+    position: fixed;
+    left: 84px;
+}
+
+.module-sequence-footer .module-sequence-footer-content {
+    background-color: transparent;
+    border: none;
+    height: auto;
+    padding: 0;
+}
+
+.ui-widget.ui-tooltip {
+    background-color: var(--surface-container-highest);
+}
+
+#content *[style*="color: #000"]:not([style*="background-color"]) {
+    color: var(--on-surface) !important;
+}
+
+#content *[style*="background-color"] *[style*="color: #000"] {
+    color: #000 !important;
+}
+
+#content
+    *[style*="color: var(--ic-brand-font-color-dark)"]:not(
+        [style*="background-color"]
+    ) {
+    color: var(--on-surface) !important;
+}
+
+#content
+    *[style*="background-color"]
+    *[style*="color: var(--ic-brand-font-color-dark);"] {
+    color: var(--ic-brand-font-color-dark) !important;
+}
+
+#content *[style*="color: windowtext"]:not([style*="background-color"]) {
+    color: var(--on-surface) !important;
+}
+
+#content *[style*="background-color"] *[style*="color: windowtext"] {
+    color: windowtext !important;
+}
+
+#content *[style*="color: #333333"]:not([style*="background-color"]) {
+    color: var(--on-surface) !important;
+}
+
+#content *[style*="background-color"] *[style*="color: #333333"] {
+    color: windowtext !important;
+}

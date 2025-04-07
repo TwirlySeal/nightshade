@@ -1,0 +1,34 @@
+/* Sidebar */
+.rs-section {
+    margin: 0;
+}
+
+#calendar-list-holder,
+#other-calendars-list-holder,
+#undated-events,
+#calendars-context-list .context_list_context:hover,
+#other-calendars-context-list .context_list_context:hover {
+    background-color: transparent;
+}
+
+#right-side h2,
+#right-side .h2 {
+    border-bottom-color: var(--outline-variant);
+}
+
+#calendar-list-holder,
+#other-calendars-list-holder,
+#undated-events {
+    max-height: none;
+}
+
+#calendars-context-list .context_list_context,
+#other-calendars-context-list .context_list_context {
+    padding: 0;
+}
+
+#undated-events .event {
+    background-color: transparent;
+    border: none;
+    margin: 5px 0;
+}

@@ -1,0 +1,41 @@
+/* Import all global CSS files here */
+@import url(ns.css);
+@import url(layout.css);
+@import url(navigation.css);
+@import url(unsorted.css);
+@import url(unsorted2.css);
+@import url(other.css);
+
+:root {
+    --background: #161216;
+
+    --surface-container: #231e23;
+    --surface-container-high: #2e282d;
+    --surface-container-highest: #393338;
+
+    --on-surface: #eae0e6;
+    --on-surface-variant: #d1c2ce;
+
+    --primary-container: #6d3774;
+    --on-primary-container: #ffe0fd;
+
+    --secondary-container: #4f3851;
+    --on-secondary-container: #eccaea;
+
+    --primary: #f3b0f7;
+    --on-primary: #4E1956;
+
+    --outline: #9A8D98;
+    --outline-variant: #4e444d;
+
+    /* Corner radii */
+    --br-large: 24px;
+    --br-small: 4px;
+
+    /* Legacy styles */
+    --card-hover: #2b2b2b;
+    --outline-variant-hover: #353535;
+
+    --surface-container-highest-hover: #464646;
+    --outline-hover: #505050;
+}

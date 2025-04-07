@@ -1,46 +1,36 @@
-## Organisation
-1. Use inline styles where a name doesn't make sense (e.g. wrapper divs)
-2. Create classes for reusable UI components (e.g. button).
-3. Combine classes to make variants of components.
+# Sizing Units
+`rem` - Multiple of the root element's font size. The default unit for most uses
 
-```html
-<button class="button enabled">
+`em` - Multiple of the font size of the element being styled. Useful for scaling based on your own font size setting
+
+`px` - Pixels. When precise control over pixels is needed
+
+`ch` - The width of the character 0. Useful for sizing text containers
+
+## Viewport Units
+The viewport is the viewable content area in a browser window.
+- `vh` - Fraction of the viewport height
+- `vw` - Fraction of the viewport width
+
+`vh` and `vw` don't account for browser interfaces that dynamically expand and retract (like the toolbar in mobile browsers which hides when you scroll down)
+- `dvh`/`dvw` - Resizes when these interfaces expand and retract
+- `svh`/`svw` - Based on the viewport size when these interfaces are retracted
+
+# Nesting
+Nesting reduces boilerplate for selectors with shared components. Nested selectors are child selectors, unless the nesting selector `&` is used which makes them compound selectors.
+
+Without nesting:
+```css
+.card { background-color: gray; }
+.card span { color: white; }
+.card:hover { background-color: rebeccapurple; }
 ```
 
+With nesting:
 ```css
-.button {
-    padding: 5px;
-
-    &.enabled {
-        background-color: blue;
-    }
-
-    &.disabled {
-        background-color: darkblue;
-    }
-}
-```
-
-Benefits of this approach:
-  - Styles are applied for both the base button and variant without repeated code
-  - Selectors for variant classes are component-specific, making unintentional overlap less likely
-  - JavaScript can easily transition between variants by changing the classes
-  - `active` can become a convention as a variant name for other components, making them more clear
-
-## Tips
-- Use variables for reused values to centralise them
-- Use rule nesting to greatly reduce boilerplate (like the example below)
-
-```css
-.menu {
-    display: grid;
-
-    @media (orientation: landscape) {
-        grid-auto-flow: column;
-    }
-
-    &:hover {
-        background-color: RebeccaPurple;
-    }
+.card {
+    background-color: gray;
+    span { color: white; }
+    &:hover { background-color: rebeccapurple; }
 }
 ```

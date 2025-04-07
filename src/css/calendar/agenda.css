@@ -1,0 +1,12 @@
+/* Calendar Agenda View */
+.agenda-wrapper {
+    background-color: transparent;
+}
+
+.agenda-day {
+    border-bottom-color: var(--outline-variant);
+}
+
+.agenda-event__time {
+    font-weight: normal;
+}

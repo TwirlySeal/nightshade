@@ -1,0 +1,119 @@
+/* Announcement/Discussion Topic Pages */
+.css-sg1rn7-view {
+    background-color: transparent;
+    padding: 0 !important;
+}
+
+.css-16umzoa-view--block, .css-1bwup6h-view--block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.css-15w7yyw-view,
+.css-3qn3vl-view--flex-flex,
+.css-6mn2np-view-flexItem,
+.css-x8cz54-view-flexItem,
+.css-r944em-view-flexItem,
+.css-11fb808-view,
+.css-16umzoa-view--block,
+.css-dzj5tk-view-flexItem,
+.css-1v4zjv2-view,
+.css-6inuak-view--flex-flex,
+.css-11gbick-view-flexItem,
+.css-1vc94m3-view--flex-flex,
+.css-1bwup6h-view--block,
+.css-1hatz2-view-flexItem {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.css-15w7yyw-view {
+    border: none;
+}
+
+.css-138gh4t-view {
+    display: flex !important;
+    flex-direction: column;
+    gap: 10px !important;
+}
+
+.css-3qn3vl-view--flex-flex {
+    gap: 10px !important;
+}
+
+.css-1fvrx9c-text {
+    font-weight: normal;
+}
+
+.css-1vx9cwx-view--block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.css-1c66oc-drawerLayout__content {
+    overflow-y: visible;
+}
+
+.canvas-rce__skins--root {
+    background-color: transparent !important;
+}
+
+.tox-toolbar-overlord {
+    margin: 0 !important;
+}
+
+.tox:not(.tox-tinymce-inline) .tox-editor-header {
+    background-color: transparent !important;
+}
+
+.tox-menubar {
+    background-color: var(--surface-container-high) !important;
+    border-top-left-radius: var(--br-small);
+    border-top-right-radius: var(--br-small);
+}
+
+.tox-toolbar__primary {
+    background-color: var(--surface-container-high) !important;
+    color: var(--on-surface);
+}
+
+.tox-mbtn,
+.tox-tbtn {
+    color: var(--on-surface) !important;
+    background-color: transparent !important;
+}
+
+.tox-tbtn path {
+    fill: var(--on-surface);
+}
+
+.tox-split-button .tox-tbtn.tox-split-button__chevron {
+    background-color: var(--surface-container-highest) !important;
+}
+
+.tox-mbtn:hover,
+.tox-tbtn:hover,
+.tox-split-button:hover,
+.tox-tbtn.tox-tbtn--enabled:hover,
+.tox-split-button .tox-tbtn.tox-split-button__chevron:hover {
+    background-color: var(--surface-container-highest-hover) !important;
+}
+
+.tox .tox-tbtn.tox-tbtn--enabled::after {
+    display: none;
+}
+
+.tox-edit-area {
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.tox-edit-area__iframe {
+    border: none !important;
+}
+
+.canvas-rce__skins--root > span {
+    background-color: var(--surface-container-high);
+}

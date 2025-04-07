@@ -1,0 +1,22 @@
+/* Institution-specific Elements */
+
+/* QUT */
+.qut-table-schedule span[style="background-color: #f1c40f;"] strong {
+    color: var(--background);
+}
+
+div[style*="border-left: 6px solid #EFCB4"],
+#qut-tmp-nut-home-signposting {
+    background-color: var(--surface-container-high) !important;
+    border: 1px solid var(--outline-variant);
+}
+
+div[style*="border-left: 6px solid #EFCB4"] span,
+#qut-tmp-nut-home-signposting span {
+    color: var(--on-surface) !important;
+}
+
+.qut-box {
+    background-color: var(--surface-container-high) !important;
+    border: 1px solid var(--outline-variant);
+}

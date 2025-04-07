@@ -1,0 +1,39 @@
+/* Assignments */
+.css-a8tvzv-radioInput__facade {
+    box-shadow: none;
+    background-color: dimgray;
+    border-radius: var(--br-small);
+}
+
+.css-1l8k4me-radioInput__label {
+    color: var(--on-surface) !important;
+}
+
+#ag-list .ig-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.accessible-toggler,
+.accessible-toggler:hover,
+.accessible-toggler:focus {
+    color: var(--on-surface);
+}
+
+.accessible-toggler i {
+    color: var(--on-surface);
+}
+
+.ig-list .ig-row {
+    color: var(--on-surface);
+}
+
+.ig-list .ig-row.ig-row-empty {
+    background-color: transparent;
+    border: none;
+}
+
+.ig-list .ig-row .ig-empty-msg {
+    color: var(--on-surface);
+}
