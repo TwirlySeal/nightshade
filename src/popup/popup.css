@@ -68,7 +68,7 @@ body {
     display: none;
 }
 
-@media (width > 300px) {
+@media (width > 400px) {
     body {
         height: 100vh;
         padding: 0;

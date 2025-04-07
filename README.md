@@ -8,3 +8,5 @@ A browser extension for Firefox and Chrome that transforms the Canvas LMS with a
 ## Docs quick links
 - [Project setup](docs/setup.md)
 - [To-do](docs/todo.md)
+- [Extensions](docs/extensions.md)
+- [CSS](docs/css.md)

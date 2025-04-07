@@ -1,8 +1,12 @@
 import json
 from kdl.parsefuncs import parse
+import pathlib
+
+PACKAGE_DIR = pathlib.Path(__file__).parent
+BUILD_DIR = PACKAGE_DIR.parent.joinpath('build')
 
 manifest = {}
-with open('manifest.kdl') as f: doc = parse(f.read())
+with open(PACKAGE_DIR.joinpath('manifest.kdl')) as f: doc = parse(f.read())
 
 for node in doc.nodes:
     # For nodes with one argument
@@ -64,9 +68,9 @@ for node in doc.nodes:
 
 manifest_string = json.dumps(manifest, indent=2)
 
-def writeManifest(path: str):
+def writeManifest(build: str):
+    path = BUILD_DIR.joinpath(build, "manifest.json")
     with open(path, "w") as f: f.write(manifest_string)
 
-filename = "manifest.json"
-writeManifest("../build/firefox/" + filename)
-writeManifest("../build/chrome/" + filename)
+writeManifest('firefox')
+writeManifest('chrome')

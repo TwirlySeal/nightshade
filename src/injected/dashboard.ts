@@ -89,6 +89,4 @@ export async function dashboard(coursesPromise: Promise<Response[]>) {
   }
 
   document.querySelector("#dashboard")!.appendChild(announcementsPanel);
-
-  // todo: assignments and grades panels
 }

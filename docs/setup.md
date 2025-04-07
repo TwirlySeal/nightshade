@@ -7,7 +7,7 @@ There are editor extensions that provide support for Deno and the KDL language. 
 
 ## Setup
 1. Clone the repository:
-```
+```zsh
 git clone https://github.com/twirlyseal/nightshade.git
 ```
 
@@ -23,7 +23,7 @@ When building the extension for the first time, you will need to perform all of 
 
 **Extension manifest:** Run `package/main.py` from inside the package folder
 
-**TypeScript and CSS:** `deno task firefox` or `deno task chrome`
+**Other files:** `deno task firefox` or `deno task chrome`
 
 ## Using the extension
 > Reloading is only necessary when the extension manifest or JavaScript files are changed; for static files such as HTML, CSS, and images, the browser always uses the current version.
