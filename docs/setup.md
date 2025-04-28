@@ -1,11 +1,9 @@
-## Required software
-- [Deno](https://deno.com/)
-- [Python](https://www.python.org/)
+# Required software
+- [Deno](https://deno.com/) and [Python](https://www.python.org/) need to be installed to build the extension.
 
-**Language support extensions:**
-There are editor extensions that provide support for Deno and the KDL language. For VS Code, search 'Deno' and 'KDL' in the Extensions tab, and there are also integrations for some other editors.
+- Editor extensions for Deno and KDL are recommended. For VS Code, search 'Deno' and 'KDL' in the Extensions tab, and there are also integrations for other editors.
 
-## Setup
+# Setup
 1. Clone the repository:
 ```zsh
 git clone https://github.com/twirlyseal/nightshade.git
@@ -13,20 +11,22 @@ git clone https://github.com/twirlyseal/nightshade.git
 
 2. Create a virtual environment and install kdl-py:
 ```zsh
-python -m venv env
+python3 -m venv env # on Windows use `python` instead of `python3`
 source env/bin/activate # on Windows use `env\Scripts\activate`
 pip install kdl-py
 ```
 
-## Building the extension
+# Building the extension
 When building the extension for the first time, you will need to perform all of these steps. Afterwards, you only need to build the components you've changed.
 
-**Extension manifest:** Run `package/main.py` from inside the package folder
+**TypeScript and injected CSS:** `deno task firefox` or `deno task chrome`
 
-**Other files:** `deno task firefox` or `deno task chrome`
+**Extension manifest:** Run `package/manifest.py`
 
-## Using the extension
-> Reloading is only necessary when the extension manifest or JavaScript files are changed; for static files such as HTML, CSS, and images, the browser always uses the current version.
+**Other files:** Run `package/copy.py`
+
+# Using the extension
+> Reloading is only necessary when the extension manifest or JavaScript files are changed. For static files such as HTML, CSS, and images, the browser always uses the current version.
 
 **Firefox:**
 1. Navigate to `about:debugging` and click 'This Firefox'

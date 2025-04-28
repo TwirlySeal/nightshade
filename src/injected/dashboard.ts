@@ -37,8 +37,8 @@ function applyCSS(...filePaths: string[]) {
 export async function dashboard(coursesPromise: Promise<Response[]>) {
   const domContentLoaded = eventPromise("DOMContentLoaded");
   applyCSS(
-    "global.css",
-    "dashboard.css"
+    "css/global.css",
+    "css/dashboard.css"
   );
   const courses = await resolveCourses(await coursesPromise);
   console.log(courses);

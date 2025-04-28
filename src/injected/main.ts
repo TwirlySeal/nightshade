@@ -2,9 +2,7 @@ import { dashboard } from "./dashboard.ts";
 
 async function main() {
   const urlSetting = (await browser.storage.local.get("canvasURL")).canvasURL;
-  if (window.location.hostname != urlSetting) {
-    return;
-  }
+  if (window.location.hostname != urlSetting) return;
 
   const coursesPromise = fetchCourses();
 
@@ -19,14 +17,14 @@ async function main() {
     "calendar": () => console.log("calendar")
   }
 
-  const firstPathSegment = /\/([^/]*)/.exec(window.location.pathname)![1] as keyof typeof routes;
+  const firstPathSegment = /\/([^/]*)/.exec(location.pathname)![1] as keyof typeof routes;
   return routes[firstPathSegment]();
 }
 
 main();
 
 async function fetchCourses(): Promise<Response[]> {
-  let url = window.location.origin + "/api/v1/courses?include[]=term&include[]=tabs";
+  let url = location.origin + "/api/v1/courses?include[]=term&include[]=tabs";
   const regex = /<([^>]+)>; rel="next/i;
   const courses: Response[] = [];
 

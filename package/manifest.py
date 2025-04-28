@@ -1,76 +1,105 @@
 import json
 from kdl.parsefuncs import parse
-import pathlib
-
-PACKAGE_DIR = pathlib.Path(__file__).parent
-BUILD_DIR = PACKAGE_DIR.parent.joinpath('build')
+import copy
+import paths
 
 manifest = {}
-with open(PACKAGE_DIR.joinpath('manifest.kdl')) as f: doc = parse(f.read())
+with open(paths.PACKAGE_DIR.joinpath('manifest.kdl')) as f: doc = parse(f.read())
 
-for node in doc.nodes:
-    # For nodes with one argument
-    def pairNode(name: str):
-        manifest[name] = node.args[0]
+# Key name constants
+ICONS = 'icons'
+PERMISSIONS = 'permissions'
+BACKGROUND = 'background'
 
-    match node.name:
-        case 'manifest-version': pairNode('manifest_version')
-        case 'icons': manifest['icons'] = {
-            icon.name: icon.args[0]
-            for icon in node.nodes
+# Key handlers
+#
+# The label 'IR' (intermediate representation) means the format of the output JSON will be modified
+# in writeManifest() depending on the browser to handle differences between Firefox and Chrome
+
+def manifest_version(node): manifest["manifest_version"] = node.args[0]
+
+def icons(node): manifest[ICONS] = {
+    icon.name: icon.args[0]
+    for icon in node.nodes
+}
+
+def permissions(node): manifest[PERMISSIONS] = [ perm.name for perm in node.nodes ]
+
+def defaults(node):
+    MAP = {
+        "popup": "default_popup",
+        "tooltip": "default_title"
+    }
+    manifest['action'] = {
+        MAP[default.name]: default.args[0]
+        for default in node.nodes
+    }
+
+def injections(node):
+    MAP = {
+        "match": "matches",
+        "script": "js"
+    }
+
+    injections = []
+    for inj in node.nodes:
+        obj = {}
+        for field in inj.nodes:
+            if field.name == "run-at":
+                obj["run_at"] = field.args[0]
+            else:
+                obj[MAP[field.name]] = field.args
+        injections.append(obj)
+    manifest['content_scripts'] = injections
+
+def background(node): manifest[BACKGROUND] = node.args[0] # IR
+
+def resources(node):
+    MAP = {
+        "files": "resources",
+        "match": "matches"
+    }
+    manifest["web_accessible_resources"] = [
+        {
+            MAP[field.name]: field.args
+            for field in res.nodes
+        }
+        for res in node.nodes
+    ]
+
+def pairNode(node): manifest[node.name] = node.args[0]
+
+KEYS = {
+    "manifest-version": manifest_version,
+    ICONS: icons,
+    PERMISSIONS: permissions,
+    "defaults": defaults,
+    "injections": injections,
+    "background-script": background,
+    "resources": resources
+}
+
+for node in doc.nodes: KEYS.get(node.name, pairNode)(node)
+
+FIREFOX = 'firefox'
+CHROME = 'chrome'
+
+hasBackground = BACKGROUND in manifest
+
+def write_manifest(browser):
+    clone = copy.deepcopy(manifest)
+
+    if browser == paths.FIREFOX_DIR:
+        if hasBackground: clone[BACKGROUND] = {
+            "scripts": [clone[BACKGROUND]],
+        }
+    else: # chrome
+        if hasBackground: clone[BACKGROUND] = {
+            "service_worker": clone[BACKGROUND]
         }
 
-        case 'permissions': manifest['permissions'] = [ perm.name for perm in node.nodes ]
-        case 'defaults':
-            DEFAULTS_KEYS = {
-                "popup": "default_popup",
-                "tooltip": "default_title"
-            }
-            manifest['action'] = {
-                DEFAULTS_KEYS[default.name]: default.args[0]
-                for default in node.nodes
-            }
+    path = browser.joinpath("manifest.json")
+    with open(path, "w") as f: json.dump(clone, f, indent=2)
 
-        case 'injections':
-            INJECTIONS_KEYS = {
-                "match": "matches",
-                "script": "js"
-            }
-
-            injections = []
-            for inj in node.nodes:
-                obj = {}
-                for field in inj.nodes:
-                    if field.name == "run-at":
-                        obj["run_at"] = field.args[0]
-                    else:
-                        obj[INJECTIONS_KEYS[field.name]] = field.args
-                injections.append(obj)
-            manifest['content_scripts'] = injections
-
-        # Does not support type field
-        case 'background-script': manifest['background'] = { "service_worker": node.args[0] }
-
-        case 'resources':
-            RESOURCES_KEYS = {
-                "files": "resources",
-                "match": "matches"
-            }
-            manifest["web_accessible_resources"] = [
-                {
-                    RESOURCES_KEYS[field.name]: field.args
-                    for field in res.nodes
-                }
-                for res in node.nodes
-            ]
-
-        case _: pairNode(node.name)
-
-manifest_string = json.dumps(manifest, indent=2)
-
-def writeManifest(build: str):
-    path = BUILD_DIR.joinpath(build, "manifest.json")
-    with open(path, "w") as f: f.write(manifest_string)
-
-writeManifest('firefox')
-writeManifest('chrome')
+write_manifest(paths.FIREFOX_DIR)
+write_manifest(paths.CHROME_DIR)

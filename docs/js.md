@@ -4,6 +4,12 @@
 
 - Querying a specific element instead of the document constrains the search scope which reduces the likelihood of selecting the wrong elements.
 
+- Use HTML to define UI, CSS to define visual states, and JavaScript to switch between them
+
+- Mutation for local state, events for distant dependencies
+
+- Keep creation of elements decoupled from their insertion and querying of elements decoupled from their mutation
+
 # DOM API
 [`Document`](https://developer.mozilla.org/en-US/docs/Web/API/Document) methods:
 - `getElementById()`
@@ -26,7 +32,36 @@ Element and Document shared methods:
   - `closest()` - Traverses up toward the document root to find the first node that matches the specified CSS selector
 
 ## \<template>
-Template elements hold HTML content that is not rendered on the page. The `content` read-only property of a template element holds a `DocumentFragment` that contains the child nodes of the template. This fragment can be cloned via the `cloneNode` method and inserted into the DOM.
+The template element holds a HTML fragment that can be cloned via JavaScript, allowing reusable views with less boilerplate. The element's content is not rendered, but stored in a read-only `content` property as a `DocumentFragment`.
+
+```HTML
+<div id="view">
+    <template>
+        <div class="card">
+            <p class="title"></p>
+            <p class="desc"></p>
+        </div>
+    </template>
+
+    <script>
+      const view = document.getElementById("view");
+      const template = view.querySelector("template");
+      const data = [
+        {title: "Item 1", desc: "Description 1"},
+        {title: "Item 2", desc: "Description 2"}
+      ];
+
+      view.append(...data.map(item => {
+        const clone = templ.content.cloneNode(true);
+        const setText = (selector, text) => clone.querySelector(selector).textContent = text;
+
+        setText(".title", item.title);
+        setText(".desc", item.desc);
+        return clone;
+      }));
+    </script>
+</div>
+```
 
 ## Shadow DOM
 Shadow DOM allows DOM trees to be encapsulated from JavaScript and CSS in a page. Styles applied inside the shadow DOM will be scoped, and not apply outside the shadow root.

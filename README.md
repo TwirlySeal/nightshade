@@ -5,9 +5,8 @@ A browser extension for Firefox and Chrome that transforms the Canvas LMS with a
 
 [Chrome Web Store page](https://chromewebstore.google.com/detail/nightshade-for-canvas/elbmejcmanonhlblofclgchmgdeiibpn) (currently an old version of the extension)
 
-## Docs quick links
+## Get started
 - [Project setup](docs/setup.md)
-- [To-do](docs/todo.md)
-- [Extensions](docs/extensions.md)
-- [JavaScript](docs/js.md)
-- [CSS](docs/css.md)
+- [Project structure](docs/project-structure.md)
+
+> See the [docs](docs) folder for more learning resources
