@@ -67,9 +67,9 @@ export async function dashboard(coursesPromise: Promise<Response[]>) {
   `;
   const template = announcementsPanel.children[1] as HTMLTemplateElement;
 
-  const cIndex = new Map<number, string>();
+  const cIndex: Record<string, string> = {};
   for (const course of courses) {
-    cIndex.set(course.id, course.name);
+    cIndex[course.id] = course.name;
   }
 
   const announcements = await (await ap).json() as Announcement[];
@@ -83,7 +83,7 @@ export async function dashboard(coursesPromise: Promise<Response[]>) {
     title.text = a.title;
 
     clone.querySelector(".ns-timedate")!.textContent = formatDateTime(a.posted_at);
-    clone.querySelector(".announcement-context")!.textContent = cIndex.get(courseId)!;
+    clone.querySelector(".announcement-context")!.textContent = cIndex[courseId];
 
     announcementsPanel.appendChild(clone);
   }
