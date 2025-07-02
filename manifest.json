@@ -9,10 +9,7 @@
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
   },
-  "permissions": [
-    "storage",
-    "tabs"
-  ],
+  "permissions": ["storage"],
   "action": {
     "default_title": "Popup for setting Canvas URL",
     "default_popup": "popup/popup.html"

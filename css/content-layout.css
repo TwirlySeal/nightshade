@@ -59,7 +59,7 @@
 }
 
 /* Left Sidebar */
-#left-side { display: none; }
+#left-side { display: none !important; }
 
 /* Right Sidebar */
 #course_show_secondary {
