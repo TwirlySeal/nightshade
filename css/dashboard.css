@@ -1,0 +1,374 @@
+/* # Dashboard header */
+#dashboard_header_container {
+    position: static;
+}
+
+.ic-Dashboard-header__layout {
+    display: block;
+    min-height: auto;
+    border: none;
+    background-color: var(--background);
+}
+
+#dashboard_header_container .css-1m9ei4u-view--flex-flex {
+    width: auto;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* # Hidden canvas elements */
+#DashboardCard_Container {
+    display: none !important;
+}
+
+.ic-Dashboard-header__actions {
+    gap: 20px;
+    justify-content: space-between;
+}
+
+#DashboardOptionsMenu_Container {
+    display: none;
+}
+
+/* Dashboard panels */
+/* .dashboard-panel {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+.dashboard-panel h3 {
+    position: sticky;
+    top: 0;
+    background-color: var(--background);
+} */
+
+/* Announcements Panel */
+/* .ns-announcement {
+    background-color: var(--surface-container-high);
+    color: var(--on-surface-variant);
+    padding: 15px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.ns-announcement .ns-header {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.announcement-context {
+    color: var(--on-surface);
+} */
+
+/* # Views */
+/* ## View switcher */
+.css-dvua1q-view--block-contextView__content {
+    background-color: var(--surface-container-high) !important;
+    box-shadow: none !important;
+    border: 1px solid var(--outline-variant) !important;
+    border-radius: var(--br-small) !important;
+}
+
+.css-1dndbkc-menu {
+    background-color: var(--surface-container-high) !important;
+}
+
+.css-ktk67h-menuItemGroup__label,
+.css-1k1p70m-menuItem {
+    background-color: transparent !important;
+}
+
+.css-1k1p70m-menuItem:hover {
+    background: rgb(18, 76, 118) !important;
+    color: var(--on-surface);
+}
+
+.css-16r4qzc-contextView__arrow,
+.css-6kb82y-contextView__arrow {
+    border-bottom-color: var(--outline-variant) !important;
+}
+
+.css-16r4qzc-contextView__arrow::after,
+.css-6kb82y-contextView__arrow::after {
+    border-bottom-color: var(--surface-container-high) !important;
+}
+
+.css-ktk67h-menuItemGroup__label {
+    color: var(--on-surface) !important;
+}
+
+.css-oqi6mv-menuItem__label {
+    color: var(--on-surface) !important;
+}
+
+.css-1k1p70m-menuItem:hover .css-oqi6mv-menuItem__label {
+    color: var(--on-surface) !important;
+}
+
+.css-19z576y-menuItemSeparator {
+    background-color: var(--outline-variant) !important;
+    height: 1px !important;
+    margin: 4px 8px !important;
+}
+
+/* ## Recent activity */
+#dashboard-activity {
+    grid-column: 1;
+}
+
+.ic-Dashboard-Activity {
+    padding: 0;
+}
+
+.recent-activity-header {
+    color: var(--on-surface);
+    border-bottom: none;
+}
+
+.recent_activity > li {
+    border: none;
+}
+
+.stream-category {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stream_header {
+    background-color: var(--surface-container-high);
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--br-large);
+    padding: 12px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.stream_header:hover {
+    background-color: var(--card-hover);
+    border: 1px solid var(--outline-variant-hover);
+    border-radius: var(--br-large);
+}
+
+ul.recent_activity {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.recent_activity > li .unread-count {
+    left: 35px;
+    top: 18px;
+}
+
+.stream_header .image-block {
+    gap: 12px;
+}
+
+.recent_activity .image-block-image {
+    margin: 0;
+}
+
+.image-block .image-block-content {
+    padding: 0;
+}
+
+.details_container {
+    margin-left: 10px;
+}
+
+.stream-details tr {
+    border: none;
+}
+
+.stream-details tr:hover {
+    background-color: transparent;
+}
+
+.content_summary {
+    color: var(--on-surface);
+}
+
+.fake-link {
+    color: var(--on-surface);
+    margin-right: 10px;
+}
+
+.recent_activity > li .unread {
+    margin: 0;
+}
+
+/* ## Planner */
+.PlannerHeader-styles__root {
+    background-color: var(--surface-container-high) !important;
+    border: 1px solid var(--outline-variant);
+    border-radius: var(--br-small);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.PlannerHeader-styles__root button .css-p3olqp-baseButton__content {
+    background-color: var(--surface-container-highest) !important;
+    border: 1px solid var(--outline) !important;
+    color: var(--on-surface) !important;
+}
+
+.PlannerHeader-styles__root button:hover .css-p3olqp-baseButton__content {
+    background-color: var(--surface-container-highest-hover) !important;
+    border: 1px solid var(--outline-hover) !important;
+    color: var(--on-surface) !important;
+}
+
+.PlannerHeader-styles__root button:hover .css-1eaecfq-baseButton__content {
+    background-color: var(--surface-container-highest-hover) !important;
+    border-color: var(--outline-hover) !important;
+}
+
+#new_activity_button {
+    border-radius: var(--br-small) !important;
+    top: calc(100% + 10px) !important;
+}
+
+#new_activity_button .StickyButton-styles__layout {
+    padding: 0.25rem 0.5rem;
+}
+
+.PlannerApp .Day-styles__root {
+    background-color: transparent;
+    color: var(--on-surface);
+}
+
+.PlannerItem-styles__root {
+    border: none !important;
+}
+
+.Grouping-styles__root {
+    margin: 0 !important;
+}
+
+.Grouping-styles__items {
+    border: none !important;
+}
+
+.Grouping-styles__hero {
+    display: none !important;
+}
+
+.PlannerItem-styles__completed {
+    margin: 0 !important;
+}
+
+.PlannerItem-styles__due,
+.PlannerItem-styles__score {
+    color: var(--on-surface) !important;
+}
+
+.EmptyDays-styles__root {
+    display: none;
+}
+
+.PlannerApp > div:not([class]) {
+    display: none;
+}
+
+.css-j7efwz-view-tabs__container {
+    background-color: transparent;
+}
+
+.css-1ktha4a-view-panel__content {
+    background-color: transparent;
+}
+
+.css-19xa4ht-view-tab,
+.css-fmlpgz-view-tab {
+    color: var(--on-surface);
+}
+
+.css-1ktha4a-view-panel__content {
+    color: var(--on-surface);
+}
+
+.css-15v4rhu-tray,
+.css-1gto5tw-tray {
+    background-color: var(--surface-container-high) !important;
+    box-shadow: none !important;
+}
+
+.transition--slide-right-entered {
+    border-left: 1px solid var(--outline-variant);
+}
+
+.transition--slide-left-entered {
+    border-right: 1px solid var(--outline-variant);
+}
+
+.css-kryo2y-view-listItem {
+    color: var(--on-surface) !important;
+}
+
+.css-8oqple-text {
+    font-size: inherit;
+}
+
+.UpdateItemTray-styles__root {
+    background-color: transparent !important;
+    width: auto !important;
+}
+
+.css-j68kdy-formFieldLabel {
+    color: var(--on-surface) !important;
+}
+
+input {
+    color: var(--on-surface) !important;
+}
+
+input:focus,
+textarea:focus {
+    border: 1px solid var(--outline);
+}
+
+textarea, input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=search], input[type=tel], input[type=color], .uneditable-input {
+    background-color: transparent;
+    box-shadow: none;
+    border-color: var(--outline-variant);
+}
+
+.css-1jn5ugl-textInput__facade,
+.css-zxdqdw-textInput__facade,
+.css-11e2nr6-textInput__facade {
+    background-color: transparent;
+    border: 1px solid var(--outline);
+    border-radius: var(--br-small);
+    color: var(--on-surface);
+}
+
+.css-1dmk401-textInput__facade {
+    background-color: var(--surface-container-highest) !important;
+    border-width: 1px !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+    transition:
+        background-color 0s 600000s,
+        color 0s 600000s !important;
+}
+
+.css-vrgbjj-textArea {
+    background-color: var(--surface-container-highest);
+    border: 1px solid var(--outline);
+    color: var(--on-surface);
+}
+
+input::placeholder {
+    color: var(--on-surface-variant) !important;
+}

@@ -1,0 +1,68 @@
+/* Home page */
+.ic-item-row__content-col p,
+.ic-item-row__content-col h4,
+.ic-item-row__content-col .ic-announcement-row__content {
+    white-space: normal;
+    max-height: 3rem;
+}
+
+.ic-item-row {
+    box-shadow: none;
+    background-color: var(--surface-container-high);
+    border-radius: var(--br-large);
+    padding: 16px;
+    gap: 16px;
+}
+
+#announcements_on_home_page {
+    border: none;
+    margin-bottom: 1.5rem;
+}
+
+.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block.css-1jop9l0-view--block {
+    margin-bottom: 0;
+}
+
+.css-1fzata2-view--block.css-1fzata2-view--block.css-1fzata2-view--block.css-1fzata2-view--block.css-1fzata2-view--block.css-1fzata2-view--block.css-1fzata2-view--block.css-1fzata2-view--block.css-1fzata2-view--block.css-1fzata2-view--block {
+    margin: 0;
+}
+
+.ic-item-row__content-col {
+    margin: 0;
+}
+
+.ic-item-row__meta-col {
+    min-width: fit-content;
+    white-space: nowrap;
+}
+
+.ic-item-row__content-link:hover h3 {
+    text-decoration: underline;
+}
+
+#announcements_on_home_page .css-1vy2j5b-view-heading {
+    margin: 0;
+}
+
+#announcements_on_home_page .css-1jop9l0-view--block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.css-1vy2j5b-view-heading,
+.css-cv5a3j-view-heading {
+    color: var(--on-surface) !important;
+}
+
+.css-zlfjpm-text {
+    color: inherit;
+}
+
+.pages.show .course-title {
+    color: var(--on-surface);
+}
+
+.pages.show.home .show-content {
+    padding: 0;
+}

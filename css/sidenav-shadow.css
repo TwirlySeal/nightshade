@@ -1,0 +1,38 @@
+details {
+    & > * {
+        border-radius: 2rem;
+        transition: background-color 50ms ease-in-out, color 50ms ease-in-out;
+        &:hover {
+            background-color: var(--surface-container-high);
+        }
+    }
+    a {
+        padding: 0.5rem;
+        margin-left: 1rem;
+        color: var(--on-surface-variant);
+        &:hover { color: var(--on-surface); }
+    }
+    summary {
+        padding: 1rem;
+        cursor: pointer;
+
+        &::marker {
+            color: var(--on-surface-variant);
+        }
+    }
+}
+
+.nav-item {
+    width: max-content;
+    padding: 1rem;
+    border-radius: 2rem;
+
+    &:hover {
+        background-color: var(--surface-container-high);
+    }
+
+    &.active {
+        background-color: var(--primary-container);
+        color: var(--on-primary-container);
+    }
+}
